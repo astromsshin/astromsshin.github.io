@@ -1,0 +1,282 @@
+<html>
+    
+    <head>
+        
+        <title>galaxy.html</title>
+
+<!-- HDRHTML BEG: Put this part in the "head" section -->
+        <script type="text/javascript">            
+/*
+-----------------------------------------------
+HDR HTML Viewer ver. 1.0
+Author: Rafal Mantiuk
+URL:    http://www.cs.ubc.ca/~mantiuk/hdrhtml.html
+----------------------------------------------- */
+
+            function set_opacity( obj, opacity ) {
+              // for IE8
+              obj.style.filter="progid:DXImageTransform.Microsoft.Alpha(Opacity=" + opacity*100 + ")";
+              // for IE5-7
+              obj.style.filter = "alpha(opacity=" + opacity*100 + ")";
+              // for all other browsers
+              obj.style.opacity = opacity;
+            }
+            
+            function update_exp_text( hdr_image, new_exp ) {
+               document.getElementById(hdr_image.base_name + "_exp_text").innerHTML = "EV: " + Math.round( (hdr_image.best_exp-new_exp)*10 )/10 + " f";
+            }            
+            
+            function change_exp( hdr_image, exp_change ) {
+            
+            hdr_active_image = hdr_image;
+            hdr_image.exposure = hdr_image.exposure + exp_change;
+            
+            if( hdr_image.exposure > hdr_image.f8_stops*8 ) {
+              hdr_image.exposure = hdr_image.f8_stops*8;  
+            } 
+            else if( hdr_image.exposure < 0 ) {
+              hdr_image.exposure = 0;
+            }
+            
+            exp_cur = Math.floor(hdr_image.exposure / 8);
+            exp_shar = exp_cur + 1;
+                        
+            exp_blend = Math.round((hdr_image.exposure - exp_cur*8)*hdr_image.f_step_res);
+            
+            var i;
+            for( i = 0; i < hdr_image.basis; i++ ) {
+            var img_obj = document.getElementById(hdr_image.base_name+"_"+i);
+            img_obj.src = hdr_image.image_dir + hdr_image.base_name + "_"+exp_cur+"_" + (i+1) + ".jpg";
+            set_opacity( img_obj, cf[exp_blend][i] );
+            }
+            
+            for( i = 0; i < hdr_image.shared_basis; i++ ) {
+            var img_obj = document.getElementById(hdr_image.base_name+"_"+(i+hdr_image.basis));  
+            img_obj.src = hdr_image.image_dir + hdr_image.base_name + "_"+exp_shar+"_" + (i+1) + ".jpg";  
+            set_opacity( img_obj, cf[exp_blend][i+hdr_image.basis] );
+            }
+            
+            var hist_left = (hdr_image.exposure-hdr_image.hist_start)*hdr_image.pix_per_fstop;
+            
+            drw_obj = document.getElementById(hdr_image.base_name+"_dr_wind");
+            drw_obj.style.left = Math.round(hist_left) + "px";
+            drw_obj.style.width = hdr_image.pix_per_fstop*8 + "px";
+            set_opacity( drw_obj, 0.7 );
+            
+            update_exp_text( hdr_image, hdr_image.exposure );
+            }    
+            
+            function insert_hdr_image( hdr_image ) {
+            
+            for( i = 0; i < hdr_image.basis + hdr_image.shared_basis; i++ ) {
+            document.write("<img id=\"" + hdr_image.base_name + "_" + i +
+                                 "\" style=\"margin: 0px; padding: 0px; opacity: 1; width: " +
+                                 hdr_image.width + "px; height: " + hdr_image.height + 
+                                 "px; position: absolute; top: 0px; left: 0px\"" + 
+                                 " />\n");
+                                 }
+            }
+                                 
+            function getAbsX (obj) {
+              var abs_x=0;
+              while(obj) {
+                abs_x+= obj.offsetLeft;
+                obj= obj.offsetParent;
+              }
+              return abs_x;
+            }
+                                 
+            function dr_wind_clicked( event, hdr_image ) {
+
+                var drw_obj = document.getElementById(hdr_image.base_name+"_dr_wind");
+                var drw_left = drw_obj.offsetLeft;
+                var drw_right = drw_obj.offsetLeft + drw_obj.offsetWidth;
+
+                var hist_obj = document.getElementById(hdr_image.base_name + "_hist");
+                var rel_x = event.clientX - getAbsX(hist_obj) - 5;
+
+                var small_step_marg = 20;
+
+                if( rel_x < drw_left ) {
+                  change_exp( hdr_image, (drw_left-rel_x) < small_step_marg ? -1/3 : -1 );
+                } else if( rel_x > drw_right ) {
+                  change_exp( hdr_image, (rel_x-drw_right) < small_step_marg ? 1/3 : 1 );
+                }
+
+            }
+
+            function dr_wind_mousedown( event, hdr_image ) {
+
+                if(event.preventDefault) {
+                  event.preventDefault();
+                }
+            
+                var ctrl_obj = document.getElementById(hdr_image.base_name + "_dr_ctrl");
+                var drw_obj = document.getElementById(hdr_image.base_name+"_dr_wind");
+                set_opacity( drw_obj, 0.5 );
+
+                hdr_mousedrag.hdr_image = hdr_image;
+                hdr_mousedrag.start_mouse_x = event.clientX;
+                hdr_mousedrag.start_win_x = drw_obj.offsetLeft + 2;
+                ctrl_obj.onmousemove = dr_wind_move;
+                ctrl_obj.onmouseup = dr_wind_mouseup;
+            }
+
+            function dr_wind_mouseup( event ) {
+              event = event || window.event;
+
+              hdr_image = hdr_mousedrag.hdr_image;
+
+              var ctrl_obj = document.getElementById(hdr_image.base_name + "_dr_ctrl");
+              var drw_obj = document.getElementById(hdr_image.base_name+"_dr_wind");
+              var drw_left = drw_obj.offsetLeft;
+
+              var new_exp = Math.round((drw_obj.offsetLeft/hdr_image.pix_per_fstop + hdr_image.hist_start)*3)/3;
+
+              ctrl_obj.onmousemove = null;
+              ctrl_obj.onmouseup = null;
+              hdr_mousedrag.hdr_image = null;
+
+              change_exp( hdr_image, new_exp - hdr_image.exposure );
+            }
+
+
+            function dr_wind_move(event){ 
+              event = event || window.event;
+
+              hdr_image = hdr_mousedrag.hdr_image;
+              var drw_obj = document.getElementById(hdr_image.base_name+"_dr_wind");  
+
+              var new_pos = (event.clientX-hdr_mousedrag.start_mouse_x) + hdr_mousedrag.start_win_x;
+              drw_obj.style.left = new_pos + "px";
+
+              var new_exp = Math.round((drw_obj.offsetLeft/hdr_image.pix_per_fstop + hdr_image.hist_start)*3)/3;
+              update_exp_text( hdr_image, new_exp );
+            }
+
+            function hdr_show_help() {
+                newwindow=window.open('','name','height=400,width=300');
+                var tmp = newwindow.document;
+                tmp.write('<html><head><title>HDR HTML viewer help</title>');
+                tmp.write('</head><body>');
+                tmp.write('<a href="http://pfstools.sourceforge.net/hdrhtml/" target="_blank">HDR HTML viewer</a> <div style="font-size: small">ver. 1.0</div>');
+                tmp.write('<div style="font-size: small">(C) 2008 Rafal Mantiuk</div>');
+                tmp.write('<ul style="font-size: small">');
+                tmp.write('<li>Change exposure by scrolling the blue dynamic range window left and right.</li>');
+                tmp.write('<li>Click on the left or right side of the dynamic range window to change exposure by either 1 or 1/3 of an f-stop depending on how far from the window you click.</li>');
+                tmp.write('<li>Press "-" and "=" keys to change exposure by 1 f-stop.</li>');
+                tmp.write('<li>The green plot represents image histogram. Each tick represent one f-stop. EV value is given in f-stops (log<sub>2</sub> units) relative to the inital exposure.</li>');
+                tmp.write('</ul>');
+                tmp.write('</body></html>');
+                tmp.close();
+            }
+
+            function hdr_onkeydown(e) {              
+              var hdr_image = hdr_active_image;
+              var keynum;
+              if( hdr_image == null )
+                  return;
+                
+              if(window.event) { // IE
+                keynum = window.event.keyCode;
+                if( keynum == 189 )
+                  change_exp( hdr_image, +1 );
+                if( keynum == 187 )
+                  change_exp( hdr_image, -1 );                                
+              } else if(e.which) { // Netscape/Firefox/Opera                
+                keynum = e.which;
+                if( keynum == 109 )
+                  change_exp( hdr_image, +1 );
+                if( keynum == 61 )
+                  change_exp( hdr_image, -1 );                
+              }
+                
+           }
+            
+            
+        </script>
+<!-- HDRHTML END -->
+        
+    </head>
+    
+    <body>
+
+<!-- HDRHTML BEG: Put this part at the beginning of the "body" section -->                
+        <script type="text/javascript">            
+            hdr_galaxy = new Object();
+hdr_galaxy.width = 300;
+hdr_galaxy.height = 300;
+hdr_galaxy.f8_stops = 4;
+hdr_galaxy.f_step_res = 3;
+hdr_galaxy.base_name = "galaxy";
+hdr_galaxy.image_dir = "";
+hdr_galaxy.basis = 2;
+hdr_galaxy.shared_basis = 1;
+hdr_galaxy.pix_per_fstop = 25;
+hdr_galaxy.hist_start = 9.16777;
+hdr_galaxy.hist_width = 300;
+hdr_galaxy.exposure = 20;
+hdr_galaxy.best_exp = 20;
+
+
+            var cf = new Array(
+   new Array( 1, 0.004753, 0.000806),
+   new Array( 1, 0.077796, 0),
+   new Array( 1, 0.153789, 0),
+   new Array( 1, 0.232821, 0),
+   new Array( 1, 0.313796, 0),
+   new Array( 1, 0.395649, 0),
+   new Array( 1, 0.477428, 0),
+   new Array( 1, 0.558251, 0),
+   new Array( 1, 0.637553, 0),
+   new Array( 1, 0.714245, 0),
+   new Array( 1, 0.78762, 0),
+   new Array( 1, 0.857177, 0),
+   new Array( 1, 0.897915, 0.045207),
+   new Array( 1, 0.931794, 0.101116),
+   new Array( 1, 0.960051, 0.165419),
+   new Array( 0.828804, 1, 0.230594),
+   new Array( 0.824994, 1, 0.314135),
+   new Array( 0.815345, 1, 0.399492),
+   new Array( 0.807275, 1, 0.484852),
+   new Array( 0.792214, 1, 0.569285),
+   new Array( 0.820934, 1, 0.651947),
+   new Array( 0.888018, 1, 0.732082),
+   new Array( 0.932047, 1, 0.809024),
+   new Array( 1, 0.930768, 0.886016),
+   new Array( 0.674939, 0.597552, 0.947762)
+);
+            
+            
+            hdr_mousedrag = new Object();
+            hdr_mousedrag.hdr_image = null;
+            hdr_mousedrag.start_mouse_x = 0;
+            hdr_mousedrag.start_win_x = 0;
+
+            hdr_active_image = null;            
+            document.onkeydown=hdr_onkeydown;
+            
+        </script>
+<!-- HDRHTML END -->                
+        
+
+
+<!-- HDRHTML BEG: Put this part where the HDR HTML viewer should appear -->
+        <div id="galaxy_dr_ctrl" style="position: relative; width: 300px; height: 36px; overflow: hidden; border: 2px solid black;" title="Drag dynamic range window to change exposure">
+                <img id="galaxy_hist" style="position: absolute; left: 0px; top: 0px;" src="galaxy_hist.png" onclick="dr_wind_clicked(event, hdr_galaxy)"/>  
+                <div id="galaxy_dr_wind" style="position: absolute; left: 100px; top: 0px; width: 40px; height: 36px; opacity: 0.7; background-color: blue;" onmousedown="dr_wind_mousedown(event, hdr_galaxy)"></div>
+                <div id="galaxy_exp_text" style="color: white; font-family: cursive; position: absolute; left: 10px; top: 2px;">1</div>            
+                <a style="color: yellow; position: absolute; left: 288px; top: 6px;" href="galaxy.html#" title="Click to get help" onclick="hdr_show_help()">?</a>                                        
+        </div>            
+        <div style="position: relative; border: 2px solid black; background-color: black; color: white; width: 300px; height: 300px">    
+            <script type="text/javascript">
+                insert_hdr_image( hdr_galaxy );            
+                change_exp( hdr_galaxy, 0 );
+            </script>
+        </div>
+<!-- HDRHTML END -->                
+
+        
+        
+    </body>
+</html>

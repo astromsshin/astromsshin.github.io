@@ -1,0 +1,226 @@
+<html>
+<title>Multi-step approach to find periods of time-series data / variability detection in astronomy</title>
+<body>
+<b><font color="red">Multi-step approach to find periods of time-series data</font></b>
+<p>
+<p>
+I present source codes that were used in the following paper:<p>
+<b>Efficient Period Search for Time Series Photometry</b><br>
+(Min-Su Shin and  Yong-Ik Byun, JKAS, 37, 79, 2004)<br>
+We developed an algorithm to identify and determine periods of 
+variable sources. With its robustness and high speed, it is 
+expected to become an useful tool for surveys with large 
+volume of data. This new scheme consists of an initial coarse 
+process of finding several candidate periods followed by a 
+secondary process of much finer period search. With this multi-step 
+approach, best candidates among statistically possible periods are 
+produced without human supervision and also without any prior 
+assumption on the nature of the variable star in question. We tested 
+our algorithm with 381 stars taken from the ASAS survey and the result 
+is encouraging. In about 76% cases, our results are nearly identical 
+as their published periods. Our algorithm failed to provide convincing 
+periods for only about 10% cases. For the remaining 14%, our results 
+significantly differ from their periods. We show that, in many of 
+these cases, our periods are superior and much closer to the true 
+periods. However, the existence of failures, and also periods sometimes 
+worse than manually controlled results, indicates that this algorithm 
+needs further improvement. Nevertheless, the present experiment shows 
+that this is a positive step toward a fully automated period analysis 
+for future variability surveys.<br>
+<a href="http://adsabs.harvard.edu/abs/2004JKAS...37...79S" target=new>ADS</a> | 
+<a href="http://adsabs.harvard.edu/cgi-bin/nph-data_query?bibcode=2004JKAS...37...79S&link_type=ARTICLE&db_key=AST&high=" 
+target=new>
+PDF</a>
+<p>
+The code used in the paper is composed of two parts: a rough period estimation by analysis of variance and 
+polynomial function fitting and a refined determination of period using spline interpolation. 
+The original code of the first part has been developed by 
+<a href="http://users.camk.edu.pl/alex/" target=new>Alex Schwarzenberg-Czerny</a> and I modified the code for my 
+research. You can get the orginal code from his web page. 
+<a href="http://www-personal.umich.edu/~akerlof/" target=new>
+Carl W. Akerlof</a> has developed an original code of the 
+second part. The code was also modified and combined with the first part in my research. I am thankful 
+that Alex and Carl permit me to post the related codes here.
+</p>
+If you need to understand the details of the related algorithms, the following papers 
+have to be referenced and cited.<p>
+<font color="green">Application of cubic splines to the spectral analysis of unequally spaced data</font><br> 
+(Akerlof et al., ApJ, 436, 787, 1994) : 
+<a href="http://adsabs.harvard.edu/abs/1994ApJ...436..787A">ADS</a><br>
+<font color="green">ROTSE All-Sky Surveys for Variable Stars. I. Test Fields</font><br> 
+(Akerlof et al., AJ, 119, 1901, 2000) : 
+<a href="http://adsabs.harvard.edu/abs/2000AJ....119.1901A">ADS</a><br>
+<a href="http://deepblue.lib.umich.edu/handle/2027.42/58217">Carl's code</a>
+<p>
+<font color="green">On the advantage of using analysis of variance for period search</font><br>
+(Schwarzenberg-Czerny, MNRAS, 241, 153, 1989) :
+<a href="http://adsabs.harvard.edu/abs/1989MNRAS.241..153S">ADS</a><br>
+<font color="green">Fast and Statistically Optimal Period Search in Uneven Sampled Observations</font><br>
+(Schwarzenberg-Czerny, ApJ, 460, 107, 1996) :
+<a href="http://adsabs.harvard.edu/abs/1996ApJ...460L.107S">ADS</a><br>
+<a href="http://users.camk.edu.pl/alex/#software">Alex's code</a>
+<p>
+<p>
+The package posted on this web page is exactly same as that used in my paper<p>
+<font color="green"><b>You can download my code:</b></font> 
+<br>
+<b>[Current stable version: ver 3.5 released in Aug. 2013]</b> <a href="MS_Period.tar.gz">MS_Period.tar.gz</a> | 
+<a href="README.txt">README</a>
+<br>
+<i>(Please, check the README file before you download or install the code as well as the paper.)</i> <br>
+<b><font color="red">The current version supporting OpenMP has been developed to exploit 
+the current CPUs that have multiple cores.</font></b> 
+For the object shown in the following plots, 
+the version with OpenMP support with 8 cores is about 11 times faster than the serial version, comparing wall-clock time.
+<br>
+<img src="lc.png"><br>(the example raw light curve) 
+<p>
+<img src="lc_phase_custom.png"><br>(the light curve in phase space with the found period 0.435801 day)
+<p>
+<img src="periodogram_multi.png"><br>(the periodogram with multi-harmonic function fitting) 
+<p>
+<img src="periodogram_phase.png"><br>(the periodogram with phase folding and AoV)
+<p>The following light curve is used to test the methods. The correct period is 34.3 days.
+<br>
+<img src="test_sine_time.gif" height=340> <img src="test_sine_phase.gif" height=340>
+<p>
+<img src="sine_multi.png" height=340> (the periodogram with multi-harmonic function fitting) 
+<p>
+<img src="sine_phase.png" height=340> (the periodogram with phase folding and AoV)
+<p>
+<font color="green">You can freely modify and distribute the codes that are not parts of Carl or Alex's original work. But 
+please, let me know what you changed or what kind of problems you have.</font>
+</b>
+<p>
+<p>
+<b>
+I am really grateful for the permission of Carl W. Akerlof and Alex Schwarzenberg-Czerny to post the 
+parts of their codes on this web page. Please, cite their relevant papers as well as mine when 
+you use the codes.</b>
+<p>
+You might be interested in the following papers and codes too.<p>
+"A FAST CHI-SQUARED TECHNIQUE FOR PERIOD SEARCH OF IRREGULARLY SAMPLED DATA" 
+David M. Palmer 2009 ApJ 695 496-502<br>
+http://public.lanl.gov/palmer/fastchi.html
+<p>
+The VARTOOLS Light Curve Analysis Program (developed by Joel D. Hartman)
+<br>
+http://www.cfa.harvard.edu/~jhartman/vartools/
+<p>
+Period04 (developed by Patrick Lenz)
+<br>
+http://www.univie.ac.at/tops/Period04/index.html
+<p>
+The following paper also might be useful. The paper summarizes various statistics for 
+period estimation.<br>
+- On period determination methods, Heck, A., Manfroid, J., & Mersch, G., 
+1985, A&A Suppl. Ser., 59, 63
+<br>
+- Periodicity detection in irregularly sampled light curves 
+by robust regression and outlier detection, 
+Thieler et al., 2013, Statistical Analysis and Data Mining, 
+Volume 6, Issue 1, pages 73-89
+<p>
+--------------------------------<p><p>
+<b><font color="red">Period estimation by the minimum length method</font></b>
+<p>
+<p>
+This method is discussed well in <a href="http://adsabs.harvard.edu/abs/1983MNRAS.203..917D" target=new>Dworetsky (1983)
+</a>. Simply, if a trial period is 
+correct, the phase diagram with the trial period must produce a well-aligned light curve 
+in phase space having the least length. The file <a href="Period_length.tar.gz">
+Period_length.tar.gz</a> includes a source code and a simple shell script. But 
+the file doesn't include "minmax" program which is also used in the above package.
+Please, check the explanation given in the README file for the above package. This 
+method is quite fast. I do not build an OpenMP version for this code.
+
+In addition to the scaling rule of magnitude recomended in Dworetsky (1983), I 
+added seven different scaling methods (see the source code). The following 
+plots show the example distribution of lengths for a range of trial periods with the sine light curves. 
+<br>
+<img src="test_sine_pdg_0.png" height=340>(scaling 0) 
+<img src="test_sine_pdg_1.png" height=340>(scaling 1) 
+<img src="test_sine_pdg_2.png" height=340>(scaling 2) 
+<img src="test_sine_pdg_3.png" height=340>(scaling 3) 
+<img src="test_sine_pdg_4.png" height=340>(scaling 4) 
+<img src="test_sine_pdg_5.png" height=340>(scaling 5) 
+<img src="test_sine_pdg_6.png" height=340>(scaling 6) 
+<img src="test_sine_pdg_7.png" height=340>(scaling 7) 
+<img src="test_sine_pdg_8.png" height=340>(scaling 8)
+<br>
+This method works well with this well-sampled sine curve. But when I applied this method to 
+the above example with the period 0.435801 day, the method couldn't find the correct period 
+as shown in the following plots of length distribution for trial periods.<br>
+<img src="184010-0047_pdg_0.png" height=340>(scaling 0) 
+<img src="184010-0047_pdg_1.png" height=340>(scaling 1) 
+<img src="184010-0047_pdg_2.png" height=340>(scaling 2) 
+<img src="184010-0047_pdg_3.png" height=340>(scaling 3) 
+<img src="184010-0047_pdg_4.png" height=340>(scaling 4) 
+<img src="184010-0047_pdg_5.png" height=340>(scaling 5) 
+<img src="184010-0047_pdg_6.png" height=340>(scaling 6) 
+<img src="184010-0047_pdg_7.png" height=340>(scaling 7) 
+<img src="184010-0047_pdg_8.png" height=340>(scaling 8)
+<p>
+--------------------------------<p><p>
+<b><font color="red">Period estimation by using the String/Rope length method with the Kafler-Kinman statistic</font></b>
+<p>
+<p>
+This approach was explained in <a href="http://ads.nao.ac.jp/abs/2002A%26A...386..763C" target=new>Clarke (2002)</a>. 
+In principle, this statistic is same as von Neumann statistic. The 
+<a href="Period_SLLK.tar.gz">code</a> can be downloaded. The following figures show periodograms with this method 
+for the above two examples of the sine curve and the ASAS light curve.<br>
+<img src="test_sine_pdg.png" height=340> 
+<img src="184010-0047_pdg.png" height=340>
+<p>
+--------------------------------<p><p>
+<b><font color="red">Detecting variability in astronomical time-series data</font></b>
+<p>
+<p>
+The idea of this multi-step approach is basically based on the fact that a correct period is 
+not found by only statistical measurements without physical nature of variable objects. 
+Prof. Yong-Ik Byun and I intended to develope 
+this package with consideration of detecting variable objects in time-series data and classifying 
+them together. The detection of variable objects has been discussed in a related conference proceeding<p>
+Variability Detection of Time Series Data in the Virtual Observatory Era<br>
+(7th Pacific Rim Conference on Stellar Astrophysics, 2005) 
+<a href="../../msshin_pacificrim_poster.ppt.gz">
+(PPT file)</a> | 
+<a href="../../Stellar_Variability_Detection_in_the_Era_of_Virtual_Observatories.pdf">
+(PDF file)</a>
+<p>
+Infinite Gaussian Mixture models and clustering methods have been 
+applied to discover new variable candidates:
+<br>
+<a href="http://adsabs.harvard.edu/abs/2009MNRAS.400.1897S" target=ads>
+Detecting variability in massive astronomical time series data - I. Application of an infinite 
+Gaussian mixture model, Shin et al., 2009, MNRAS, 400, 1897</a>, 
+<br>
+<a href="http://adsabs.harvard.edu/abs/2012AJ....143...65S" target=ads>
+Detecting Variability in Massive Astronomical Time-series Data. II. Variable Candidates 
+in the Northern Sky Variability Survey, Shin et al., 2012, AJ, 143, 65</a>.
+<p>
+<p>
+--------------------------------
+<p>
+<b><font color="red">Some notes on developing the codes</font></b>
+<p>
+<p>
+I have tried to follow the Unix philosophy when developing various codes. 
+<br>
+<i><b>
+"Write programs that do one thing and do it well. Write programs to work together. 
+Write programs to handle text streams, because that is a universal interface." 
+- Doug McIlroy</b></i>
+<br>
+(see Wikipedia about <a href="http://en.wikipedia.org/wiki/Unix_philosophy" target=new_wiki>
+the Unix philosophy</a>.)
+<br>
+Therefore, there are many parts of the codes that you can optimize for your specific work. 
+The current codes support only basic features. User interface has not been a main focus. 
+You can also increase speed by improving I/O parts of the codes.
+<p>
+--------------------------------<p><p>
+Min-Su Shin (msshin @ kasi.re.kr)
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+############################
+# Input Options
+############################
+
+infile=00083_cell_part.bin
+simtype=0
+swap_endian=f
+
+periodic=t
+
+num_blocks=8
+smooth_factor=1.1
+x=1
+y=2
+z=3
+r=4
+I=8
+C1=6
+C2=7
+C3=8
+
+
+############################
+# Geometrical setup
+############################
+minrad_pix = 1
+projection=t
+camera_x= 2.15
+camera_y= 0.5
+camera_z= 0.5
+lookat_x= 0
+lookat_y= 0.5
+lookat_z= 0.5
+sky_x=0
+sky_y=0
+sky_z=1
+fov=45
+#EyeSeparation = 0.8
+#zmin=0.0
+#zmax=20.0
+
+
+############################
+# Visualization properties
+############################
+a_eq_e=t
+#sort_type=4
+color_log0=t
+#color_log0=f
+#color_asinh0=t
+intelsity_log0=t
+#intelsity_log0=f
+intensity_min0=1.0e-13
+intensity_max0=3.0e-7
+color_min0=-10.0
+color_max0=2.0
+
+
+#palette0=palettes/OldSplotch.pal
+#palette0=palettes/RedBlue.pal
+#palette0=palettes/NewSplotch.pal
+#palette0=palettes/Stars.pal
+#palette0=palettes/OrionNew1.pal
+#palette0=palettes/Orion.pal
+palette0=palettes/LongFancy.pal
+#palette0=palettes/Fancy.pal
+#palette0=palettes/Tipsy.pal
+#palette0=palettes/M51.pal
+#palette0=palettes/M51_stars.pal
+brightness0=1.0
+
+
+# CUDA
+#use_host_as_thread =t
+#host_load=30
+
+############################
+# Output Options
+############################
+
+# 0: TGA uncompressed, 1: PPM ASCII, 2: PPM binary, 3: TGA runlength-compressed
+pictype=0
+outfile=cellpart
+#xres=256
+xres=2048
+
+gray_absorption=0.0001
+colorbar=f

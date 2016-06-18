@@ -1,0 +1,122 @@
+<html>
+<title>Data reduction of (NIR) dithered images</title>
+<body>
+<b><font size=+1>Bash shell scripts to use IRAF for reducing few dithered images (of NIR)</font></b> 
+developed by Min-Su Shin (msshin at astro.princeton.edu)
+<p><p>
+This package of shell scripts is for my own work. But some of 
+the scripts can be useful in your work, too.<p>
+There are some well-developed reductions tools for NIR dithered images:
+<p>
+PHIIRS (Pat Hall's Infrared Imaging Reduction Software) 
+http://www.yorku.ca/phall/HOME/astro.html
+<br>
+IRDR (InfraRed Data Reduction) 
+http://www.ast.cam.ac.uk/~optics/cirsi/software/
+<br>
+DIMSUM (DEEP INFRARED MOSAICING SOFTWARE, UM...) 
+ftp://iraf.noao.edu/contrib/dimsumV3
+<p>
+This package uses bash shell scripts in order to reduce dithered images 
+with IRAF. Therefore, it does not have a usual IRAF package interface. 
+The following is a short description of what the package does and how you 
+can use it. But the package does not include IDL codes that can be used 
+to estimate sky images. The code that I used with this package is from 
+Jin Koda (http://www.astro.caltech.edu/~koda/tips/subaru/skysub.html). 
+You can use SExtract to generate a sky map. This simple package can be improved 
+by being implemented in PyRAF environment. But I don't plan to 
+implement this package in PyRAF. You can also upgrade the 
+package by including a step of masking and trimming images.
+<br><a href="NIR_script.tar">Download : NIR_script.tar</a>
+<p>
+<pre>
+*************************************************
+* NIR reduction tools made by Min-Su Shin       *
+*************************************************
+* Note that you have to set all parameters of   *
+* imexam, geomap, and gregister commands before *
+* runnung the following scripts. Especially, the*
+* parameters of geomap and gregister are very   *
+* important. FITS files are example data. The   *
+* example files were not trimmed.               *
+*************************************************
+
+0) making a directory structure
+- mkdir Raw Dark_proc Flat_proc Sky_proc Register_proc Working Output
+
+1) making a master dark frame
+: imcombine dark frames with reject=minmax (median)
+- making_dark.sh
+- input : dark.list
+- output : dark.fits
+- usage : ./making_dark.sh dark.list dark.fits
+
+2) subtracting a master dark frame from all frames
+: imarith with dark_sub.sh
+- all_dark_sub.sh
+- input : fits.list
+- output : ./Dark_proc/*d.fits
+- usage : ./all_dark_sub.sh fits.list dark.fits
+
+3) master flat
+: imcombine flat frames with scale=mode reject=minmax (median)
+- making_flat.sh
+- input : flat.list
+- output : flat.fits
+- usage : ./making_flat.sh flat.list ./flat.fits
+
+4) dividing all frames with a master flat frame
+: imarith with flat_div.sh
+- all_flat_div.sh
+- input : d.list
+- output : ./Flat_proc/*df.fits
+- usage : ./all_flat_div.sh ./d.list ./flat.fits
+
+5) making & subtracting a sky frame
+: IDL routines for masking bright stars and estimating a sky frame
+- all_sky_fit.sh
+- input : df.list
+- output : ./Sky_proc/*dfs.fits, ./Working/*_filt.fits, 
+./Working/*_filt_sky.fits, ./Working/*_sub.fits, ./Working/*_sub_filt.fits, 
+./Working/*_sub_filt_sky.fits
+- usage : ./all_sky_fit.sh ./df.list
+[NOTE] The parameters of fit_sky.sh has to be tuned before it is used.
+
+6) finding reference stars
+: imexam and ds9 with finding_ref_stars.sh
+- all_finding_ref_stars.sh
+- input : dfs.list
+- output : ./Working/*.coord ./Working/*.log
+- usage : ./all_finding_ref_stars.sh dfs.list
+
+7) finding transformation equations
+: geomap with geomap.sh
+- all_geomap.sh
+- input : dfs.list and ref.fits
+- output : ./Working/*.geomap ./Working/*.trans
+- usage : ./all_geomap.sh dfs.list ref.fits
+[NOTE] Before running this script and the following script, 
+check the parameters of geomap and gregister in IRAF.
+[NOTE] The dfs.list file should not include ref.fits file.
+
+8) registering image frames
+: gregister with gregister.sh
+- all_gregister.sh
+- input : dfs.list
+- output : ./Register_proc/*dfsr.fits 
+- usage : ./all_gregister.sh dfs.list
+[NOTE] The dfs.list file should not include ref.fits file.
+
+9) coadding or combining image frames
+: imarith or imcombine
+- coadd.sh / combine.sh
+- input : ref.fits, dfsr.list
+- output : ./Output/coadd.fits, ./Output/combine.fits, 
+./Output/coadd_weight.fits
+- usage : ./coadd.sh ref.fits dfsr.list coadd.fits
+- usage : ./combine.sh ref.fits dfsr.list combine.fits
+[NOTE] If you want to coadd images with weights of image 
+variance, try coadd_weight.sh.
+</pre>
+</body>
+</html>
