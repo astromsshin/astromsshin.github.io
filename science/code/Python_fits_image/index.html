@@ -111,6 +111,21 @@ rgba_array = scipy.misc.imresize(rgba_array, (width/2, height/2), interp='bicubi
 scipy.misc.imsave('rgb.png', rgba_array)
 </pre>
 <br>
+- <i>Some examples produced by others</i>
+    <ul>
+      <li><a href="https://doi.org/10.1093/mnras/stx1733">Support vector machine classification of strong gravitational lenses (MNRAS, 2017)</a></li>
+      <li><a href="https://doi.org/10.3847/0004-637X/826/1/59">The Red and Featureless Outer Disks of Nearby Spiral Galaxies (ApJ, 2016)</a></li>
+      <li><a href="https://doi.org/10.1051/0004-6361/201425053">The Lyman alpha reference sample. IV. Morphology at low and high redshift (A&A, 2015)</a></li>
+      <li><a href="https://doi.org/10.1088/0004-637X/791/1/38">Searching for Diffuse Light in the M96 Galaxy Group (ApJ, 2014)</a></li>
+      <li><a href="http://research.endlessfernweh.com/multi-color-images/">Multi-Color Images (by Phil Cigan)</a></li>
+      <li><a href="http://www.astrobetter.com/blog/2010/10/22/making-rgb-images-from-fits-files-with-pythonmatplotlib/">Post on the AstroBetter site</a></li>
+      <li><a href="http://www.sciserver.org/outreach/spring-workshop/notebook-2-walkthrough/">SciServer outreach example</a></li>
+      <li><a href="http://astroweb.case.edu/jakub/TA/Query_databases.html">In http://astroweb.case.edu/jakub/TA/Query_databases.html</a></li>
+      <li><a href="http://ztf.commons.yale-nus.edu.sg/ztf-resources/ptf-and-python-image-display-tutorial/">In http://ztf.commons.yale-nus.edu.sg/ztf-resources/ptf-and-python-image-display-tutorial/</a></li>
+      <li><a href="https://github.com/cgosmeyer/lacosmic">In https://github.com/cgosmeyer/lacosmic</a></li>
+      <li><a href="https://github.com/psds075/fitstoimg">In https://github.com/psds075/fitstoimg</a></li>
+    </ul>
+<br>
 - <i>How can I produce a single-band image instead of a RGB image?</i>
 <br>
 Check the example Python codes <i>build_single_matplotlib.py</i>, 
@@ -143,6 +158,9 @@ example codes just show two possible ways.
 <img src="HST_rgb_beta_high.png" width=600><br>RGB type 3<p>
 </center>
 <p>
+<hr>
+<b>* Conversion to the OpenEXR format</b>
+<br>
 It is also possible to convert FITS files to <a href="https://en.wikipedia.org/w/index.php?title=OpenEXR" target=out>OpenEXR</a> files, and then you can use tools for high dynamic range (HDR) 
 images. The file <a href="fits2exr.py">fits2exr.py</a> shows how you can do the conversion with PyFITS and Python 
 binding of the OpenEXR library. The following images show how the converted EXR files can be used with 
