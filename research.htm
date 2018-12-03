@@ -84,24 +84,24 @@ You can see this 3D color distribution in
 <p>
 <b>* Astronomical Data Analysis Software and Systems</b>
 <br>
-- <a href="https://doi.org/10.5281/zenodo.1196681">
-Application of Open-source Spatio-Temporal Database Systems in 
-Wide-Field Time-domain Astronomy</a>: 
-We present our experiences with open-source spatio-temporal database systems 
-for managing and analyzing big astronomical data acquired by wide-field 
-time-domain sky surveys. Considering performance, cost, difficulty, and 
-scalability of the database systems, we conduct comparison studies of open-source 
-spatio-temporal databases such as GeoMesa and PostGIS that are already being 
-used for handling big geographical data. Our experiments include ingesting, 
-indexing, and querying millions or billions of astronomical spatio-temporal 
-data. We choose the public VVV (VISTA Variables in the Via Lactea) 
-catalogs of billions measurements for hundreds of millions objects as the 
-test data. We discuss issues of how these spatio-temporal database systems 
-can be adopted in the astronomy community.
+- <a href="https://doi.org/10.5281/zenodo.1490931">
+Applications of the in-memory database Redis 
+in processing transient event alerts (2018)</a>:
+We present results of using the in-memory database Redis in processing 
+transient event alerts. The Redis works in two different ways 
+for processing alerts. First, the publication-subscription model in the Redis 
+allows us to adopt it as a message delivery system for multiple local alert 
+clients. Second, we use the features of indexing and storing geolocation 
+information in the Redis to enable low-latency matching of transient locations 
+with custom catalogs. The current system collects event alerts by using 
+VOEvent streams and detecting changes in web pages/feeds. We also introduce 
+our efforts of migrating the system from the Redis message delivery environment 
+to the NATS-based message processing configuration as well as application of 
+Uber's H3 spatial indexing model instead of the Redis geolocation support.
 <br>
 - <a href="https://doi.org/10.5281/zenodo.1196683">
 Applications of Open-source NoSQL Database Systems
-for Astronomical Spatial and Temporal Data</a>: 
+for Astronomical Spatial and Temporal Data (2017)</a>: 
 We present our experiences with open-source NoSQL database systems 
 in analyzing spatial and temporal astronomical data. We conduct 
 experiments of using Redis in-memory NoSQL database system 
@@ -115,6 +115,21 @@ measurements. We choose our KMTNet data and the public VVV
 (VISTA Variables in the Via Lactea) 
 catalogs as test data. We discuss issues in using these NoSQL database systems 
 in astronomy.
+<br>
+- <a href="https://doi.org/10.5281/zenodo.1196681">
+Application of Open-source Spatio-Temporal Database Systems in 
+Wide-Field Time-domain Astronomy (2016)</a>: 
+We present our experiences with open-source spatio-temporal database systems 
+for managing and analyzing big astronomical data acquired by wide-field 
+time-domain sky surveys. Considering performance, cost, difficulty, and 
+scalability of the database systems, we conduct comparison studies of open-source 
+spatio-temporal databases such as GeoMesa and PostGIS that are already being 
+used for handling big geographical data. Our experiments include ingesting, 
+indexing, and querying millions or billions of astronomical spatio-temporal 
+data. We choose the public VVV (VISTA Variables in the Via Lactea) 
+catalogs of billions measurements for hundreds of millions objects as the 
+test data. We discuss issues of how these spatio-temporal database systems 
+can be adopted in the astronomy community.
 <p>
 <b>* Others</b>
 <br>

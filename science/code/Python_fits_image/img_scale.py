@@ -426,3 +426,42 @@ def asinh(inputArray, scale_min=None, scale_max=None, non_linear=2.0):
 	imageData[indices1] = numpy.arcsinh((imageData[indices1] - scale_min)/non_linear)/factor
 
 	return imageData
+
+
+def logistic(inputArray, scale_min=None, scale_max=None, center=0.5, slope=1.0):
+	"""Performs logistic scaling of the input numpy array.
+
+	@type inputArray: numpy array
+	@param inputArray: image data array
+	@type scale_min: float
+	@param scale_min: minimum data value
+	@type scale_max: float
+	@param scale_max: maximum data value
+	@type center: float
+	@param center: central value
+	@type slope: float
+	@param slope: slope
+	@rtype: numpy array
+	@return: image data array
+	
+	"""		
+    
+	print "img_scale : logistic"
+	imageData=numpy.array(inputArray, copy=True)
+	
+	if scale_min == None:
+		scale_min = imageData.min()
+	if scale_max == None:
+		scale_max = imageData.max()
+	factor2 = 1.0/(1.0+1.0/math.exp((scale_max - center)/slope))
+	factor2 = factor2 + 1.0/(1.0+1.0/math.exp((scale_min - center)/slope))
+	factor2 = 1.0 / factor2
+	factor1 = -1.0 * factor2 / (1.0+1.0/math.exp((scale_min - center)/slope))
+	indices0 = numpy.where(imageData < scale_min)
+	indices1 = numpy.where((imageData >= scale_min) & (imageData <= scale_max))
+	indices2 = numpy.where(imageData > scale_max)
+	imageData[indices0] = 0.0
+	imageData[indices2] = 1.0
+	imageData[indices1] = factor1 + factor2 / (1.0 + 1.0/numpy.exp((imageData[indices1] - center)/slope))
+
+	return imageData
