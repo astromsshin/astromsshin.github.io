@@ -28,7 +28,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="https://astromsshin.github.io/blog">Tech and data blog </a></h1>
+                <h1><a href="https://astromsshin.github.io/blog">Tech and data blog  <strong>Linux, Open Source Software, 생활 data 분석, DIY 블로그</strong></a></h1>
                 <nav>
                     <a href="https://astromsshin.github.io/blog/category/tech.html">Tech</a>&nbsp;
                 </nav>
@@ -116,9 +116,13 @@ sleep <span class="nv">$USESLEEP</span>
 
 <p>참고로 produce_update_time.sh은 아래와 같이 현재 시각을 
 그림 파일로 만든다.</p>
-<div class="highlight"><pre><span></span>convert -background white -fill black -font NanumGothic -pointsize 24 label:&quot;$(date)&quot; /home/dashboardadmin/update_time.png
-</pre></div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash </span>
 
+convert -background white -fill black -font NanumGothic -pointsize <span class="m">24</span> label:<span class="s2">&quot;</span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&quot;</span> /home/dashboardadmin/update_time.png
+</pre></div>
+</td></tr></table>
 
 <h3>청취하고자 하는 라디오 방송을 위한 shell script</h3>
 <p>ffplay를 이용하여 특정 라디오 방송을 온라인으로 청취할 수 있는 
