@@ -182,4 +182,9 @@ fi
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;와 같이 설정하면 된다 (&lt;a href="https://selivan.github.io/2017/12/27/console-autologin-systemd-ubuntu.html" title="Console autologin for Ubuntu with systemd(15.04 and higher)"&gt;참고&lt;/a&gt;).&lt;/p&gt;</content><category term="Linux"></category><category term="dashboard"></category><category term="노트북"></category><category term="FIM"></category></entry></feed>
+&lt;p&gt;와 같이 설정하면 된다 (&lt;a href="https://selivan.github.io/2017/12/27/console-autologin-systemd-ubuntu.html" title="Console autologin for Ubuntu with systemd(15.04 and higher)"&gt;참고&lt;/a&gt;).&lt;/p&gt;
+&lt;h3&gt;추가로 개선할 수 있는 것들&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;IR 리모콘을 활용할 수 있으며, 이 경우 IR 리모콘과 FIM의 key를 묶어서 라디오 채널 전환이나 중단, 볼륨 조절 등에 이용할 수 있다.&lt;/li&gt;
+&lt;li&gt;bluetooth 스피커를 활용하는 것도 생각할 수 있는데, 라디오의 경우 현재는 구형 노트북의 내장 스피커를 이용하나, bluetooth 외부 스피커를 활용하는 것도 가능하다.&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Linux"></category><category term="dashboard"></category><category term="노트북"></category><category term="FIM"></category></entry></feed>
