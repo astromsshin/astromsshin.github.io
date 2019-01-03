@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and data blog</title><link href="https://astromsshin.github.io/blog/" rel="alternate"></link><link href="https://astromsshin.github.io/blog/feeds/all.atom.xml" rel="self"></link><id>https://astromsshin.github.io/blog/</id><updated>2018-12-26T23:10:00+09:00</updated><entry><title>USB 충전 배터리를 이용한 움직임 감지 램프 전원 교체</title><link href="https://astromsshin.github.io/blog/motion_lamp_battery.html" rel="alternate"></link><published>2018-12-26T23:10:00+09:00</published><updated>2018-12-26T23:10:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2018-12-26:/blog/motion_lamp_battery.html</id><summary type="html">&lt;p&gt;집에서 활용하고 있는 &lt;a href="http://www.wemakeprice.com/deal/adeal/771893"&gt;저가의 움직임 감지 램프(링크의 5번 상품)&lt;/a&gt;에 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and data blog</title><link href="https://astromsshin.github.io/blog/" rel="alternate"></link><link href="https://astromsshin.github.io/blog/feeds/all.atom.xml" rel="self"></link><id>https://astromsshin.github.io/blog/</id><updated>2019-01-02T00:40:00+09:00</updated><entry><title>Ubuntu 18.04.1 LTS server에서 MongoDB source compilation</title><link href="https://astromsshin.github.io/blog/MongoDB_compilation.html" rel="alternate"></link><published>2019-01-02T00:40:00+09:00</published><updated>2019-01-02T00:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2019-01-02:/blog/MongoDB_compilation.html</id><summary type="html">&lt;p&gt;MongoDB community edition의 소스 코드를 일부 수정해서 천문학 연구 
+용도로 사용해야 하는 상황으로, 이를 위하여 수정된 코드를 컴파일해야 
+하는 일이 생겼다.&lt;/p&gt;
+&lt;p&gt;기본적인 source compilation에 대해서는 
+&lt;a href="https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source"&gt;https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source&lt;/a&gt;와 
+&lt;a href="https://github.com/mongodb/mongo/blob/master/docs/building.md"&gt;docs/building.md&lt;/a&gt;의 내용을 참고하면 된다.&lt;/p&gt;
+&lt;p&gt;Ubunt 18.04.1 LTS에서 설치시에 C++ 2017 standard와의 문제로 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;MongoDB community edition의 소스 코드를 일부 수정해서 천문학 연구 
+용도로 사용해야 하는 상황으로, 이를 위하여 수정된 코드를 컴파일해야 
+하는 일이 생겼다.&lt;/p&gt;
+&lt;p&gt;기본적인 source compilation에 대해서는 
+&lt;a href="https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source"&gt;https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source&lt;/a&gt;와 
+&lt;a href="https://github.com/mongodb/mongo/blob/master/docs/building.md"&gt;docs/building.md&lt;/a&gt;의 내용을 참고하면 된다.&lt;/p&gt;
+&lt;p&gt;Ubunt 18.04.1 LTS에서 설치시에 C++ 2017 standard와의 문제로 warning이 
+존재하는데, MongoDB의 기본 compilation flag는 이런 warning을 
+error로 잡도록 되어 있다. 따라서 이를 끄고 컴파일 할 필요가 있는데, 
+이는 
+&lt;code&gt;./buildscripts/scons.py core --disable-warnings-as-errors&lt;/code&gt;
+로 가능하다.&lt;/p&gt;</content><category term="Linux"></category><category term="Ubuntu"></category><category term="MongoDB"></category></entry><entry><title>USB 충전 배터리를 이용한 움직임 감지 램프 전원 교체</title><link href="https://astromsshin.github.io/blog/motion_lamp_battery.html" rel="alternate"></link><published>2018-12-26T23:10:00+09:00</published><updated>2018-12-26T23:10:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2018-12-26:/blog/motion_lamp_battery.html</id><summary type="html">&lt;p&gt;집에서 활용하고 있는 &lt;a href="http://www.wemakeprice.com/deal/adeal/771893"&gt;저가의 움직임 감지 램프(링크의 5번 상품)&lt;/a&gt;에 
 대해서 5V 직류 전원 장치를 따로 이용하거나 건전지 3개를 직렬로 연결해서 
 이용하는 것이 기본 구성이다.&lt;/p&gt;
 &lt;p&gt;매번 건전지를 교환하거나 직류 전원 장치를 이용하는 것 대신에, 남는 

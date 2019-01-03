@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and data blog - Tech</title><link href="https://astromsshin.github.io/blog/" rel="alternate"></link><link href="https://astromsshin.github.io/blog/feeds/tech.atom.xml" rel="self"></link><id>https://astromsshin.github.io/blog/</id><updated>2018-12-25T23:45:00+09:00</updated><entry><title>구형 소형 노트북으로 dashboard 겸 라디오 플레이어 만들기</title><link href="https://astromsshin.github.io/blog/linux_dashboard_and_radio_player.html" rel="alternate"></link><published>2018-12-25T23:45:00+09:00</published><updated>2018-12-25T23:45:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2018-12-25:/blog/linux_dashboard_and_radio_player.html</id><summary type="html">&lt;p&gt;2018년에 구형 소형 노트북에 linux를 &lt;em&gt;desktop이 없이 console 화면을 이용&lt;/em&gt;하는 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and data blog - Tech</title><link href="https://astromsshin.github.io/blog/" rel="alternate"></link><link href="https://astromsshin.github.io/blog/feeds/tech.atom.xml" rel="self"></link><id>https://astromsshin.github.io/blog/</id><updated>2019-01-02T00:40:00+09:00</updated><entry><title>Ubuntu 18.04.1 LTS server에서 MongoDB source compilation</title><link href="https://astromsshin.github.io/blog/MongoDB_compilation.html" rel="alternate"></link><published>2019-01-02T00:40:00+09:00</published><updated>2019-01-02T00:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2019-01-02:/blog/MongoDB_compilation.html</id><summary type="html">&lt;p&gt;MongoDB community edition의 소스 코드를 일부 수정해서 천문학 연구 
+용도로 사용해야 하는 상황으로, 이를 위하여 수정된 코드를 컴파일해야 
+하는 일이 생겼다.&lt;/p&gt;
+&lt;p&gt;기본적인 source compilation에 대해서는 
+&lt;a href="https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source"&gt;https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source&lt;/a&gt;와 
+&lt;a href="https://github.com/mongodb/mongo/blob/master/docs/building.md"&gt;docs/building.md&lt;/a&gt;의 내용을 참고하면 된다.&lt;/p&gt;
+&lt;p&gt;Ubunt 18.04.1 LTS에서 설치시에 C++ 2017 standard와의 문제로 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;MongoDB community edition의 소스 코드를 일부 수정해서 천문학 연구 
+용도로 사용해야 하는 상황으로, 이를 위하여 수정된 코드를 컴파일해야 
+하는 일이 생겼다.&lt;/p&gt;
+&lt;p&gt;기본적인 source compilation에 대해서는 
+&lt;a href="https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source"&gt;https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source&lt;/a&gt;와 
+&lt;a href="https://github.com/mongodb/mongo/blob/master/docs/building.md"&gt;docs/building.md&lt;/a&gt;의 내용을 참고하면 된다.&lt;/p&gt;
+&lt;p&gt;Ubunt 18.04.1 LTS에서 설치시에 C++ 2017 standard와의 문제로 warning이 
+존재하는데, MongoDB의 기본 compilation flag는 이런 warning을 
+error로 잡도록 되어 있다. 따라서 이를 끄고 컴파일 할 필요가 있는데, 
+이는 
+&lt;code&gt;./buildscripts/scons.py core --disable-warnings-as-errors&lt;/code&gt;
+로 가능하다.&lt;/p&gt;</content><category term="Linux"></category><category term="Ubuntu"></category><category term="MongoDB"></category></entry><entry><title>구형 소형 노트북으로 dashboard 겸 라디오 플레이어 만들기</title><link href="https://astromsshin.github.io/blog/linux_dashboard_and_radio_player.html" rel="alternate"></link><published>2018-12-25T23:45:00+09:00</published><updated>2018-12-25T23:45:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2018-12-25:/blog/linux_dashboard_and_radio_player.html</id><summary type="html">&lt;p&gt;2018년에 구형 소형 노트북에 linux를 &lt;em&gt;desktop이 없이 console 화면을 이용&lt;/em&gt;하는 
 환경으로 설치하고, 간단하게 구성한 dashboard 
 겸 온라인 라디오 플레이어에 대한 기술적인 내용들을 이곳에 정리하고자 한다.&lt;/p&gt;
 &lt;p&gt;기본 아이디어는 아래와 같다.&lt;/p&gt;

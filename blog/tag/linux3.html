@@ -33,31 +33,30 @@
         
         
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://astromsshin.github.io/blog/MongoDB_compilation.html">Ubuntu 18.04.1 LTS server에서 MongoDB source compilation</a></h1> 
-<footer class="post-info">
-        <abbr class="published" title="2019-01-02T00:40:00+09:00">
-                수 02 1월 2019
-        </abbr>
-<p>tags: <a href="https://astromsshin.github.io/blog/tag/linux.html">Linux</a><a href="https://astromsshin.github.io/blog/tag/ubuntu.html">Ubuntu</a><a href="https://astromsshin.github.io/blog/tag/mongodb.html">MongoDB</a></p></footer><!-- /.post-info --><p>MongoDB community edition의 소스 코드를 일부 수정해서 천문학 연구 
-용도로 사용해야 하는 상황으로, 이를 위하여 수정된 코드를 컴파일해야 
-하는 일이 생겼다.</p>
-<p>기본적인 source compilation에 대해서는 
-<a href="https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source">https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source</a>와 
-<a href="https://github.com/mongodb/mongo/blob/master/docs/building.md">docs/building.md</a>의 내용을 참고하면 된다.</p>
-<p>Ubunt 18.04.1 LTS에서 설치시에 C++ 2017 standard와의 문제로 warning이 
-존재하는데, MongoDB의 기본 compilation flag는 이런 warning을 
-error로 잡도록 되어 있다. 따라서 이를 끄고 컴파일 할 필요가 있는데, 
-이는 
-<code>./buildscripts/scons.py core --disable-warnings-as-errors</code>
-로 가능하다.</p>                </article>
-<p class="paginator">
-    Page 1 / 3
-        <a href="https://astromsshin.github.io/blog/tag/linux2.html">&raquo;</a>
-</p>
-            </aside><!-- /#featured -->
+ 
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="0">
+            <li><article class="hentry">    
+                <header>
+                    <h3><a href="https://astromsshin.github.io/blog/rpi_cast.html" rel="bookmark"
+                           title="Permalink to Raspberry Pi를 활용한 video casting 환경 구성">Raspberry Pi를 활용한 video casting 환경 구성</a></h3>
+                </header>
+                
+                <div class="entry-content">
+                <p>집에 있는 조금 오래된 TV에는 HDMI 연결 단자가 있어서 노트북 등을 
+연결하여 Youtube 등 온라인에 있는 동영상을 보는 것이 가능하다. 이것을 
+좀 더 쉽게 하고, 집에서 휴대전화기나 노트북으로 원하는 동영상의 url을 
+넘겨서 시청할 수 있도록 Raspberry Pi를 이용하여 환경을 구성하였다.</p>
+<p>우선 <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/">Raspberry Pi 3 Model B+</a>를 
+구매하여 Raspbian을 설치한다 …</p>
+                <a class="readmore" href="https://astromsshin.github.io/blog/rpi_cast.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
             </ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="https://astromsshin.github.io/blog/tag/linux2.html">&laquo;</a>
+    Page 3 / 3
+</p>
             </section><!-- /#content -->
         <section id="extras" class="body">
         </section><!-- /#extras -->
