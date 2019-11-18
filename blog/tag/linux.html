@@ -35,67 +35,24 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://astromsshin.github.io/blog/Zabbix_in_docker_container.html">Docker Container로 Zabbix server 설치</a></h1> 
+                    <h1 class="entry-title"><a href="https://astromsshin.github.io/blog/Slax_Linux.html">Slax Linux + MinIO 활용기</a></h1> 
 <footer class="post-info">
-        <abbr class="published" title="2019-06-12T00:40:00+09:00">
-                수 12 6월 2019
+        <abbr class="published" title="2019-10-30T01:40:00+09:00">
+                수 30 10월 2019
         </abbr>
-<p>tags: <a href="https://astromsshin.github.io/blog/tag/linux.html">Linux</a><a href="https://astromsshin.github.io/blog/tag/ubuntu.html">Ubuntu</a><a href="https://astromsshin.github.io/blog/tag/docker.html">Docker</a><a href="https://astromsshin.github.io/blog/tag/zabbix.html">Zabbix</a></p></footer><!-- /.post-info --><p>Zabbix를 Docker Container로 활용하기 위해서, Ubuntu 서버에 
-아래와 같이 먼저 Docker user-defined bridge network을 구성하였다.</p>
-<p><code>docker network create zabbix-net</code></p>
-<p>그 다음에 아래와 같이 3개의 container를 실행시키고, 관련된 
-port들을 host를 통해서 접근 가능하게 하였다.
-여기서 MYSQL_ROOT_PASSWORD와 ZABBIX_DB_USER_PASSWORD는 이용되는 
-암호로서 환경 변수로 설정하였다.</p>
-<p># start empty MySQL server instance</p>
-<p><code>docker run --name mysql-server --network zabbix-net -t 
-        --restart=always 
-        -e MYSQL_DATABASE="zabbix" 
-        -e MYSQL_USER="zabbix" 
-        -e MYSQL_PASSWORD="$ZABBIX_DB_USER_PASSWORD" 
-        -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" 
-        -v /zabbix/mysql:/var/lib/mysql 
-        -d mysql:5.7 
-        --character-set-server=utf8 --collation-server=utf8_bin</code></p>
-<p># run Zabbix server instance and link the instance with created MySQL server instance</p>
-<p><code>docker run --name zabbix-server-mysql --network zabbix-net -t 
-        --restart=always 
-        -e DB_SERVER_HOST="mysql-server" 
-        -e MYSQL_DATABASE="zabbix" 
-        -e MYSQL_USER="zabbix" 
-        -e MYSQL_PASSWORD="$ZABBIX_DB_USER_PASSWORD" 
-        -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" 
-        -v /zabbix/alertscripts:/usr/lib/zabbix/alertscripts 
-        -v /zabbix/externalscripts:/usr/lib/zabbix/externalscripts 
-        -v /zabbix/modules:/var/lib/zabbix/modules 
-        -v /zabbix/enc:/var/lib/zabbix/enc 
-        -v /zabbix/ssl/certs:/var/lib/zabbix/ssl/certs 
-        -v /zabbix/ssl/keys:/var/lib/zabbix/ssl/keys 
-        -v /zabbix/ssl_ca:/var/lib/zabbix/ssl/ssl_ca 
-        -v /zabbix/snmptraps:/var/lib/zabbix/snmptraps 
-        -v /zabbix/mibs:/var/lib/zabbix/mibs 
-        -p 10051:10051 
-        -d zabbix/zabbix-server-mysql:latest</code></p>
-<p># run Zabbix web interface and link the instance with created MySQL server and Zabbix server instances</p>
-<p><code>docker run --name zabbix-web-nginx-mysql --network zabbix-net -t 
-        --restart=always 
-        -e DB_SERVER_HOST="mysql-server" 
-        -e MYSQL_DATABASE="zabbix" 
-        -e MYSQL_USER="zabbix" 
-        -e MYSQL_PASSWORD="$ZABBIX_DB_USER_PASSWORD" 
-        -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" 
-        -e PHP_TZ="Asia/Seoul" 
-        -e ZBX_SERVER_NAME="Zabbix" 
-        -e ZBX_SERVER_HOST="zabbix-server-mysql" 
-        -v /zabbix/mysql/etc/ssl/nginx:/etc/ssl/nginx 
-        -p 7778:80 
-        -d zabbix/zabbix-web-nginx-mysql:latest</code></p>
-<p>기본적인 내용은 
-<a href="https://www.zabbix.com/documentation/4.2/manual/installation/containers">Zabbix의 공식 문서</a>
-를 참고한다.</p>
-<p>이러한 구성으로 docker-compose를 이용하면 손쉽게 Zabbix의 운영이 가능하다.</p>                </article>
+<p>tags: <a href="https://astromsshin.github.io/blog/tag/linux.html">Linux</a><a href="https://astromsshin.github.io/blog/tag/slax.html">Slax</a><a href="https://astromsshin.github.io/blog/tag/minio.html">Minio</a></p></footer><!-- /.post-info --><p>구형 PC에 최대 설치할 수 있는 6개의 16TB HDD를 설치하고, 
+<a href="https://min.io/">MinIO</a> Object Storage를 활용하고자 했다. 
+이를 위하여 내장 디스크에 OS를 설치하여 이용하는 것 대신에, 
+Slax를 USB에 설치하여 이용하였다.</p>
+<p><a href="https://www.slax.org/">Slax</a>는 USB 저장장치에 persistent 
+volume을 가지는 형태로 설치 및 이용이 가능한 Linux distribution이다. 기본적으로 
+Debian을 기반으로 해서 만들어졌다.</p>
+<p>Slax를 설치한 이후에는, Blackbox X-window manager 를 비롯한 불필요한 
+것들을 제거하고, 추가로 필요한 것들을 설치해서 구성을 완료하였다.</p>
+<p>참고로 Debian을 이용해서 customized Debian Live를 구성하는 것도 하나의 선택일 
+수 있다. <a href="https://willhaley.com/blog/custom-debian-live-environment/">참고:Create a Custom Debian Live Environment (CD or USB)</a></p>                </article>
 <p class="paginator">
-    Page 1 / 4
+    Page 1 / 5
         <a href="https://astromsshin.github.io/blog/tag/linux2.html">&raquo;</a>
 </p>
             </aside><!-- /#featured -->
