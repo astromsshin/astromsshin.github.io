@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and data blog - Data &amp; Model</title><link href="https://astromsshin.github.io/blog/" rel="alternate"></link><link href="https://astromsshin.github.io/blog/feeds/data-model.atom.xml" rel="self"></link><id>https://astromsshin.github.io/blog/</id><updated>2020-03-21T00:00:00+09:00</updated><entry><title>COVID-19/SARS-CoV-2/2019-nCoV 관련 전염 모델에 관하여</title><link href="https://astromsshin.github.io/blog/Model_COVID-19.html" rel="alternate"></link><published>2020-03-21T00:00:00+09:00</published><updated>2020-03-21T00:00:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2020-03-21:/blog/Model_COVID-19.html</id><summary type="html">&lt;p&gt;COVID-19과 같은 전염병 전염 모델은, 대부분의 과학자들이 익숙한 source term 
+vs. sink term이 연결된 dynamical system의 형태로 기술이 된다. 여기서 연구자들이 
+관심을 가지는 dynamical variables은 susceptible, exposed/latent, infectious, 
+recovered, immune population과 같은 것이 된다.&lt;/p&gt;
+&lt;p&gt;관련되어 참고할 수 있는 자료들은 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://plus.maths.org/content/mathematics-diseases"&gt;The mathematics of diseases&lt;/a&gt;: 일반인들이 이해하기에 가장 기초적인 …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;COVID-19과 같은 전염병 전염 모델은, 대부분의 과학자들이 익숙한 source term 
+vs. sink term이 연결된 dynamical system의 형태로 기술이 된다. 여기서 연구자들이 
+관심을 가지는 dynamical variables은 susceptible, exposed/latent, infectious, 
+recovered, immune population과 같은 것이 된다.&lt;/p&gt;
+&lt;p&gt;관련되어 참고할 수 있는 자료들은 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://plus.maths.org/content/mathematics-diseases"&gt;The mathematics of diseases&lt;/a&gt;: 일반인들이 이해하기에 가장 기초적인 설명을 제공.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.quantamagazine.org/flu-vaccines-and-the-math-of-herd-immunity-20180205/"&gt;How Math (and Vaccines) Keep You Safe From the Flu&lt;/a&gt;: 일반인들이 이해할 수 있도록 수학적인 내용을 제공.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://doi.org/10.4161/viru.24041"&gt;Mathematical modeling of infectious disease dynamics&lt;/a&gt;: 다양한 방법론을 종합적으로 소개하는 review임.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.nature.com/articles/nrmicro1845"&gt;Mathematical models of infectious disease transmission&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://science.sciencemag.org/content/347/6227/aaa4339"&gt;Modeling infectious disease dynamics in the complex landscape of global health&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;아주 단순한 모델이지만 "flattening the COVID-19 curve"라는 말로 최근에 
+COVID-19과 관련해서 일반인들이 자주 들었던 말에 대한 쉬운 설명은 
+아래 두개를 확인해 보기를 추천한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.washingtonpost.com/graphics/2020/world/corona-simulator/"&gt;Why outbreaks like coronavirus spread exponentially, and how to “flatten the curve”&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://staff.math.su.se/hoehle/blog/2020/03/16/flatteningthecurve.html"&gt;Flatten the COVID-19 curve&lt;/a&gt;: 잘 알려진 Susceptible-Infectious-Recovered model을 이용하여 설명.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;보다 구체적이고 자세한 전염 모델에 관심이 있다면,
+&lt;a href="https://www.biostat.washington.edu/suminst/archives/SISMID2019"&gt;SISMID2019: 11th Summer Institute in Statistics and Modeling in Infectious Diseases (SISMID)&lt;/a&gt;의 
+내용을 참고하기 바란다.&lt;/p&gt;
+&lt;p&gt;다양한 내용을 종합적으로 살펴볼 수 있는 것으로는 최근에 PLOS가 준비한 
+&lt;a href="https://collections.plos.org/mathematical-disease-dynamics"&gt;PLOS Collections: Mathematical Modelling of Infectious Disease Dynamics&lt;/a&gt;의 
+논문들을 확인해 볼 것을 추천한다.&lt;/p&gt;
+&lt;p&gt;이러한 모델을 이용한 policy decision 과정에서 유의해야 하는 점들에 대해서는 
+아래와 같은 것들을 확인해 보기를 권한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.sciencemag.org/news/2020/03/mathematics-life-and-death-how-disease-models-shape-national-shutdowns-and-other"&gt;Mathematics of life and death: How disease models shape national shutdowns and other pandemic policies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/commentisfree/2020/mar/25/uk-coronavirus-policy-scientific-dominic-cummings"&gt;The UK's coronavirus policy may sound scientific. It isn't&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/commentisfree/2020/mar/23/britain-covid-19-head-start-squandered"&gt;Britain had a head start on Covid-19, but our leaders squandered it&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://freakonomics.com/podcast/scalability/"&gt;Policymaking Is Not a Science (Yet)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1003018"&gt;Infectious disease pandemic planning and response: Incorporating decision analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Data"></category><category term="COVID-19"></category><category term="SARS-CoV-2"></category><category term="2019-nCoV"></category></entry><entry><title>COVID-19/SARS-CoV-2/2019-nCoV에 대한 일반적인 정보</title><link href="https://astromsshin.github.io/blog/Intro_to_COVID-19.html" rel="alternate"></link><published>2020-03-20T00:00:00+09:00</published><updated>2020-03-20T00:00:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2020-03-20:/blog/Intro_to_COVID-19.html</id><summary type="html">&lt;p&gt;COVID-19과 관련된 여러 과학적 질문들에 대해서 좀 더 알고 
+싶은 이들에게 추천하고 싶은 것은 기초과학연구원(IBS)의 코로나 19 과학 리포트이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18168&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.1 코로나바이러스-19는 어떻게 폐렴을 유발하나&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18178&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.2 코로나바이러스-19의 구조적 특징과 침투 경로를 차단하는 치료 전략&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18198&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.3 바이러스로 코로나바이러스를 잡는다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18201&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.4 인공지능으로 코로나-19 바이러스 진단‧예측&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18218&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol …&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;COVID-19과 관련된 여러 과학적 질문들에 대해서 좀 더 알고 
+싶은 이들에게 추천하고 싶은 것은 기초과학연구원(IBS)의 코로나 19 과학 리포트이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18168&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.1 코로나바이러스-19는 어떻게 폐렴을 유발하나&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18178&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.2 코로나바이러스-19의 구조적 특징과 침투 경로를 차단하는 치료 전략&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18198&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.3 바이러스로 코로나바이러스를 잡는다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18201&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.4 인공지능으로 코로나-19 바이러스 진단‧예측&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18218&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.5 코로나바이러스, 왜 수퍼 전파자가 많을까&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18224&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.6 '기생충' 같은 코로나바이러스: 증식을 막는 치료 전략&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18234&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.7 코로나바이러스와 인포데믹&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18243&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.8 코로나바이러스, 결국은 면역이다 &amp;lt;상&amp;gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;더불어서 영국 The Guardian의 Science Weekly의 Covid-19 특집 podcast episode도 
+유용하다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/26/covid-19-can-ibuprofen-make-an-infection-worse"&gt;Covid-19: can ibuprofen make an infection worse?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/24/covid-19-how-long-can-it-survive-outside-the-body"&gt;Covid-19: how long can it survive outside the body?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/19/covid-19-how-effective-is-social-distancing"&gt;Covid-19: how effective is social distancing?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/17/covid-19-why-are-there-different-fatality-rates"&gt;Covid-19: why are there different fatality rates?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/12/covid-19-what-happens-once-someone-is-infected-science-weekly-extra"&gt;Covid-19: what happens once someone is infected?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/05/covid-19-where-in-the-body-does-it-infect-us-science-weekly-extra"&gt;Covid-19: where in the body does it infect us?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;관련하여 대중이 참고할 수 있는 적절한 관련 과학 자료들은 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/abst/file/2012_bio_06.pdf"&gt;하상준 (연세대학교 생화학과) - 우리 몸을 지키는 군대, 면역시스템&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/abst/file/2012_bio_04.pdf"&gt;김유미 (포항공과대학교 생명과학과) - 비상! 병균 침입 : 면역의 첫 단계&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/abst/file/2012_bio_05.pdf"&gt;전창덕 (광주과학기술원 생명과학과) - 만남의 미학: 몸 속의 경찰 ? 백혈구의 이동과 만남, 그리고 면역&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2017/data/data_13.pdf"&gt;정용우 (고려대학교 약학대학 약학과) - 배틀: 면역세포 vs. 병원균&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2017/data/data_14.pdf"&gt;조진원 (연세대학교 생명시스템대학 시스템생물학과) - 단백질의 꽃단장&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/abst/file/2011_17b.pdf"&gt;하남출 교수/ 부산대학교 약학대학 - 단백질의 3차원 구조와 약학적 응용&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2014/lectures/lecture_03.pdf"&gt;송현규 (고려대학교 생명과학부) - 세포 내 단백질 운명&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2015/lectures/lecture_05.pdf"&gt;김영국 (전남대학교 의과대학) - RNA 세계&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2014/lectures/lecture_04.pdf"&gt;정선주 (단국대학교 자연과학대학 분자생물학전공) - 세포의 RNA Universe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2016/lectures/lecture06.pdf"&gt;남진우 (한양대학교 자연과학대학 생명과학과) - 인크레더블 RNA: 번역, 비번역 이중기능&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/abst/file/2012_bio_09.pdf"&gt;김빛내리 (서울대학교 생명과학부) - 유전체 속에 숨겨진 RNA 보물 찾기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Data"></category><category term="COVID-19"></category><category term="SARS-CoV-2"></category><category term="2019-nCoV"></category></entry></feed>

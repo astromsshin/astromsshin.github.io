@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and data blog - Tech</title><link href="https://astromsshin.github.io/blog/" rel="alternate"></link><link href="https://astromsshin.github.io/blog/feeds/tech.atom.xml" rel="self"></link><id>https://astromsshin.github.io/blog/</id><updated>2019-10-30T01:40:00+09:00</updated><entry><title>Slax Linux + MinIO 활용기</title><link href="https://astromsshin.github.io/blog/Slax_Linux.html" rel="alternate"></link><published>2019-10-30T01:40:00+09:00</published><updated>2019-10-30T01:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2019-10-30:/blog/Slax_Linux.html</id><summary type="html">&lt;p&gt;구형 PC에 최대 설치할 수 있는 6개의 16TB HDD를 설치하고, 
+&lt;a href="https://min.io/"&gt;MinIO&lt;/a&gt; Object Storage를 활용하고자 했다. 
+이를 위하여 내장 디스크에 OS를 설치하여 이용하는 것 대신에, 
+Slax를 USB에 설치하여 이용하였다.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.slax.org/"&gt;Slax&lt;/a&gt;는 USB 저장장치에 persistent 
+volume을 가지는 형태로 설치 및 이용이 가능한 Linux distribution이다. 기본적으로 
+Debian을 기반으로 해서 만들어졌다.&lt;/p&gt;
+&lt;p&gt;Slax를 설치한 이후에는 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;구형 PC에 최대 설치할 수 있는 6개의 16TB HDD를 설치하고, 
+&lt;a href="https://min.io/"&gt;MinIO&lt;/a&gt; Object Storage를 활용하고자 했다. 
+이를 위하여 내장 디스크에 OS를 설치하여 이용하는 것 대신에, 
+Slax를 USB에 설치하여 이용하였다.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.slax.org/"&gt;Slax&lt;/a&gt;는 USB 저장장치에 persistent 
+volume을 가지는 형태로 설치 및 이용이 가능한 Linux distribution이다. 기본적으로 
+Debian을 기반으로 해서 만들어졌다.&lt;/p&gt;
+&lt;p&gt;Slax를 설치한 이후에는, Blackbox X-window manager 를 비롯한 불필요한 
+것들을 제거하고, 추가로 필요한 것들을 설치해서 구성을 완료하였다.&lt;/p&gt;
+&lt;p&gt;참고로 Debian을 이용해서 customized Debian Live를 구성하는 것도 하나의 선택일 
+수 있다. &lt;a href="https://willhaley.com/blog/custom-debian-live-environment/"&gt;참고:Create a Custom Debian Live Environment (CD or USB)&lt;/a&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="Slax"></category><category term="Minio"></category></entry><entry><title>Docker Container로 Zabbix server 설치</title><link href="https://astromsshin.github.io/blog/Zabbix_in_docker_container.html" rel="alternate"></link><published>2019-06-12T00:40:00+09:00</published><updated>2019-06-12T00:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2019-06-12:/blog/Zabbix_in_docker_container.html</id><summary type="html">&lt;p&gt;Zabbix를 Docker Container로 활용하기 위해서, Ubuntu 서버에 
+아래와 같이 먼저 Docker user-defined bridge network을 구성하였다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker network create zabbix-net&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;그 다음에 아래와 같이 3개의 container를 실행시키고, 관련된 
+port들을 host를 통해서 접근 가능하게 하였다.
+여기서 MYSQL_ROOT_PASSWORD와 ZABBIX_DB_USER_PASSWORD는 이용되는 
+암호로서 환경 변수로 설정하였다.&lt;/p&gt;
+&lt;p&gt;# start empty MySQL server instance&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker run --name mysql-server …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Zabbix를 Docker Container로 활용하기 위해서, Ubuntu 서버에 
+아래와 같이 먼저 Docker user-defined bridge network을 구성하였다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker network create zabbix-net&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;그 다음에 아래와 같이 3개의 container를 실행시키고, 관련된 
+port들을 host를 통해서 접근 가능하게 하였다.
+여기서 MYSQL_ROOT_PASSWORD와 ZABBIX_DB_USER_PASSWORD는 이용되는 
+암호로서 환경 변수로 설정하였다.&lt;/p&gt;
+&lt;p&gt;# start empty MySQL server instance&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker run --name mysql-server --network zabbix-net -t 
+        --restart=always 
+        -e MYSQL_DATABASE="zabbix" 
+        -e MYSQL_USER="zabbix" 
+        -e MYSQL_PASSWORD="$ZABBIX_DB_USER_PASSWORD" 
+        -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" 
+        -v /zabbix/mysql:/var/lib/mysql 
+        -d mysql:5.7 
+        --character-set-server=utf8 --collation-server=utf8_bin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;# run Zabbix server instance and link the instance with created MySQL server instance&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker run --name zabbix-server-mysql --network zabbix-net -t 
+        --restart=always 
+        -e DB_SERVER_HOST="mysql-server" 
+        -e MYSQL_DATABASE="zabbix" 
+        -e MYSQL_USER="zabbix" 
+        -e MYSQL_PASSWORD="$ZABBIX_DB_USER_PASSWORD" 
+        -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" 
+        -v /zabbix/alertscripts:/usr/lib/zabbix/alertscripts 
+        -v /zabbix/externalscripts:/usr/lib/zabbix/externalscripts 
+        -v /zabbix/modules:/var/lib/zabbix/modules 
+        -v /zabbix/enc:/var/lib/zabbix/enc 
+        -v /zabbix/ssl/certs:/var/lib/zabbix/ssl/certs 
+        -v /zabbix/ssl/keys:/var/lib/zabbix/ssl/keys 
+        -v /zabbix/ssl_ca:/var/lib/zabbix/ssl/ssl_ca 
+        -v /zabbix/snmptraps:/var/lib/zabbix/snmptraps 
+        -v /zabbix/mibs:/var/lib/zabbix/mibs 
+        -p 10051:10051 
+        -d zabbix/zabbix-server-mysql:latest&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;# run Zabbix web interface and link the instance with created MySQL server and Zabbix server instances&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker run --name zabbix-web-nginx-mysql --network zabbix-net -t 
+        --restart=always 
+        -e DB_SERVER_HOST="mysql-server" 
+        -e MYSQL_DATABASE="zabbix" 
+        -e MYSQL_USER="zabbix" 
+        -e MYSQL_PASSWORD="$ZABBIX_DB_USER_PASSWORD" 
+        -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" 
+        -e PHP_TZ="Asia/Seoul" 
+        -e ZBX_SERVER_NAME="Zabbix" 
+        -e ZBX_SERVER_HOST="zabbix-server-mysql" 
+        -v /zabbix/mysql/etc/ssl/nginx:/etc/ssl/nginx 
+        -p 7778:80 
+        -d zabbix/zabbix-web-nginx-mysql:latest&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;기본적인 내용은 
+&lt;a href="https://www.zabbix.com/documentation/4.2/manual/installation/containers"&gt;Zabbix의 공식 문서&lt;/a&gt;
+를 참고한다.&lt;/p&gt;
+&lt;p&gt;이러한 구성으로 docker-compose를 이용하면 손쉽게 Zabbix의 운영이 가능하다.&lt;/p&gt;</content><category term="Linux"></category><category term="Ubuntu"></category><category term="Docker"></category><category term="Zabbix"></category></entry><entry><title>Ubuntu 18.04.1 LTS server에서 MongoDB source compilation</title><link href="https://astromsshin.github.io/blog/MongoDB_compilation.html" rel="alternate"></link><published>2019-01-02T00:40:00+09:00</published><updated>2019-01-02T00:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2019-01-02:/blog/MongoDB_compilation.html</id><summary type="html">&lt;p&gt;MongoDB community edition의 소스 코드를 일부 수정해서 천문학 연구 
+용도로 사용해야 하는 상황으로, 이를 위하여 수정된 코드를 컴파일해야 
+하는 일이 생겼다.&lt;/p&gt;
+&lt;p&gt;기본적인 source compilation에 대해서는 
+&lt;a href="https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source"&gt;https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source&lt;/a&gt;와 
+&lt;a href="https://github.com/mongodb/mongo/blob/master/docs/building.md"&gt;docs/building.md&lt;/a&gt;의 내용을 참고하면 된다.&lt;/p&gt;
+&lt;p&gt;Ubunt 18.04.1 LTS에서 설치시에 C++ 2017 standard와의 문제로 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;MongoDB community edition의 소스 코드를 일부 수정해서 천문학 연구 
+용도로 사용해야 하는 상황으로, 이를 위하여 수정된 코드를 컴파일해야 
+하는 일이 생겼다.&lt;/p&gt;
+&lt;p&gt;기본적인 source compilation에 대해서는 
+&lt;a href="https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source"&gt;https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source&lt;/a&gt;와 
+&lt;a href="https://github.com/mongodb/mongo/blob/master/docs/building.md"&gt;docs/building.md&lt;/a&gt;의 내용을 참고하면 된다.&lt;/p&gt;
+&lt;p&gt;Ubunt 18.04.1 LTS에서 설치시에 C++ 2017 standard와의 문제로 warning이 
+존재하는데, MongoDB의 기본 compilation flag는 이런 warning을 
+error로 잡도록 되어 있다. 따라서 이를 끄고 컴파일 할 필요가 있는데, 
+이는 
+&lt;code&gt;./buildscripts/scons.py core --disable-warnings-as-errors&lt;/code&gt;
+로 가능하다.&lt;/p&gt;</content><category term="Linux"></category><category term="Ubuntu"></category><category term="MongoDB"></category></entry><entry><title>구형 소형 노트북으로 dashboard 겸 라디오 플레이어 만들기</title><link href="https://astromsshin.github.io/blog/linux_dashboard_and_radio_player.html" rel="alternate"></link><published>2018-12-25T23:45:00+09:00</published><updated>2018-12-25T23:45:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2018-12-25:/blog/linux_dashboard_and_radio_player.html</id><summary type="html">&lt;p&gt;2018년에 구형 소형 노트북에 linux를 &lt;em&gt;desktop이 없이 console 화면을 이용&lt;/em&gt;하는 
+환경으로 설치하고, 간단하게 구성한 dashboard 
+겸 온라인 라디오 플레이어에 대한 기술적인 내용들을 이곳에 정리하고자 한다.&lt;/p&gt;
+&lt;p&gt;기본 아이디어는 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;리눅스를 설치하고, dashboard로 표출하고 싶은 그림 파일들을 주기적으로 다운로드 받아서, 한개의 그림으로 만드는 shell script를 구성한다.&lt;/li&gt;
+&lt;li&gt;더불어서 청취하고자 하는 TBS …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;2018년에 구형 소형 노트북에 linux를 &lt;em&gt;desktop이 없이 console 화면을 이용&lt;/em&gt;하는 
+환경으로 설치하고, 간단하게 구성한 dashboard 
+겸 온라인 라디오 플레이어에 대한 기술적인 내용들을 이곳에 정리하고자 한다.&lt;/p&gt;
+&lt;p&gt;기본 아이디어는 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;리눅스를 설치하고, dashboard로 표출하고 싶은 그림 파일들을 주기적으로 다운로드 받아서, 한개의 그림으로 만드는 shell script를 구성한다.&lt;/li&gt;
+&lt;li&gt;더불어서 청취하고자 하는 TBS FM, KBS1 FM, MBC FM를 들을 수 있게 해주는 shell script와 볼륨을 키웠다, 줄였다 할 수 있게 해주는 shell script를 준비한다.&lt;/li&gt;
+&lt;li&gt;리눅스가 부팅하면 자동으로 dashboardadmin이라는 미리 설정해둔 계정으로 autologin해서 자동으로 관련된 dashboard 첫 그림 파일을 만들고, 주기적으로 갱신되게 만든 후에, &lt;a href="https://www.nongnu.org/fbi-improved/"&gt;FIM&lt;/a&gt;으로 dashboard 그림 파일을 보여주게 한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;dashboard 그림 파일 제작을 위한 shell script&lt;/h3&gt;
+&lt;p&gt;download_all_images.sh 은 관련된 그림들을 모두 획득 후에 이를 
+montage를 이용해서 한개의 그림 파일로 만든다. 이 shell script는 여러개의 
+shell script를 이용하는 wrapper로 이용된다. 여러분이 원하는 방식으로 
+원하는 그림 파일을 만들면 된다.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/download_xxx.sh
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/download_yyy.sh
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/download_zzz.sh
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/download_uuu.sh
+
+&lt;span class="c1"&gt;### Checking the update time ###&lt;/span&gt;
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/produce_update_time.sh
+
+&lt;span class="c1"&gt;##### combining images #####&lt;/span&gt;
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/montage_images.sh
+
+&lt;span class="nv"&gt;USESLEEP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;[ ( ( &lt;/span&gt;&lt;span class="nv"&gt;$RANDOM&lt;/span&gt;&lt;span class="s2"&gt; % 10 ) + 5 ) ]m&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;... sleeping &amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$USESLEEP&lt;/span&gt;
+sleep &lt;span class="nv"&gt;$USESLEEP&lt;/span&gt;
+
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;참고로 produce_update_time.sh은 아래와 같이 현재 시각을 
+그림 파일로 만든다.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash &lt;/span&gt;
+
+convert -background white -fill black -font NanumGothic -pointsize &lt;span class="m"&gt;24&lt;/span&gt; label:&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; /home/dashboardadmin/update_time.png
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h3&gt;청취하고자 하는 라디오 방송을 위한 shell script&lt;/h3&gt;
+&lt;p&gt;ffplay를 이용하여 특정 라디오 방송을 온라인으로 청취할 수 있는 
+shell script를 준비하는데, shell script의 기본적인 구성은 아래와 같다. 
+이미 존재하는 player를 죽이고 새롭게 ffplay를 실행시키는 것으로, 이미 
+다른 방송이 출력되고 있다고 손쉽게 중단하고 새로운 방송으로 전환이 된다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/usr/bin/killall -q rtmpdump ffplay
+
+ffplay -nodisp -loglevel -8 -noinfbuf $useurl &amp;amp;&amp;gt; /dev/null &amp;amp;
+
+혹은
+
+rtmpdump --quiet --live -r $useurl | ffplay -nodisp -loglevel -8 -noinfbuf -i - &amp;amp;&amp;gt; /dev/null &amp;amp;
+
+pgrep rtmpdump &amp;gt; /home/dashboardadmin/rtmpdump.pid
+pgrep ffplay &amp;gt; /home/dashboardadmin/ffplay.pid
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;더불어서 아래와 같이 라디오 방송 청취를 중단시키는 stop.sh와, 
+볼륨을 높이고, 낮추는데 쓸 수 있는 volume_up.sh와 volume_down.sh도 
+준비한다. 이들 shell script들은 다음에 볼 수 있듯이 
+FIM에서 특정 키와 연결시켜서 특정 
+키를 누르면 실행되도록 구성될 것이다. &lt;/p&gt;
+&lt;p&gt;stop.sh&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="nv"&gt;pid_rtmpdump&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;cat /home/dashboardadmin/rtmpdump.pid&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;pid_mplayer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;cat /home/dashboardadmin/mplayer.pid&lt;span class="k"&gt;)&lt;/span&gt;
+
+/bin/kill -s &lt;span class="m"&gt;9&lt;/span&gt; &lt;span class="nv"&gt;$pid_rtmpdump&lt;/span&gt; &lt;span class="nv"&gt;$pid_mplayer&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&amp;gt; /dev/null
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;volume_up.sh&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+amixer &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Master&amp;#39;&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt;%+ &amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt; /dev/null
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;volume_down.sh&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+amixer &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Master&amp;#39;&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt;%- &amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt; /dev/null
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h3&gt;FIM 환경 설정 및 autologin 구성&lt;/h3&gt;
+&lt;p&gt;우선 dashboardadmin이 framebuffer를 이용해서 노트북 디스플레이에 
+그림 파일을 직접 보여줄 수 있도록 할 필요가 있다. 이를 위해서 
+아래와 같이 그룹 권한을 부여한다.
+&lt;code&gt;useradd dashboardadmin video&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;FIM의 환경 설정 파일(&lt;a href="https://www.nongnu.org/fbi-improved/fimrc.man.html" title="fimrc"&gt;참고&lt;/a&gt;)을 dashboardadmin 계정의 홈 디렉토리 아래에 
+.fimrc 파일로 아래와 같이 구성한다. 여기서 앞서 설명된 라디오 청취 
+shell script가 특정 키보드 키와 연결되게 된다. .fimrc의 내용은 
+아래와 같다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bind &amp;#39;C-t&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/listen_TBS_FM.sh&amp;#39;&amp;quot;;
+bind &amp;#39;C-k&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/listen_KBS1_FM.sh&amp;#39;&amp;quot;;
+bind &amp;#39;C-m&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/listen_MBC_FM.sh&amp;#39;&amp;quot;;
+bind &amp;#39;s&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/stop.sh&amp;#39;&amp;quot;;
+bind &amp;#39;PageUp&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/volume_up.sh&amp;#39;&amp;quot;;
+bind &amp;#39;PageDown&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/volume_down.sh&amp;#39;&amp;quot;;
+_display_status=0;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;dashboardadmin으로 autologin이 되면 바로 실행이 되어야 하는 내용을 아래와 
+같이 .bashrc로 구성한다. 여기서 dashboard_image.png가 만들어져서 표출되는 
+그림 파일에 해당한다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if [ $(tty) == &amp;quot;/dev/tty1&amp;quot; ]
+then
+        rm -f /home/dashboardadmin/dashboard_image*.png /home/dashboardadmin/*.pid
+        /home/dashboardadmin/Script/download_xxx.sh
+        /home/dashboardadmin/Script/download_yyy.sh
+        /home/dashboardadmin/Script/download_zzz.sh
+        /home/dashboardadmin/Script/download_uuu.sh
+        /home/dashboardadmin/Script/produce_update_time.sh
+        /home/dashboardadmin/Script/montage_images.sh
+        nohup /home/dashboardadmin/Script/download_all_images.sh &amp;gt;&amp;amp; /dev/null &amp;amp;
+        while true; do fim /home/dashboardadmin/dashboard_image.png; done
+fi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;이렇게 구성이 되면, tty1 console에서 실제 autologin이 되도록 아래와 같이 
+파일을 만든다. Ubuntu의 경우에는,
+/etc/systemd/system/getty@tty1.service.d/override.conf
+에 &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[Service]&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;-/sbin/agetty --autologin dashboardadmin --noclear %I&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;와 같이 설정하면 된다 (&lt;a href="https://selivan.github.io/2017/12/27/console-autologin-systemd-ubuntu.html" title="Console autologin for Ubuntu with systemd(15.04 and higher)"&gt;참고&lt;/a&gt;).&lt;/p&gt;
+&lt;h3&gt;추가로 개선할 수 있는 것들&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;IR 리모콘을 활용할 수 있으며, 이 경우 IR 리모콘과 FIM의 key를 묶어서 라디오 채널 전환이나 중단, 볼륨 조절 등에 이용할 수 있다.&lt;/li&gt;
+&lt;li&gt;bluetooth 스피커를 활용하는 것도 생각할 수 있는데, 라디오의 경우 현재는 구형 노트북의 내장 스피커를 이용하나, bluetooth 외부 스피커를 활용하는 것도 가능하다.&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Linux"></category><category term="dashboard"></category><category term="노트북"></category><category term="FIM"></category></entry><entry><title>Raspberry Pi를 활용한 video casting 환경 구성</title><link href="https://astromsshin.github.io/blog/rpi_cast.html" rel="alternate"></link><published>2018-12-24T23:40:00+09:00</published><updated>2018-12-24T23:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2018-12-24:/blog/rpi_cast.html</id><summary type="html">&lt;p&gt;집에 있는 조금 오래된 TV에는 HDMI 연결 단자가 있어서 노트북 등을 
+연결하여 Youtube 등 온라인에 있는 동영상을 보는 것이 가능하다. 이것을 
+좀 더 쉽게 하고, 집에서 휴대전화기나 노트북으로 원하는 동영상의 url을 
+넘겨서 시청할 수 있도록 Raspberry Pi를 이용하여 환경을 구성하였다.&lt;/p&gt;
+&lt;p&gt;우선 &lt;a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/"&gt;Raspberry Pi 3 Model B+&lt;/a&gt;를 
+구매하여 Raspbian을 설치한다 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;집에 있는 조금 오래된 TV에는 HDMI 연결 단자가 있어서 노트북 등을 
+연결하여 Youtube 등 온라인에 있는 동영상을 보는 것이 가능하다. 이것을 
+좀 더 쉽게 하고, 집에서 휴대전화기나 노트북으로 원하는 동영상의 url을 
+넘겨서 시청할 수 있도록 Raspberry Pi를 이용하여 환경을 구성하였다.&lt;/p&gt;
+&lt;p&gt;우선 &lt;a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/"&gt;Raspberry Pi 3 Model B+&lt;/a&gt;를 
+구매하여 Raspbian을 설치한다.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;a href="https://github.com/vincelwt/RaspberryCast"&gt;RaspberryCast&lt;/a&gt;를 설치하여 
+기본적인 구성을 마친다.&lt;/p&gt;
+&lt;p&gt;RaspberryCast는 Python web framework인 &lt;a href="https://bottlepy.org"&gt;Bottle&lt;/a&gt;을 
+이용하는데, 소스 코드를 수정해서 다양한 기능을 추가하는 것은 쉽다. 수정을 
+위해서 살펴보아야 하는 부분은 server.py이다.&lt;/p&gt;
+&lt;p&gt;관련해서 같이 이용하는 것으로 
+&lt;a href="https://bitbucket.org/baldisos/raspberry-pi-control-panel"&gt;Raspberry Pi Control Panel&lt;/a&gt; 
+역시 추가하여 설치하고, 다소 수정을 해서 사용 중이다. PHP 프로그램으로 
+PHP에서 제공하는 system function을 이용한다.&lt;/p&gt;</content><category term="Linux"></category><category term="RPi"></category><category term="RaspberryPi"></category></entry></feed>
