@@ -36,24 +36,32 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://astromsshin.github.io/blog/Slax_Linux.html">Slax Linux + MinIO 활용기</a></h1> 
+                    <h1 class="entry-title"><a href="https://astromsshin.github.io/blog/android_connectbot_ssh_proxy_firefox.html">Android에서 ConnectBot을 이용한 ssh SOCKS proxy와 Firefox 사용하기</a></h1> 
 <footer class="post-info">
-        <abbr class="published" title="2019-10-30T01:40:00+09:00">
-                수 30 10월 2019
+        <abbr class="published" title="2020-07-15T23:45:00+09:00">
+                수 15 7월 2020
         </abbr>
-<p>tags: <a href="https://astromsshin.github.io/blog/tag/linux.html">Linux</a><a href="https://astromsshin.github.io/blog/tag/slax.html">Slax</a><a href="https://astromsshin.github.io/blog/tag/minio.html">Minio</a></p></footer><!-- /.post-info --><p>구형 PC에 최대 설치할 수 있는 6개의 16TB HDD를 설치하고, 
-<a href="https://min.io/">MinIO</a> Object Storage를 활용하고자 했다. 
-이를 위하여 내장 디스크에 OS를 설치하여 이용하는 것 대신에, 
-Slax를 USB에 설치하여 이용하였다.</p>
-<p><a href="https://www.slax.org/">Slax</a>는 USB 저장장치에 persistent 
-volume을 가지는 형태로 설치 및 이용이 가능한 Linux distribution이다. 기본적으로 
-Debian을 기반으로 해서 만들어졌다.</p>
-<p>Slax를 설치한 이후에는, Blackbox X-window manager 를 비롯한 불필요한 
-것들을 제거하고, 추가로 필요한 것들을 설치해서 구성을 완료하였다.</p>
-<p>참고로 Debian을 이용해서 customized Debian Live를 구성하는 것도 하나의 선택일 
-수 있다. <a href="https://willhaley.com/blog/custom-debian-live-environment/">참고:Create a Custom Debian Live Environment (CD or USB)</a></p>                </article>
+<p>tags: <a href="https://astromsshin.github.io/blog/tag/android.html">Android</a><a href="https://astromsshin.github.io/blog/tag/ssh.html">ssh</a><a href="https://astromsshin.github.io/blog/tag/proxy.html">proxy</a></p></footer><!-- /.post-info --><p>Android smartphone을 사용하고 있지만, google account와 연동하지 않고 있고, 
+더불어서 그 어떤 google play store app을 사용하지 않는 사용자이다.</p>
+<p>이러한 상황에서 secure web browsing이 필요한 경우가 최근에 많이 발생하고 
+있고, 이 경우 적절한 방법을 찾고 있었다.</p>
+<p>최종적으로 선택한 방법은 아래와 같다.</p>
+<ol>
+<li>Android에서 충분히 검증된 open source ssh client인 
+<a href="https://f-droid.org/en/packages/org.connectbot/">ConnectBot</a>을 
+F-Droid에서 받아서 Android smartphone에 설치한다.</li>
+<li>ConnectBot에서 key-based ssh login 및 SOCKS proxy로 쓸 수 있게 
+port forwarding을 설정한다. (https://pthree.org/2015/08/26/setting-up-a-global-ssh-proxy-on-android-with-connectbot-and-proxydroid/ 참고)</li>
+<li>https://www.mozilla.org/en-US/firefox/all/#product-android-release 에서 Firefox Android를 받아서 
+Android smartphone에 설치한다.</li>
+<li>Firefox에서 <a href="https://addons.mozilla.org/en-US/firefox/addon/switchyomega/">Proxy SwitchyOmega</a>를 
+설치하고, default로 SOCKS proxy를 이용하도록 구성한다.</li>
+</ol>
+<p>이렇게 구성한 이후에는 Firefox를 실행하기 전에, ConnectBot으로 secure 
+communication이 가능한 <a href="https://hackertarget.com/ssh-examples-tunnels/">ssh tunnel</a>를 
+구성하고, 다음에 Firefox를 실행하여 구성된 ssh tunnel을 이용하면 된다.</p>                </article>
 <p class="paginator">
-    Page 1 / 5
+    Page 1 / 6
         <a href="https://astromsshin.github.io/blog/category/tech2.html">&raquo;</a>
 </p>
             </aside><!-- /#featured -->
