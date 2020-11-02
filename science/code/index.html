@@ -115,6 +115,32 @@ service</a>.
 <p>
 <b><a name="VO"><font color="green">- Virtual Observatory tools to access NED, Simbad, Aladin, and Vizier</font></a></b><p><p>
 <li>
+  <a href="download_reference_from_Vizier.py">download_reference_from_Vizier.py</a> : a simple Python script 
+  that can be used to download a catalog from Vizier for a requested RA, DEC range. The usage of the script is
+  <code>
+    usage: download_reference_from_Vizier.py [-h] [--config [CONFIG]] --output
+                                             [OUTPUT] [--plot]
+                                             [--catalog {gaiadr2,gaiadr2_G,psdr1_r,psdr1,smssdr1.1_r,smssdr1.1,vhsdr4}]
+                                             [--min_ra [MIN_RA]]
+                                             [--max_ra [MAX_RA]]
+                                             [--min_dec [MIN_DEC]]
+                                             [--max_dec [MAX_DEC]]
+                                             [--center_ra [CENTER_RA]]
+                                             [--width_ra [WIDTH_RA]]
+                                             [--center_dec [CENTER_DEC]]
+                                             [--width_dec [WIDTH_DEC]] [--filter]
+                                             [--exbox_min_ra [EXBOX_MIN_RA]]
+                                             [--exbox_max_ra [EXBOX_MAX_RA]]
+                                             [--exbox_min_dec [EXBOX_MIN_DEC]]
+                                             [--exbox_max_dec [EXBOX_MAX_DEC]]
+                                             [--stitch STITCH]
+                                             [--server {cds,cadc,cam,cfa}]
+                                             [--verbose]
+     download_reference_from_Vizier.py: error: the following arguments are required: --output
+  </code>
+  The script already has several examples of extracting and filtering Gaia DR2, PS DR1, SMSS DR1.1, and VHS DR4 catalogs.
+</li>
+<li>
 <a href="NED_batch_compact_parser.py">NED_batch_compact_parser.py</a> : a short Python script to parse result files 
 from NED batch job with "compact" output type. In particular, the current code is optimized to my 
 favorite style of NED batch job: <a href="ex.ned.txt">example</a>. Please, visit 
