@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and data blog - Tech</title><link href="https://astromsshin.github.io/blog/" rel="alternate"></link><link href="https://astromsshin.github.io/blog/feeds/tech.atom.xml" rel="self"></link><id>https://astromsshin.github.io/blog/</id><updated>2020-07-25T23:40:00+09:00</updated><entry><title>Android에서 SimpleRT를 이용한 Linux host의 네트워크를 사용하는 reverse tethering</title><link href="https://astromsshin.github.io/blog/android_reverse_tethering_linux.html" rel="alternate"></link><published>2020-07-25T23:40:00+09:00</published><updated>2020-07-25T23:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2020-07-25:/blog/android_reverse_tethering_linux.html</id><summary type="html">&lt;p&gt;Android smartphone을 사용하면서, 보안상 안전하지 않거나 혹은 불안정한 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and data blog - Tech</title><link href="https://astromsshin.github.io/blog/" rel="alternate"></link><link href="https://astromsshin.github.io/blog/feeds/tech.atom.xml" rel="self"></link><id>https://astromsshin.github.io/blog/</id><updated>2020-10-23T00:40:00+09:00</updated><entry><title>NATS streaming 활용기</title><link href="https://astromsshin.github.io/blog/NATS_streaming.html" rel="alternate"></link><published>2020-10-23T00:40:00+09:00</published><updated>2020-10-23T00:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2020-10-23:/blog/NATS_streaming.html</id><summary type="html">&lt;p&gt;NATS는 Go 언어로 작성된 open-source messaging system으로, 
+Cloud Native Computing Foundation project의 하나이다. 이번에 
+활용한 NATS streaming은 NATS에 streaming 기능이 포함된 것이다.&lt;/p&gt;
+&lt;p&gt;이번에 NATS를 활용하는 것은, 기존에 Redis를 pub-sub로 활용하였던 
+것을 대체하는 목적이었다. 실제 사용 목적은 
+&lt;a href="https://doi.org/10.5281/zenodo.1490931"&gt;Applications of the in-memory database Redis in processing transient event alerts&lt;/a&gt;
+포스터 발표 자료를 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;NATS는 Go 언어로 작성된 open-source messaging system으로, 
+Cloud Native Computing Foundation project의 하나이다. 이번에 
+활용한 NATS streaming은 NATS에 streaming 기능이 포함된 것이다.&lt;/p&gt;
+&lt;p&gt;이번에 NATS를 활용하는 것은, 기존에 Redis를 pub-sub로 활용하였던 
+것을 대체하는 목적이었다. 실제 사용 목적은 
+&lt;a href="https://doi.org/10.5281/zenodo.1490931"&gt;Applications of the in-memory database Redis in processing transient event alerts&lt;/a&gt;
+포스터 발표 자료를 참고할 수 있다.&lt;/p&gt;
+&lt;p&gt;현재 활용 환경에서는, NATS streaming의 
+Python client library인 &lt;a href="https://nats.io/download/nats-io/stan.py/"&gt;Python Asyncio Client&lt;/a&gt;를 이용하여, 
+다양한 방법으로 message processing이 이루어지고 있다.
+예를 들어, 일부 client agent의 경우에는 PostgreSQL에 message를 처리하여 
+관련 정보를 기록하고, 다른 client agent의 경우에는 SQLite를 이용하기도 하며, 
+또 다른 client agent의 경우에는 email 전송 등의 기능을 수행하고 있다.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/nats-io/nats-top"&gt;nats-top&lt;/a&gt;을 이용하여, monitoring이 이루어지고 
+있으며, 현재까지 문제 없이 NATS streaming을 잘 활용하고 있는 상황이다.&lt;/p&gt;</content><category term="Linux"></category><category term="NATS"></category><category term="streaming"></category></entry><entry><title>Android에서 SimpleRT를 이용한 Linux host의 네트워크를 사용하는 reverse tethering</title><link href="https://astromsshin.github.io/blog/android_reverse_tethering_linux.html" rel="alternate"></link><published>2020-07-25T23:40:00+09:00</published><updated>2020-07-25T23:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2020-07-25:/blog/android_reverse_tethering_linux.html</id><summary type="html">&lt;p&gt;Android smartphone을 사용하면서, 보안상 안전하지 않거나 혹은 불안정한 
 wifi나 mobile 연결을 이용하는 것 대신에 wired connection을 이용하는 
 것을 선호하는 상황이 종종 발생한다. 이러한 경우에 활용하기 위해서 open-source 
 소프트웨어인 

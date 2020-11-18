@@ -39,27 +39,26 @@
                     <ol id="posts-list" class="hfeed" start="0">
             <li><article class="hentry">    
                 <header>
-                    <h3><a href="https://astromsshin.github.io/blog/Zabbix_in_docker_container.html" rel="bookmark"
-                           title="Permalink to Docker Container로 Zabbix server 설치">Docker Container로 Zabbix server 설치</a></h3>
+                    <h3><a href="https://astromsshin.github.io/blog/Slax_Linux.html" rel="bookmark"
+                           title="Permalink to Slax Linux + MinIO 활용기">Slax Linux + MinIO 활용기</a></h3>
                 </header>
                 
                 <div class="entry-content">
-                <p>Zabbix를 Docker Container로 활용하기 위해서, Ubuntu 서버에 
-아래와 같이 먼저 Docker user-defined bridge network을 구성하였다.</p>
-<p><code>docker network create zabbix-net</code></p>
-<p>그 다음에 아래와 같이 3개의 container를 실행시키고, 관련된 
-port들을 host를 통해서 접근 가능하게 하였다.
-여기서 MYSQL_ROOT_PASSWORD와 ZABBIX_DB_USER_PASSWORD는 이용되는 
-암호로서 환경 변수로 설정하였다.</p>
-<p># start empty MySQL server instance</p>
-<p><code>docker run --name mysql-server …</code></p>
-                <a class="readmore" href="https://astromsshin.github.io/blog/Zabbix_in_docker_container.html">read more</a>
+                <p>구형 PC에 최대 설치할 수 있는 6개의 16TB HDD를 설치하고, 
+<a href="https://min.io/">MinIO</a> Object Storage를 활용하고자 했다. 
+이를 위하여 내장 디스크에 OS를 설치하여 이용하는 것 대신에, 
+Slax를 USB에 설치하여 이용하였다.</p>
+<p><a href="https://www.slax.org/">Slax</a>는 USB 저장장치에 persistent 
+volume을 가지는 형태로 설치 및 이용이 가능한 Linux distribution이다. 기본적으로 
+Debian을 기반으로 해서 만들어졌다.</p>
+<p>Slax를 설치한 이후에는 …</p>
+                <a class="readmore" href="https://astromsshin.github.io/blog/Slax_Linux.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
         <a href="https://astromsshin.github.io/blog/index6.html">&laquo;</a>
-    Page 7 / 11
+    Page 7 / 12
         <a href="https://astromsshin.github.io/blog/index8.html">&raquo;</a>
 </p>
             </section><!-- /#content -->

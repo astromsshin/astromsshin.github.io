@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Tech and data blog - linux</title>
+        <title>Tech and data blog - Linux</title>
         <meta charset="utf-8" />
         <meta name="generator" content="Pelican" />
         <meta name="author" content="astromsshin" />
@@ -39,25 +39,27 @@
                     <ol id="posts-list" class="hfeed" start="0">
             <li><article class="hentry">    
                 <header>
-                    <h3><a href="https://astromsshin.github.io/blog/MongoDB_compilation.html" rel="bookmark"
-                           title="Permalink to Ubuntu 18.04.1 LTS server에서 MongoDB source compilation">Ubuntu 18.04.1 LTS server에서 MongoDB source compilation</a></h3>
+                    <h3><a href="https://astromsshin.github.io/blog/Zabbix_in_docker_container.html" rel="bookmark"
+                           title="Permalink to Docker Container로 Zabbix server 설치">Docker Container로 Zabbix server 설치</a></h3>
                 </header>
                 
                 <div class="entry-content">
-                <p>MongoDB community edition의 소스 코드를 일부 수정해서 천문학 연구 
-용도로 사용해야 하는 상황으로, 이를 위하여 수정된 코드를 컴파일해야 
-하는 일이 생겼다.</p>
-<p>기본적인 source compilation에 대해서는 
-<a href="https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source">https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source</a>와 
-<a href="https://github.com/mongodb/mongo/blob/master/docs/building.md">docs/building.md</a>의 내용을 참고하면 된다.</p>
-<p>Ubunt 18.04.1 LTS에서 설치시에 C++ 2017 standard와의 문제로 …</p>
-                <a class="readmore" href="https://astromsshin.github.io/blog/MongoDB_compilation.html">read more</a>
+                <p>Zabbix를 Docker Container로 활용하기 위해서, Ubuntu 서버에 
+아래와 같이 먼저 Docker user-defined bridge network을 구성하였다.</p>
+<p><code>docker network create zabbix-net</code></p>
+<p>그 다음에 아래와 같이 3개의 container를 실행시키고, 관련된 
+port들을 host를 통해서 접근 가능하게 하였다.
+여기서 MYSQL_ROOT_PASSWORD와 ZABBIX_DB_USER_PASSWORD는 이용되는 
+암호로서 환경 변수로 설정하였다.</p>
+<p># start empty MySQL server instance</p>
+<p><code>docker run --name mysql-server …</code></p>
+                <a class="readmore" href="https://astromsshin.github.io/blog/Zabbix_in_docker_container.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
         <a href="https://astromsshin.github.io/blog/tag/linux3.html">&laquo;</a>
-    Page 4 / 6
+    Page 4 / 7
         <a href="https://astromsshin.github.io/blog/tag/linux5.html">&raquo;</a>
 </p>
             </section><!-- /#content -->
