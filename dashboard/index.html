@@ -10,21 +10,53 @@
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
   <title>Current status</title>
+<style>
+#clock {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+}
+</style>
 </head>
 
 <body>
 
 <center>
-<font color="black" size="100pc"><span id="datetime"></span></font>
-<img src="./pm_use.png?cache=none">
-<img src="./road_cctv_use.png?cache=none" align="right">
-</center>
 
+<div id="clock">
+</div>
 <script>
-var dt = new Date();
-<!-- document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) + "/" +(("0"+dt.getDate()).slice(-2)) + " " + (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2)); -->
-document.getElementById("datetime").innerHTML = ((("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2)));
+                function clock() {
+                        let date = new Date();
+                        let hrs = date.getHours();
+                        let mins = date.getMinutes();
+                        let secs = date.getSeconds();
+                        let period = "AM";
+                      
+                        if (hrs == 0) hrs = 12;
+                        if (hrs > 12) {
+                                  hrs = hrs - 12;
+                                  period = "PM";
+                                }
+                      
+                        hrs = hrs < 10 ? `0${hrs}` : hrs;
+                        mins = mins < 10 ? `0${mins}` : mins;
+                        secs = secs < 10 ? `0${secs}` : secs;
+                      
+                        let time = `${hrs}:${mins}:${secs} ${period}`;
+                        setInterval(clock, 1000);
+                        document.getElementById("clock").innerText = time;
+                      }
+    
+    clock();
+
 </script>
+<img src="./pm_use.png?cache=none" align="center">
+<br>
+<img src="./weather_fcst_use.png?cache=none" align="center">
+</center>
 
 </body>
 
