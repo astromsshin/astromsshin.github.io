@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="refresh" content="15">
+<meta http-equiv="Pragma-directive" content="no-cache" />
+<meta http-equiv="Cache-directive" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+  <title>HomePi</title>
+</head>
+
+<body>
+
+<div class="navbar-header">
+<font color='black' size=+2>Dashboard - HomePi</font>
+<font color="black" size=+2> &nbsp (현재시각 <span id="datetime"></span>)</font>
+</div>
+<table border=1 width=1920>
+  <tr>
+    <td>
+      <img src="./wx_fcst_use.png?cache=none">
+      <br>
+      <font size=+1>날씨: <!--#include virtual="wx_condition.html" --> </font>
+      <br>
+      <font size=+1>대기: <!--#include virtual="air_quality.html" --> </font>
+      <br>
+      <font size=+1>유가:<!--#include virtual="oil_price.html" --> </font>
+    </td>
+    <td>
+      <img src="./wx_satellite_radar_use.png?cache=none">
+      <br>
+      <img src="./wx_aws_map_use.png?cache=none">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="./road_cctv_use.png?cache=none" align="right">
+    </td>
+  </tr>
+</table>
+
+
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) + "/" +(("0"+dt.getDate()).slice(-2)) + " " + (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+</script>
+
+</body>
+
+</html>
