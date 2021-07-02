@@ -9,29 +9,18 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-  <title>HomePi</title>
+  <title>Current status</title>
 </head>
 
 <body>
 
 <div class="navbar-header">
-<font color="black" size=+2>현재시각 <span id="datetime"></span></font>
+<font color="black" size="100px"><span id="datetime"></span></font>
 </div>
-<table border=1 width=800>
+<table border=0 width=480 height=800>
   <tr>
     <td>
-      <img src="./wx_fcst_use.png?cache=none">
-      <br>
-      <font size=+1>날씨: <!--#include virtual="wx_condition.html" --> </font>
-      <br>
-      <font size=+1>대기: <!--#include virtual="air_quality.html" --> </font>
-      <br>
-      <font size=+1>유가:<!--#include virtual="oil_price.html" --> </font>
-    </td>
-    <td>
-      <img src="./wx_satellite_radar_use.png?cache=none">
-      <br>
-      <img src="./wx_aws_map_use.png?cache=none">
+      <img src="./pm_use.png?cache=none">
     </td>
   </tr>
   <tr>
@@ -44,7 +33,8 @@
 
 <script>
 var dt = new Date();
-document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) + "/" +(("0"+dt.getDate()).slice(-2)) + " " + (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+<!-- document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) + "/" +(("0"+dt.getDate()).slice(-2)) + " " + (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2)); -->
+document.getElementById("datetime").innerHTML = ((("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2)));
 </script>
 
 </body>
