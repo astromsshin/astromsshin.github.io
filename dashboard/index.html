@@ -4,21 +4,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="30">
-<meta http-equiv="Pragma-directive" content="no-cache" />
-<meta http-equiv="Cache-directive" content="no-cache" />
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
+  <meta http-equiv="refresh" content="30">
+  <meta http-equiv="Pragma-directive" content="no-cache" />
+  <meta http-equiv="Cache-directive" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>Current status</title>
-<style>
-#clock {
-  color: black;
-  align-items: center;
-  justify-content: center;
-  font-size: 95px;
-}
-</style>
+  <style>
+  #clock {
+    color: black;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+  }
+  </style>
 </head>
 
 <body>
@@ -28,19 +28,12 @@
                         let hrs = date.getHours();
                         let mins = date.getMinutes();
                         let secs = date.getSeconds();
-                        let period = "AM";
-                      
-                        if (hrs == 0) hrs = 12;
-                        if (hrs > 12) {
-                                  hrs = hrs - 12;
-                                  period = "PM";
-                                }
-                      
+                     
                         hrs = hrs < 10 ? `0${hrs}` : hrs;
                         mins = mins < 10 ? `0${mins}` : mins;
                         secs = secs < 10 ? `0${secs}` : secs;
                       
-                        let time = `${hrs}:${mins}:${secs} ${period}`;
+                        let time = `${hrs}:${mins}:${secs}`;
                         setInterval(clock, 1000);
                         document.getElementById("clock").innerText = time;
                       }
