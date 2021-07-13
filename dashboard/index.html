@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="180">
+<!--  <meta http-equiv="refresh" content="180">
   <meta http-equiv="Pragma-directive" content="no-cache" />
   <meta http-equiv="Cache-directive" content="no-cache" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="Expires" content="0" /> -->
   <title>Current status</title>
   <style>
   #clock {
@@ -19,36 +19,47 @@
     font-size: 100px;
   }
   </style>
+  <script>
+    window.onload = function() {
+      function updateImage(imgElement) {
+        var image = document.getElementById(imgElement);
+        image.src = image.src.split("?")[0] + "?" + new Date().getTime();
+      }
+      setInterval(updateImage("img1"), 60000);
+      setInterval(updateImage("img2"), 60000);
+      setInterval(updateImage("img3"), 60000);
+      setInterval(updateImage("img4"), 60000);
+      setInterval(updateImage("img5"), 60000);
+    }
+  </script>
 </head>
 
 <body>
-<script>
-                function clock() {
-                        let date = new Date();
-                        let hrs = date.getHours();
-                        let mins = date.getMinutes();
-                     
-                        hrs = hrs < 10 ? `0${hrs}` : hrs;
-                        mins = mins < 10 ? `0${mins}` : mins;
-                      
-                        let time = `${hrs}:${mins}`;
-                        setInterval(clock, 5000);
-                        document.getElementById("clock").innerText = time;
-                      }
-    
-    clock();
-
-</script>
 
 <center>
 <div id="clock"></div>
-<img src="./pm_use.png?cache=none">
+<script>
+  function clock() {
+    let date = new Date();
+    let hrs = date.getHours();
+    let mins = date.getMinutes();
+
+    hrs = hrs < 10 ? `0${hrs}` : hrs;
+    mins = mins < 10 ? `0${mins}` : mins;
+                              
+    let time = `${hrs}:${mins}`;
+    setInterval(clock, 5000);
+    document.getElementById("clock").innerText = time;
+  }
+  clock();
+</script>
+<img id="img1" src="./pm_use.png">
 <br>
-<img src="./weather_use.png?cache=none">
+<img id="img2" src="./weather_use.png">
 <br>
-<img src="./weather_radar_use.png?cache=none"> <img src="./weather_aws_rain_use.png?cache=none">
+<img id="img3" src="./weather_radar_use.png"> <img id="img4" src="./weather_aws_rain_use.png">
 <br>
-<img src="./weather_forecast_use.png?cache=none">
+<img id="img5" src="./weather_forecast_use.png">
 </center>
 
 </body>
