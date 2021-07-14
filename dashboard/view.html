@@ -20,16 +20,13 @@
   }
   </style>
   <script>
-      function updateImage(imgElement) {
-        var image = document.getElementById(imgElement);
-        image.src = image.src.split("?")[0] + "?" + new Date().getTime();
-      }
       function refreshIt() {
-        document.images['img1'].src = './negate-pm_use.png?' + new Date().getTime();
-        document.images['img2'].src = './negate-weather_use.png?' + new Date().getTime();
-        document.images['img3'].src = './negate-weather_radar_use.png?' + new Date().getTime();
-        document.images['img4'].src = './negate-weather_aws_rain_use.png?' + new Date().getTime();
-        document.images['img5'].src = './negate-weather_forecast_use.png?' + new Date().getTime();
+        let usetime = new Date().getTime();
+        document.images['img1'].src = './negate-pm_use.png?' + usetime;
+        document.images['img2'].src = './negate-weather_use.png?' + usetime;
+        document.images['img3'].src = './negate-weather_radar_use.png?' + usetime;
+        document.images['img4'].src = './negate-weather_aws_rain_use.png?' + usetime;
+        document.images['img5'].src = './negate-weather_forecast_use.png?' + usetime;
         setTimeout('refreshIt()', 60000);
       }
   </script>
