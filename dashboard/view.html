@@ -46,7 +46,7 @@
     mins = mins < 10 ? `0${mins}` : mins;
                               
     let time = `${hrs}:${mins}`;
-    setInterval(clock, 5000);
+    setInterval(clock, 60000);
     document.getElementById("clock").innerText = time;
   }
   clock();
