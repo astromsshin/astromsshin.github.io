@@ -27,7 +27,7 @@
         document.images['img3'].src = './negate-weather_radar_use.png?' + usetime;
         document.images['img4'].src = './negate-weather_aws_rain_use.png?' + usetime;
         document.images['img5'].src = './negate-weather_forecast_use.png?' + usetime;
-        setTimeout('refreshIt()', 300000);
+        setTimeout('refreshIt()', 120000);
       }
   </script>
 </head>
@@ -46,7 +46,7 @@
     mins = mins < 10 ? `0${mins}` : mins;
                               
     let time = `${hrs}:${mins}`;
-    setInterval(clock, 60000);
+    setInterval(clock, 20000);
     document.getElementById("clock").innerText = time;
   }
   clock();
