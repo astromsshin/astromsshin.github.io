@@ -13,29 +13,28 @@
   <title>Current status</title>
   <style>
   #clock {
-    color: black;
+    color: white;
     align-items: center;
     justify-content: center;
     font-size: 100px;
   }
   </style>
   <script>
-      function updateImage(imgElement) {
-        var image = document.getElementById(imgElement);
-        image.src = image.src.split("?")[0] + "?" + new Date().getTime();
-      }
       function refreshIt() {
-        document.images['img1'].src = './pm_use.png?' + new Date().getTime();
-        document.images['img2'].src = './weather_use.png?' + new Date().getTime();
-        document.images['img3'].src = './weather_radar_use.png?' + new Date().getTime();
-        document.images['img4'].src = './weather_aws_rain_use.png?' + new Date().getTime();
-        document.images['img5'].src = './weather_forecast_use.png?' + new Date().getTime();
-        setTimeout('refreshIt()', 60000);
+        let usetime = new Date().getTime();
+        document.images['img1'].src = './negate-pm_use.png?' + usetime;
+        document.images['img2'].src = './negate-weather_use.png?' + usetime;
+        document.images['img3'].src = './negate-weather_radar_use.png?' + usetime;
+        document.images['img4'].src = './negate-weather_aws_rain_use.png?' + usetime;
+        document.images['img5'].src = './negate-weather_forecast_use.png?' + usetime;
+        document.images['img6'].src = './negate-weather_satellite_use.png?' + usetime;
+        document.images['img7'].src = './negate-weather_aws_temp_use.png?' + usetime;
+        setTimeout('refreshIt()', 120000);
       }
   </script>
 </head>
 
-<body onLoad="setTimeout('refreshIt()',60000)">
+<body onLoad="setTimeout('refreshIt()',120000)" style="background-color:black;">
 
 <center>
 <div id="clock"></div>
@@ -49,18 +48,20 @@
     mins = mins < 10 ? `0${mins}` : mins;
                               
     let time = `${hrs}:${mins}`;
-    setInterval(clock, 5000);
+    setInterval(clock, 20000);
     document.getElementById("clock").innerText = time;
   }
   clock();
 </script>
-<img name="img1" src="./pm_use.png">
+<img name="img1" src="./negate-pm_use.png">
 <br>
-<img name="img2" src="./weather_use.png">
+<img name="img2" src="./negate-weather_use.png">
 <br>
-<img name="img3" src="./weather_radar_use.png"> <img name="img4" src="./weather_aws_rain_use.png">
+<img name="img3" src="./negate-weather_radar_use.png"> <img name="img4" src="./negate-weather_aws_rain_use.png">
 <br>
-<img name="img5" src="./weather_forecast_use.png">
+<img name="img5" src="./negate-weather_forecast_use.png">
+<br>
+<img name="img6" src="./negate-weather_satellite_use.png"> <img name="img7" src="./negate-weather_aws_temp_use.png">
 </center>
 
 </body>
