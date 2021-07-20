@@ -36,30 +36,119 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://astromsshin.github.io/blog/NATS_streaming.html">NATS streaming 활용기</a></h1> 
+                    <h1 class="entry-title"><a href="https://astromsshin.github.io/blog/old_phone_1.html">구형 스마트폰 활용(1): 인터넷 라디오+블루투스+스피커+home dashboard</a></h1> 
 <footer class="post-info">
-        <abbr class="published" title="2020-10-23T00:40:00+09:00">
-                금 23 10월 2020
+        <abbr class="published" title="2021-07-02T23:04:00+09:00">
+                금 02 7월 2021
         </abbr>
-<p>tags: <a href="https://astromsshin.github.io/blog/tag/linux.html">Linux</a><a href="https://astromsshin.github.io/blog/tag/nats.html">NATS</a><a href="https://astromsshin.github.io/blog/tag/streaming.html">streaming</a></p></footer><!-- /.post-info --><p>NATS는 Go 언어로 작성된 open-source messaging system으로, 
+<p>tags: <a href="https://astromsshin.github.io/blog/tag/lg-g4.html">LG G4</a><a href="https://astromsshin.github.io/blog/tag/bluetooth.html">bluetooth</a><a href="https://astromsshin.github.io/blog/tag/dashboard.html">dashboard</a><a href="https://astromsshin.github.io/blog/tag/f-droid.html">f-droid</a></p></footer><!-- /.post-info --><p>구형 스마트폰을 활용하는 방법들을 주변 사람들에게 종종 소개했었는데, 
+여기에서는 그 첫번째 경우로 구형 <a href="https://en.wikipedia.org/wiki/LG_G4">LG G4</a>를 활용하여 
+인터넷 라디오나 음악을 듣고, 동시에 시각, 일반적인 기상/미세먼지 상황 등을 
+확인할 수 있는 home dashboard를 표출하는 경우를 소개한다.</p>
+<p>우선 LG G4의 기존 Android OS를 활용하면서, 웹이나 앱으로 인터넷 라디오나 
+음악을 들을 수 있다. 이를 집에서 유용하게 쓰기 위해서, 기존의 오래된 
+스피커에 <a href="http://prod.danawa.com/info/?pcode=10986051#bookmark_product_information">블루투스 USB 오디오 동글 리시버</a>를 
+AUX로 연결하고, G4의 블루투스 연결을 통하여 일반 스피커를 블루투스 스피커로 
+만들어서 활용한다.</p>
+<p>집에서는 인터넷 라디오를 거의 항시 틀어 놓고 있어서, G4를 
+home dashboard 기능도 하도록 하였다. 이를 위해서, 적절한 공간에 
+web page를 구성하고, 자동으로 최신 정보가 해당 웹 페이지로 표출되도록 
+구성을 한다. 아래는 그러한 웹 페이지를 보여준다.
+아주 단순하게 
+HTML의 <a href="https://www.geeksforgeeks.org/how-to-automatic-refresh-a-web-page-in-fixed-time/">meta heep-equiv tag의 refresh</a>를 
+이용하여 해당 웹 페이지를 정기적으로 갱신해서 표출하도록 해줄 수 있다.</p>
+<div class="highlight"><pre><span></span>  <span class="cp">&lt;!DOCTYPE html&gt;</span>
+  <span class="nt">&lt;html&gt;</span>
+
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;refresh&quot;</span> <span class="na">content=</span><span class="s">&quot;240&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Pragma-directive&quot;</span> <span class="na">content=</span><span class="s">&quot;no-cache&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Expires&quot;</span> <span class="na">content=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Current status<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">#</span><span class="nn">clock</span> <span class="p">{</span>
+      <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+      <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+      <span class="k">justify-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+      <span class="k">font-size</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+  <span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">&quot;background-color:black;&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;center&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;clock&quot;</span><span class="nt">&gt;</span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">function</span> <span class="nx">clock</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+      <span class="kd">let</span> <span class="nx">hrs</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getHours</span><span class="p">();</span>
+    <span class="kd">let</span> <span class="nx">mins</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">();</span>
+
+    <span class="nx">hrs</span> <span class="o">=</span> <span class="nx">hrs</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">?</span> <span class="sb">`0</span><span class="si">${</span><span class="nx">hrs</span><span class="si">}</span><span class="sb">`</span> <span class="o">:</span> <span class="nx">hrs</span><span class="p">;</span>
+    <span class="nx">mins</span> <span class="o">=</span> <span class="nx">mins</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">?</span> <span class="sb">`0</span><span class="si">${</span><span class="nx">mins</span><span class="si">}</span><span class="sb">`</span> <span class="o">:</span> <span class="nx">mins</span><span class="p">;</span>
+
+    <span class="kd">let</span> <span class="nx">time</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">hrs</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">mins</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+    <span class="nx">setInterval</span><span class="p">(</span><span class="nx">clock</span><span class="p">,</span> <span class="mi">20000</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;clock&quot;</span><span class="p">).</span><span class="nx">innerText</span> <span class="o">=</span> <span class="nx">time</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">clock</span><span class="p">();</span>
+  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">name=</span><span class="s">&quot;img1&quot;</span> <span class="na">src=</span><span class="s">&quot;./negate-pm_use.png&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">name=</span><span class="s">&quot;img2&quot;</span> <span class="na">src=</span><span class="s">&quot;./negate-weather_use.png&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">name=</span><span class="s">&quot;img3&quot;</span> <span class="na">src=</span><span class="s">&quot;./negate-weather_radar_use.png&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;img</span> <span class="na">name=</span><span class="s">&quot;img4&quot;</span> <span class="na">src=</span><span class="s">&quot;./negate-weather_aws_rain_use.png&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">name=</span><span class="s">&quot;img5&quot;</span> <span class="na">src=</span><span class="s">&quot;./negate-weather_forecast_use.png&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;br&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">name=</span><span class="s">&quot;img6&quot;</span> <span class="na">src=</span><span class="s">&quot;./negate-weather_satellite_use.png&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;img</span> <span class="na">name=</span><span class="s">&quot;img7&quot;</span> <span class="na">src=</span><span class="s">&quot;./negate-weather_aws_temp_use.png&quot;</span><span class="nt">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>첫번 째 표출되는 것은 현재 시각으로, 간단한 javascript를 활용한다. 
+전력 사용량을 줄이기 위하여, 배경을 검은색으로 하는 것으로 구성하였다.</p>
+<p>크롬 브라우저나 파이어폭스 브라우저를 이용해서 실험을 했을 때, 해당 브라우저들의 
+전력 사용량이 위와 같은 간단한 경우에도 매우 큰 것을 확인 할 수 있었다. 이로 
+인하여 G4의 온도가 꽤 높게 상승하는 것을 발견하였다. 따라서 다른 대안이 필요했다.</p>
+<p>전력 사용량을 줄이면서 가볍게 웹기반의 home dashboard를 위해서 선택한 방법은, 
+<a href="https://f-droid.org/">F-Droid</a>를 통해서 이용이 가능한 open source 프로그램인
+<a href="https://f-droid.org/en/packages/com.tobykurien.webapps/">WebApps Sandboxed Browser</a>을 
+이용하는 것이다. 이 경우 전체화면으로 home dashboard를 표출하는 것 등이 손 쉽게 
+가능하며, 마치 하나의 앱처럼 구성하는 것도 용이하다. 그리고 무엇보다도 G4의 
+온도 상승이 미미한 것을 확인할 수 있었다. 이는 내부적으로 Android System WebView를 
+이용하기 때문인 것으로 추정한다.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+        
+
+ 
+            <li><article class="hentry">    
+                <header>
+                    <h3><a href="https://astromsshin.github.io/blog/NATS_streaming.html" rel="bookmark"
+                           title="Permalink to NATS streaming 활용기">NATS streaming 활용기</a></h3>
+                </header>
+                
+                <div class="entry-content">
+                <p>NATS는 Go 언어로 작성된 open-source messaging system으로, 
 Cloud Native Computing Foundation project의 하나이다. 이번에 
 활용한 NATS streaming은 NATS에 streaming 기능이 포함된 것이다.</p>
 <p>이번에 NATS를 활용하는 것은, 기존에 Redis를 pub-sub로 활용하였던 
 것을 대체하는 목적이었다. 실제 사용 목적은 
 <a href="https://doi.org/10.5281/zenodo.1490931">Applications of the in-memory database Redis in processing transient event alerts</a>
-포스터 발표 자료를 참고할 수 있다.</p>
-<p>현재 활용 환경에서는, NATS streaming의 
-Python client library인 <a href="https://nats.io/download/nats-io/stan.py/">Python Asyncio Client</a>를 이용하여, 
-다양한 방법으로 message processing이 이루어지고 있다.
-예를 들어, 일부 client agent의 경우에는 PostgreSQL에 message를 처리하여 
-관련 정보를 기록하고, 다른 client agent의 경우에는 SQLite를 이용하기도 하며, 
-또 다른 client agent의 경우에는 email 전송 등의 기능을 수행하고 있다.</p>
-<p><a href="https://github.com/nats-io/nats-top">nats-top</a>을 이용하여, monitoring이 이루어지고 
-있으며, 현재까지 문제 없이 NATS streaming을 잘 활용하고 있는 상황이다.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+포스터 발표 자료를 …</p>
+                <a class="readmore" href="https://astromsshin.github.io/blog/NATS_streaming.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
         
 
  
@@ -102,30 +191,9 @@ USB reverse tethering을 구성하였다.</p>
                 <a class="readmore" href="https://astromsshin.github.io/blog/android_connectbot_ssh_proxy_firefox.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-        
-
- 
-            <li><article class="hentry">    
-                <header>
-                    <h3><a href="https://astromsshin.github.io/blog/Slax_Linux.html" rel="bookmark"
-                           title="Permalink to Slax Linux + MinIO 활용기">Slax Linux + MinIO 활용기</a></h3>
-                </header>
-                
-                <div class="entry-content">
-                <p>구형 PC에 최대 설치할 수 있는 6개의 16TB HDD를 설치하고, 
-<a href="https://min.io/">MinIO</a> Object Storage를 활용하고자 했다. 
-이를 위하여 내장 디스크에 OS를 설치하여 이용하는 것 대신에, 
-Slax를 USB에 설치하여 이용하였다.</p>
-<p><a href="https://www.slax.org/">Slax</a>는 USB 저장장치에 persistent 
-volume을 가지는 형태로 설치 및 이용이 가능한 Linux distribution이다. 기본적으로 
-Debian을 기반으로 해서 만들어졌다.</p>
-<p>Slax를 설치한 이후에는 …</p>
-                <a class="readmore" href="https://astromsshin.github.io/blog/Slax_Linux.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 2
+    Page 1 / 3
         <a href="https://astromsshin.github.io/blog/category/tech2.html">&raquo;</a>
 </p>
             </section><!-- /#content -->
