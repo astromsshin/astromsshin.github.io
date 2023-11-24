@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Tech and data blog - proxy</title>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <meta name="author" content="astromsshin" />
+        <meta name="copyright" content="astromsshin" />
+        <meta name="robots" content="noindex,follow">
+
+        <link rel="stylesheet" href="https://astromsshin.github.io/blog/theme/css/main.css" type="text/css" />
+
+        <!--[if IE]>
+                <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://astromsshin.github.io/blog/css/ie.css"/>
+                <script src="https://astromsshin.github.io/blog/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://astromsshin.github.io/blog/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://astromsshin.github.io/blog">Tech and data blog </a></h1>
+                <nav>
+                    <a href="https://astromsshin.github.io/blog/category/data-model.html">Data & Model</a>&nbsp;
+                    <a href="https://astromsshin.github.io/blog/category/diy.html">DIY</a>&nbsp;
+                    <a href="https://astromsshin.github.io/blog/category/tech.html">Tech</a>&nbsp;
+                </nav>
+        </header><!-- /#banner -->
+        
+        
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="https://astromsshin.github.io/blog/android_connectbot_ssh_proxy_firefox.html">Android에서 ConnectBot을 이용한 ssh SOCKS proxy와 Firefox 사용하기</a></h1> 
+<footer class="post-info">
+        <abbr class="published" title="2020-07-15T23:45:00+09:00">
+                수 15 7월 2020
+        </abbr>
+<p>tags: <a href="https://astromsshin.github.io/blog/tag/android.html">Android</a><a href="https://astromsshin.github.io/blog/tag/ssh.html">ssh</a><a href="https://astromsshin.github.io/blog/tag/proxy.html">proxy</a></p></footer><!-- /.post-info --><p>Android smartphone을 사용하고 있지만, google account와 연동하지 않고 있고, 
+더불어서 그 어떤 google play store app을 사용하지 않는 사용자이다.</p>
+<p>이러한 상황에서 secure web browsing이 필요한 경우가 최근에 많이 발생하고 
+있고, 이 경우 적절한 방법을 찾고 있었다.</p>
+<p>최종적으로 선택한 방법은 아래와 같다.</p>
+<ol>
+<li>Android에서 충분히 검증된 open source ssh client인 
+<a href="https://f-droid.org/en/packages/org.connectbot/">ConnectBot</a>을 
+F-Droid에서 받아서 Android smartphone에 설치한다.</li>
+<li>ConnectBot에서 key-based ssh login 및 SOCKS proxy로 쓸 수 있게 
+port forwarding을 설정한다. (https://pthree.org/2015/08/26/setting-up-a-global-ssh-proxy-on-android-with-connectbot-and-proxydroid/ 참고)</li>
+<li>https://www.mozilla.org/en-US/firefox/all/#product-android-release 에서 Firefox Android를 받아서 
+Android smartphone에 설치한다.</li>
+<li>Firefox에서 <a href="https://addons.mozilla.org/en-US/firefox/addon/switchyomega/">Proxy SwitchyOmega</a>를 
+설치하고, default로 SOCKS proxy를 이용하도록 구성한다.</li>
+</ol>
+<p>이렇게 구성한 이후에는 Firefox를 실행하기 전에, ConnectBot으로 secure 
+communication이 가능한 <a href="https://hackertarget.com/ssh-examples-tunnels/">ssh tunnel</a>를 
+구성하고, 다음에 Firefox를 실행하여 구성된 ssh tunnel을 이용하면 된다.</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                     Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>. Theme is using <a href="https://github.com/getpelican/pelican-themes" target="_blank">cebong</a>.
+                </address><!-- /#about -->
+
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

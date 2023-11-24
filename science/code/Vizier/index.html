@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>
+Simple tools for Vizier batch jobs
+</title>
+</head>
+<body>
+<pre>
+#################################################
+# Simple tools for Vizier batch jobs            #
+#                                               #
+# Developed by Min-Su Shin (Department of       #
+# Astrophysical Sciences, Princeton University) #
+# in 2006.                                       #
+#################################################
+
+When you have a file coord.list_long that has three columns: objID, 
+RA, and DEC in degree, resepectively, and want to cross-match
+with 2MASS catalog on Vizier. The coord.list_long file looks like 
+the following:
+
+1 344.33169 59.21965
+2 344.22742 59.44418
+3 343.87432 60.16977
+4 343.18493 61.49573
+5 343.08197 61.67818
+6 342.75576 62.26144
+7 342.65430 62.43754
+8 342.62604 62.48752
+9 342.50964 62.68910
+10 342.49612 62.71179
+
+(Step 1)
+./vizier_query_builder.py coord.list_long 2MASS.query
+
+(Step 2)
+bash ./2MASS.query > ./2MASS.result
+
+(Step 3)
+./vizier_query_postprocess.py coord.list_long 2MASS.result 2MASS.result.use
+
+Requirements: the query file uses the cdsclient package and 
+its vizquery command.
+http://cdsarc.u-strasbg.fr/doc/cdsclient.html
+</pre>
+<p>
+<br>
+<a href="vizier_query_builder.py">vizier_query_builder.py</a>
+<br>
+<a href="vizier_query_postprocess.py">vizier_query_postprocess.py</a>
+</body>
+</html>

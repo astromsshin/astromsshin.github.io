@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>NATS streaming 활용기</title>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <meta name="keywords" content="Linux, NATS, streaming, Tech" />
+        <meta name="category" content="Tech" />
+        <meta name="description" content="NATS는 Go 언어로 작성된 open-source messaging system으로, Cloud Native Computing Foundation project의 하나이다. 이번에 활용한 NATS streaming은 NATS에 streaming 기능이 포함된 것이다. 이번에 NATS를 활용하는 것은, 기 …" />
+        <meta name="author" content="astromsshin" />
+        <meta name="copyright" content="astromsshin" />
+        <meta name="date" content="2020-10-23 00:40:00+09:00">
+        <meta name="robots" content="index,follow">
+
+        <link rel="stylesheet" href="https://astromsshin.github.io/blog/theme/css/main.css" type="text/css" />
+
+        <!--[if IE]>
+                <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://astromsshin.github.io/blog/css/ie.css"/>
+                <script src="https://astromsshin.github.io/blog/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://astromsshin.github.io/blog/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://astromsshin.github.io/blog">Tech and data blog </a></h1>
+                <nav>
+                    <a href="https://astromsshin.github.io/blog/category/data-model.html">Data & Model</a>&nbsp;
+                    <a href="https://astromsshin.github.io/blog/category/diy.html">DIY</a>&nbsp;
+                    <a href="https://astromsshin.github.io/blog/category/tech.html">Tech</a>&nbsp;
+                </nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="NATS_streaming.html" rel="bookmark"
+           title="Permalink to NATS streaming 활용기">NATS streaming 활용기</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-10-23T00:40:00+09:00">
+                금 23 10월 2020
+        </abbr>
+<p>tags: <a href="https://astromsshin.github.io/blog/tag/linux.html">Linux</a><a href="https://astromsshin.github.io/blog/tag/nats.html">NATS</a><a href="https://astromsshin.github.io/blog/tag/streaming.html">streaming</a></p></footer><!-- /.post-info -->      <p>NATS는 Go 언어로 작성된 open-source messaging system으로, 
+Cloud Native Computing Foundation project의 하나이다. 이번에 
+활용한 NATS streaming은 NATS에 streaming 기능이 포함된 것이다.</p>
+<p>이번에 NATS를 활용하는 것은, 기존에 Redis를 pub-sub로 활용하였던 
+것을 대체하는 목적이었다. 실제 사용 목적은 
+<a href="https://doi.org/10.5281/zenodo.1490931">Applications of the in-memory database Redis in processing transient event alerts</a>
+포스터 발표 자료를 참고할 수 있다.</p>
+<p>현재 활용 환경에서는, NATS streaming의 
+Python client library인 <a href="https://nats.io/download/nats-io/stan.py/">Python Asyncio Client</a>를 이용하여, 
+다양한 방법으로 message processing이 이루어지고 있다.
+예를 들어, 일부 client agent의 경우에는 PostgreSQL에 message를 처리하여 
+관련 정보를 기록하고, 다른 client agent의 경우에는 SQLite를 이용하기도 하며, 
+또 다른 client agent의 경우에는 email 전송 등의 기능을 수행하고 있다.</p>
+<p><a href="https://github.com/nats-io/nats-top">nats-top</a>을 이용하여, monitoring이 이루어지고 
+있으며, 현재까지 문제 없이 NATS streaming을 잘 활용하고 있는 상황이다.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                     Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>. Theme is using <a href="https://github.com/getpelican/pelican-themes" target="_blank">cebong</a>.
+                </address><!-- /#about -->
+
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

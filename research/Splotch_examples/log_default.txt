@@ -1,0 +1,60 @@
++---------+
+| splotch |
++---------+
+
+Vector math: SSE2
+MPI active with 96 tasks.
+Input data file name: 19_splotch.bin
+Number of columns 9
+x  value in column 1
+y  value in column 2
+z  value in column 3
+r  value in column -2
+I  value in column 0
+C1 value in column 4
+C2 value in column -2
+C3 value in column -2
+
+host: ranging values (174280373) ...
+ For particles of type 0:
+ From data: 
+ Color Range:     2.041e-06 (min) , 0.0342996 (max) 
+ Intensity Range: 203876 (min) , 1.8794e+09 (max) 
+ Restricted to: 
+ Color Range:     2.041e-06 (min) , 0.0342996 (max) 
+ Intensity Range: 203876 (min) , 5e+11 (max) 
+ doing parallel box wrap 0
+
+host: applying geometry (174280373) ...
+
+host: calculating colors (174280373) ...
+
+host: rendering (174280373/174280373)...
+
+saving file ...
+
+Total wall clock time for 'Splotch': 6.6801s
+|
++- Input                 : 81.37% (5.4358s)
++- Post-processing       :  8.45% (0.5646s)
++- Rendering             :  3.36% (0.2243s)
+|  |
+|  +- Host Rendering proper : 67.94% (0.1524s)
+|  +- Host Chunk preparation: 31.24% (0.0701s)
+|  +- <unaccounted>         :  0.82% (0.0018s)
+|  
++- 3D transform          :  2.31% (0.1540s)
++- Particle ranging      :  1.95% (0.1301s)
+|  |
+|  +- minmax                : 68.61% (0.0893s)
+|  +- clamp                 : 29.34% (0.0382s)
+|  +- <unaccounted>         :  2.04% (0.0027s)
+|  
++- Particle coloring     :  1.07% (0.0713s)
++- Output                :  0.55% (0.0367s)
++- Setup                 :  0.22% (0.0149s)
++- Particle sorting      :  0.00% (0.0000s)
++- <unaccounted>         :  0.73% (0.0485s)
+
+
+Accumulated timing overhead: approx. 0.0004s

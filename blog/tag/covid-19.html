@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Tech and data blog - COVID-19</title>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <meta name="author" content="astromsshin" />
+        <meta name="copyright" content="astromsshin" />
+        <meta name="robots" content="noindex,follow">
+
+        <link rel="stylesheet" href="https://astromsshin.github.io/blog/theme/css/main.css" type="text/css" />
+
+        <!--[if IE]>
+                <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://astromsshin.github.io/blog/css/ie.css"/>
+                <script src="https://astromsshin.github.io/blog/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://astromsshin.github.io/blog/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://astromsshin.github.io/blog">Tech and data blog </a></h1>
+                <nav>
+                    <a href="https://astromsshin.github.io/blog/category/data-model.html">Data & Model</a>&nbsp;
+                    <a href="https://astromsshin.github.io/blog/category/diy.html">DIY</a>&nbsp;
+                    <a href="https://astromsshin.github.io/blog/category/tech.html">Tech</a>&nbsp;
+                </nav>
+        </header><!-- /#banner -->
+        
+        
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="https://astromsshin.github.io/blog/Model_COVID-19.html">COVID-19/SARS-CoV-2/2019-nCoV 관련 전염 모델에 관하여</a></h1> 
+<footer class="post-info">
+        <abbr class="published" title="2020-03-21T00:00:00+09:00">
+                토 21 3월 2020
+        </abbr>
+<p>tags: <a href="https://astromsshin.github.io/blog/tag/data.html">Data</a><a href="https://astromsshin.github.io/blog/tag/covid-19.html">COVID-19</a><a href="https://astromsshin.github.io/blog/tag/sars-cov-2.html">SARS-CoV-2</a><a href="https://astromsshin.github.io/blog/tag/2019-ncov.html">2019-nCoV</a></p></footer><!-- /.post-info --><p>COVID-19과 같은 전염병 전염 모델은, 대부분의 과학자들이 익숙한 source term 
+vs. sink term이 연결된 dynamical system의 형태로 기술이 된다. 여기서 연구자들이 
+관심을 가지는 dynamical variables은 susceptible, exposed/latent, infectious, 
+recovered, immune population과 같은 것이 된다.</p>
+<p>관련되어 참고할 수 있는 자료들은 아래와 같다.</p>
+<ul>
+<li><a href="https://plus.maths.org/content/mathematics-diseases">The mathematics of diseases</a>: 일반인들이 이해하기에 가장 기초적인 설명을 제공.</li>
+<li><a href="https://www.quantamagazine.org/flu-vaccines-and-the-math-of-herd-immunity-20180205/">How Math (and Vaccines) Keep You Safe From the Flu</a>: 일반인들이 이해할 수 있도록 수학적인 내용을 제공.</li>
+<li><a href="https://doi.org/10.4161/viru.24041">Mathematical modeling of infectious disease dynamics</a>: 다양한 방법론을 종합적으로 소개하는 review임.</li>
+<li><a href="https://www.nature.com/articles/nrmicro1845">Mathematical models of infectious disease transmission</a></li>
+<li><a href="https://science.sciencemag.org/content/347/6227/aaa4339">Modeling infectious disease dynamics in the complex landscape of global health</a></li>
+<li><a href="https://www.bbc.co.uk/sounds/play/m000gvcp">Coronavirus: Models &amp; being led by the science</a>: BBC Insider Science podcast episode 중 하나.</li>
+</ul>
+<p>아주 단순한 모델이지만 "flattening the COVID-19 curve"라는 말로 최근에 
+COVID-19과 관련해서 일반인들이 자주 들었던 말에 대한 쉬운 설명은 
+아래 두개를 확인해 보기를 추천한다.</p>
+<ul>
+<li><a href="https://www.washingtonpost.com/graphics/2020/world/corona-simulator/">Why outbreaks like coronavirus spread exponentially, and how to “flatten the curve”</a></li>
+<li><a href="https://staff.math.su.se/hoehle/blog/2020/03/16/flatteningthecurve.html">Flatten the COVID-19 curve</a>: 잘 알려진 Susceptible-Infectious-Recovered model을 이용하여 설명.</li>
+</ul>
+<p>보다 구체적이고 자세한 전염 모델에 관심이 있다면,
+<a href="https://www.biostat.washington.edu/suminst/archives/SISMID2019">SISMID2019: 11th Summer Institute in Statistics and Modeling in Infectious Diseases (SISMID)</a>의 
+내용을 참고하기 바란다. 특별히, non-pharmaceutical intervention의 역할에 
+관심이 있다면, 
+<a href="https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-020-01628-4">Epidemiological models are important tools for guiding COVID-19 interventions</a>을 참고하면 좋다.</p>
+<p>다양한 내용을 종합적으로 살펴볼 수 있는 것으로는 최근에 PLOS가 준비한 
+<a href="https://collections.plos.org/mathematical-disease-dynamics">PLOS Collections: Mathematical Modelling of Infectious Disease Dynamics</a>의 
+논문들을 확인해 볼 것을 추천한다.</p>
+<p>이러한 모델을 이용한 policy decision 과정에서 유의해야 하는 점들에 대해서는 
+아래와 같은 것들을 확인해 보기를 권한다.</p>
+<ul>
+<li><a href="https://www.sciencemag.org/news/2020/03/mathematics-life-and-death-how-disease-models-shape-national-shutdowns-and-other">Mathematics of life and death: How disease models shape national shutdowns and other pandemic policies</a></li>
+<li><a href="https://www.theguardian.com/commentisfree/2020/mar/25/uk-coronavirus-policy-scientific-dominic-cummings">The UK's coronavirus policy may sound scientific. It isn't</a></li>
+<li><a href="https://www.theguardian.com/commentisfree/2020/mar/23/britain-covid-19-head-start-squandered">Britain had a head start on Covid-19, but our leaders squandered it</a></li>
+<li><a href="https://freakonomics.com/podcast/scalability/">Policymaking Is Not a Science (Yet)</a></li>
+<li><a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1003018">Infectious disease pandemic planning and response: Incorporating decision analysis</a></li>
+<li><a href="https://www.brookings.edu/2020/04/02/the-early-days-of-a-global-pandemic-a-timeline-of-covid-19-spread-and-government-interventions/">The early days of a global pandemic: A timeline of COVID-19 spread and government interventions</a></li>
+</ul>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+        
+
+ 
+            <li><article class="hentry">    
+                <header>
+                    <h3><a href="https://astromsshin.github.io/blog/Intro_to_COVID-19.html" rel="bookmark"
+                           title="Permalink to COVID-19/SARS-CoV-2/2019-nCoV에 대한 일반적인 정보">COVID-19/SARS-CoV-2/2019-nCoV에 대한 일반적인 정보</a></h3>
+                </header>
+                
+                <div class="entry-content">
+                <p>COVID-19과 관련된 여러 과학적 질문들에 대해서 좀 더 알고 
+싶은 이들에게 추천하고 싶은 것은 기초과학연구원(IBS)의 코로나 19 과학 리 …</p>
+                <a class="readmore" href="https://astromsshin.github.io/blog/Intro_to_COVID-19.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                     Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>. Theme is using <a href="https://github.com/getpelican/pelican-themes" target="_blank">cebong</a>.
+                </address><!-- /#about -->
+
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

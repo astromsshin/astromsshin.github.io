@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Tech and data blog - RaspberryPi</title>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <meta name="author" content="astromsshin" />
+        <meta name="copyright" content="astromsshin" />
+        <meta name="robots" content="noindex,follow">
+
+        <link rel="stylesheet" href="https://astromsshin.github.io/blog/theme/css/main.css" type="text/css" />
+
+        <!--[if IE]>
+                <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://astromsshin.github.io/blog/css/ie.css"/>
+                <script src="https://astromsshin.github.io/blog/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://astromsshin.github.io/blog/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://astromsshin.github.io/blog">Tech and data blog </a></h1>
+                <nav>
+                    <a href="https://astromsshin.github.io/blog/category/data-model.html">Data & Model</a>&nbsp;
+                    <a href="https://astromsshin.github.io/blog/category/diy.html">DIY</a>&nbsp;
+                    <a href="https://astromsshin.github.io/blog/category/tech.html">Tech</a>&nbsp;
+                </nav>
+        </header><!-- /#banner -->
+        
+        
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="https://astromsshin.github.io/blog/rpi_cast.html">Raspberry Pi를 활용한 video casting 환경 구성</a></h1> 
+<footer class="post-info">
+        <abbr class="published" title="2018-12-24T23:40:00+09:00">
+                월 24 12월 2018
+        </abbr>
+<p>tags: <a href="https://astromsshin.github.io/blog/tag/linux.html">Linux</a><a href="https://astromsshin.github.io/blog/tag/rpi.html">RPi</a><a href="https://astromsshin.github.io/blog/tag/raspberrypi.html">RaspberryPi</a></p></footer><!-- /.post-info --><p>집에 있는 조금 오래된 TV에는 HDMI 연결 단자가 있어서 노트북 등을 
+연결하여 Youtube 등 온라인에 있는 동영상을 보는 것이 가능하다. 이것을 
+좀 더 쉽게 하고, 집에서 휴대전화기나 노트북으로 원하는 동영상의 url을 
+넘겨서 시청할 수 있도록 Raspberry Pi를 이용하여 환경을 구성하였다.</p>
+<p>우선 <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/">Raspberry Pi 3 Model B+</a>를 
+구매하여 Raspbian을 설치한다.</p>
+<p>그리고 <a href="https://github.com/vincelwt/RaspberryCast">RaspberryCast</a>를 설치하여 
+기본적인 구성을 마친다.</p>
+<p>RaspberryCast는 Python web framework인 <a href="https://bottlepy.org">Bottle</a>을 
+이용하는데, 소스 코드를 수정해서 다양한 기능을 추가하는 것은 쉽다. 수정을 
+위해서 살펴보아야 하는 부분은 server.py이다.</p>
+<p>관련해서 같이 이용하는 것으로 
+<a href="https://bitbucket.org/baldisos/raspberry-pi-control-panel">Raspberry Pi Control Panel</a> 
+역시 추가하여 설치하고, 다소 수정을 해서 사용 중이다. PHP 프로그램으로 
+PHP에서 제공하는 system function을 이용한다.</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                     Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>. Theme is using <a href="https://github.com/getpelican/pelican-themes" target="_blank">cebong</a>.
+                </address><!-- /#about -->
+
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

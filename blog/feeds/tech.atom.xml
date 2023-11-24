@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and data blog - Tech</title><link href="https://astromsshin.github.io/blog/" rel="alternate"></link><link href="https://astromsshin.github.io/blog/feeds/tech.atom.xml" rel="self"></link><id>https://astromsshin.github.io/blog/</id><updated>2021-07-03T23:12:00+09:00</updated><entry><title>구형 스마트폰 활용(2): 시계</title><link href="https://astromsshin.github.io/blog/old_phone_2.html" rel="alternate"></link><published>2021-07-03T23:12:00+09:00</published><updated>2021-07-03T23:12:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2021-07-03:/blog/old_phone_2.html</id><summary type="html">&lt;p&gt;구형 스마트폰을 활용하는 두 번째 경우로 주방에서 
+사용하고 있는 &lt;a href="https://en.wikipedia.org/wiki/Samsung_Galaxy_S_II"&gt;Galaxy S II&lt;/a&gt;를 
+활용한 시계가 있다.&lt;/p&gt;
+&lt;p&gt;우선 기존 Android가 아니라 &lt;a href="https://www.replicant.us/"&gt;Replicant&lt;/a&gt;라는 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;구형 스마트폰을 활용하는 두 번째 경우로 주방에서 
+사용하고 있는 &lt;a href="https://en.wikipedia.org/wiki/Samsung_Galaxy_S_II"&gt;Galaxy S II&lt;/a&gt;를 
+활용한 시계가 있다.&lt;/p&gt;
+&lt;p&gt;우선 기존 Android가 아니라 &lt;a href="https://www.replicant.us/"&gt;Replicant&lt;/a&gt;라는 fully free 
+Android distribution를 설치하였다. 
+&lt;a href="https://manurevah.com/blah/en/p/Replicant-6-Enabling-Wifi-on-Galaxy-2-i9100"&gt;Wifi 드라이버를 설치&lt;/a&gt;하여 
+활용하는 것이 가능하나, 시계로 활용하는데 전혀 문제가 없기 때문에 Wifi를 
+설정하지 않았다.&lt;/p&gt;
+&lt;p&gt;기본적으로 Replicant에 포함되어 있는 기본 시계를 활용하여 주방에서 시간 확인이나 
+요리에 필요한 stopwatch의 용도로 활용하고 있다.&lt;/p&gt;
+&lt;p&gt;Galaxy S II의 경우 Replicant외에도 &lt;a href="https://wiki.postmarketos.org/index.php?title=Samsung_Galaxy_SII_(samsung-i9100)"&gt;postmarketOS&lt;/a&gt;를 
+활용하는 것도 고려해 볼 수 있다.&lt;/p&gt;</content><category term="Tech"></category><category term="Galaxy SII"></category><category term="clock"></category><category term="replicant"></category></entry><entry><title>구형 스마트폰 활용(1): 인터넷 라디오+블루투스+스피커+home dashboard</title><link href="https://astromsshin.github.io/blog/old_phone_1.html" rel="alternate"></link><published>2021-07-02T23:04:00+09:00</published><updated>2021-07-02T23:04:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2021-07-02:/blog/old_phone_1.html</id><summary type="html">&lt;p&gt;구형 스마트폰을 활용하는 방법들을 주변 사람들에게 종종 소개했었는데, 
+여기에서는 그 첫번째 경우로 구형 &lt;a href="https://en.wikipedia.org/wiki/LG_G4"&gt;LG G4&lt;/a&gt;를 활용하 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;구형 스마트폰을 활용하는 방법들을 주변 사람들에게 종종 소개했었는데, 
+여기에서는 그 첫번째 경우로 구형 &lt;a href="https://en.wikipedia.org/wiki/LG_G4"&gt;LG G4&lt;/a&gt;를 활용하여 
+인터넷 라디오나 음악을 듣고, 동시에 시각, 일반적인 기상/미세먼지 상황 등을 
+확인할 수 있는 home dashboard를 표출하는 경우를 소개한다.&lt;/p&gt;
+&lt;p&gt;우선 LG G4의 기존 Android OS를 활용하면서, 웹이나 앱으로 인터넷 라디오나 
+음악을 들을 수 있다. 이를 집에서 유용하게 쓰기 위해서, 기존의 오래된 
+스피커에 &lt;a href="http://prod.danawa.com/info/?pcode=10986051#bookmark_product_information"&gt;블루투스 USB 오디오 동글 리시버&lt;/a&gt;를 
+AUX로 연결하고, G4의 블루투스 연결을 통하여 일반 스피커를 블루투스 스피커로 
+만들어서 활용한다.&lt;/p&gt;
+&lt;p&gt;집에서는 인터넷 라디오를 거의 항시 틀어 놓고 있어서, G4를 
+home dashboard 기능도 하도록 하였다. 이를 위해서, 적절한 공간에 
+web page를 구성하고, 자동으로 최신 정보가 해당 웹 페이지로 표출되도록 
+구성을 한다. 아래는 그러한 웹 페이지를 보여준다.
+아주 단순하게 
+HTML의 &lt;a href="https://www.geeksforgeeks.org/how-to-automatic-refresh-a-web-page-in-fixed-time/"&gt;meta heep-equiv tag의 refresh&lt;/a&gt;를 
+이용하여 해당 웹 페이지를 정기적으로 갱신해서 표출하도록 해줄 수 있다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="cp"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+
+  &lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;charset=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;http-equiv=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;refresh&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;240&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;http-equiv=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Pragma-directive&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;no-cache&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;http-equiv=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Expires&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Current status&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;style&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="nn"&gt;clock&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;white&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="k"&gt;align-items&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;center&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="k"&gt;justify-content&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;center&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="kt"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;style&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+  &lt;span class="nt"&gt;&amp;lt;body&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;background-color:black;&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+
+  &lt;span class="nt"&gt;&amp;lt;center&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;clock&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;clock&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;date&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;hrs&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;date&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getHours&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;mins&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;date&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getMinutes&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;hrs&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;hrs&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;10&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="sb"&gt;`0&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;hrs&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;hrs&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;mins&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;mins&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;10&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="sb"&gt;`0&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;mins&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;mins&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;time&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;hrs&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;:&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;mins&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nx"&gt;setInterval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;clock&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;20000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;clock&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;innerText&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;time&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nx"&gt;clock&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;img1&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;./negate-pm_use.png&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;img2&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;./negate-weather_use.png&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;img3&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;./negate-weather_radar_use.png&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;img4&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;./negate-weather_aws_rain_use.png&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;img5&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;./negate-weather_forecast_use.png&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;img6&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;./negate-weather_satellite_use.png&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;img7&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;./negate-weather_aws_temp_use.png&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;center&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+  &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+  &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;첫번 째 표출되는 것은 현재 시각으로, 간단한 javascript를 활용한다. 
+전력 사용량을 줄이기 위하여, 배경을 검은색으로 하는 것으로 구성하였다.&lt;/p&gt;
+&lt;p&gt;크롬 브라우저나 파이어폭스 브라우저를 이용해서 실험을 했을 때, 해당 브라우저들의 
+전력 사용량이 위와 같은 간단한 경우에도 매우 큰 것을 확인 할 수 있었다. 이로 
+인하여 G4의 온도가 꽤 높게 상승하는 것을 발견하였다. 따라서 다른 대안이 필요했다.&lt;/p&gt;
+&lt;p&gt;전력 사용량을 줄이면서 가볍게 웹기반의 home dashboard를 위해서 선택한 방법은, 
+&lt;a href="https://f-droid.org/"&gt;F-Droid&lt;/a&gt;를 통해서 이용이 가능한 open source 프로그램인
+&lt;a href="https://f-droid.org/en/packages/com.tobykurien.webapps/"&gt;WebApps Sandboxed Browser&lt;/a&gt;을 
+이용하는 것이다. 이 경우 전체화면으로 home dashboard를 표출하는 것 등이 손 쉽게 
+가능하며, 마치 하나의 앱처럼 구성하는 것도 용이하다. 그리고 무엇보다도 G4의 
+온도 상승이 미미한 것을 확인할 수 있었다. 이는 내부적으로 Android System WebView를 
+이용하기 때문인 것으로 추정한다.&lt;/p&gt;
+&lt;p&gt;F-Droid를 통해서 추가로 설치 한 것 중에는 &lt;a href="https://f-droid.org/en/packages/org.schabi.newpipe/"&gt;NewPipe&lt;/a&gt;가 
+있다. Youtube에서 원하는 비디오를 음악 파일로 만들어서 저장해서 활용하는데 활용하고 
+있다.&lt;/p&gt;</content><category term="Tech"></category><category term="LG G4"></category><category term="bluetooth"></category><category term="dashboard"></category><category term="f-droid"></category></entry><entry><title>NATS streaming 활용기</title><link href="https://astromsshin.github.io/blog/NATS_streaming.html" rel="alternate"></link><published>2020-10-23T00:40:00+09:00</published><updated>2020-10-23T00:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2020-10-23:/blog/NATS_streaming.html</id><summary type="html">&lt;p&gt;NATS는 Go 언어로 작성된 open-source messaging system으로, 
+Cloud Native Computing Foundation project의 하나이다. 이번에 
+활용한 NATS streaming은 NATS에 streaming 기능이 포함된 것이다.&lt;/p&gt;
+&lt;p&gt;이번에 NATS를 활용하는 것은, 기 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;NATS는 Go 언어로 작성된 open-source messaging system으로, 
+Cloud Native Computing Foundation project의 하나이다. 이번에 
+활용한 NATS streaming은 NATS에 streaming 기능이 포함된 것이다.&lt;/p&gt;
+&lt;p&gt;이번에 NATS를 활용하는 것은, 기존에 Redis를 pub-sub로 활용하였던 
+것을 대체하는 목적이었다. 실제 사용 목적은 
+&lt;a href="https://doi.org/10.5281/zenodo.1490931"&gt;Applications of the in-memory database Redis in processing transient event alerts&lt;/a&gt;
+포스터 발표 자료를 참고할 수 있다.&lt;/p&gt;
+&lt;p&gt;현재 활용 환경에서는, NATS streaming의 
+Python client library인 &lt;a href="https://nats.io/download/nats-io/stan.py/"&gt;Python Asyncio Client&lt;/a&gt;를 이용하여, 
+다양한 방법으로 message processing이 이루어지고 있다.
+예를 들어, 일부 client agent의 경우에는 PostgreSQL에 message를 처리하여 
+관련 정보를 기록하고, 다른 client agent의 경우에는 SQLite를 이용하기도 하며, 
+또 다른 client agent의 경우에는 email 전송 등의 기능을 수행하고 있다.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/nats-io/nats-top"&gt;nats-top&lt;/a&gt;을 이용하여, monitoring이 이루어지고 
+있으며, 현재까지 문제 없이 NATS streaming을 잘 활용하고 있는 상황이다.&lt;/p&gt;</content><category term="Tech"></category><category term="Linux"></category><category term="NATS"></category><category term="streaming"></category></entry><entry><title>Android에서 SimpleRT를 이용한 Linux host의 네트워크를 사용하는 reverse tethering</title><link href="https://astromsshin.github.io/blog/android_reverse_tethering_linux.html" rel="alternate"></link><published>2020-07-25T23:40:00+09:00</published><updated>2020-07-25T23:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2020-07-25:/blog/android_reverse_tethering_linux.html</id><summary type="html">&lt;p&gt;Android smartphone을 사용하면서, 보안상 안전하지 않거나 혹은 불안정한 
+wifi나 mobile 연결을 이용하는 것 대신에 wired connection을 이용하는 
+것을 선호하는 상황 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Android smartphone을 사용하면서, 보안상 안전하지 않거나 혹은 불안정한 
+wifi나 mobile 연결을 이용하는 것 대신에 wired connection을 이용하는 
+것을 선호하는 상황이 종종 발생한다. 이러한 경우에 활용하기 위해서 open-source 
+소프트웨어인 
+&lt;a href="https://github.com/vvviperrr/SimpleRT"&gt;SimpleRT&lt;/a&gt;를 이용한 
+USB reverse tethering을 구성하였다.&lt;/p&gt;
+&lt;p&gt;간단하게 SimpleRT server/host 프로그램을 Linux laptop/desktop에서 
+설치하였으며, 관련된 app도 Android smartphone에 설치한다. 일반적으로 
+USB로 host computer에 smartphone을 연결하면 MTP mode가 기본이나, 
+이를 전원 충전 mode로 해서 연결하면 SimpleRT server/host가 실행중인 
+상황에서 문제없이 USB reverse tethering이 됨을 알 수 있다.&lt;/p&gt;</content><category term="Tech"></category><category term="Android"></category><category term="reverse tethering"></category><category term="linux"></category></entry><entry><title>Android에서 ConnectBot을 이용한 ssh SOCKS proxy와 Firefox 사용하기</title><link href="https://astromsshin.github.io/blog/android_connectbot_ssh_proxy_firefox.html" rel="alternate"></link><published>2020-07-15T23:45:00+09:00</published><updated>2020-07-15T23:45:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2020-07-15:/blog/android_connectbot_ssh_proxy_firefox.html</id><summary type="html">&lt;p&gt;Android smartphone을 사용하고 있지만, google account와 연동하지 않고 있고, 
+더불어서 그 어떤 google play store app을 사용하지 않는 사용자이다.&lt;/p&gt;
+&lt;p&gt;이러한 상황에서 secure web …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Android smartphone을 사용하고 있지만, google account와 연동하지 않고 있고, 
+더불어서 그 어떤 google play store app을 사용하지 않는 사용자이다.&lt;/p&gt;
+&lt;p&gt;이러한 상황에서 secure web browsing이 필요한 경우가 최근에 많이 발생하고 
+있고, 이 경우 적절한 방법을 찾고 있었다.&lt;/p&gt;
+&lt;p&gt;최종적으로 선택한 방법은 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Android에서 충분히 검증된 open source ssh client인 
+&lt;a href="https://f-droid.org/en/packages/org.connectbot/"&gt;ConnectBot&lt;/a&gt;을 
+F-Droid에서 받아서 Android smartphone에 설치한다.&lt;/li&gt;
+&lt;li&gt;ConnectBot에서 key-based ssh login 및 SOCKS proxy로 쓸 수 있게 
+port forwarding을 설정한다. (https://pthree.org/2015/08/26/setting-up-a-global-ssh-proxy-on-android-with-connectbot-and-proxydroid/ 참고)&lt;/li&gt;
+&lt;li&gt;https://www.mozilla.org/en-US/firefox/all/#product-android-release 에서 Firefox Android를 받아서 
+Android smartphone에 설치한다.&lt;/li&gt;
+&lt;li&gt;Firefox에서 &lt;a href="https://addons.mozilla.org/en-US/firefox/addon/switchyomega/"&gt;Proxy SwitchyOmega&lt;/a&gt;를 
+설치하고, default로 SOCKS proxy를 이용하도록 구성한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이렇게 구성한 이후에는 Firefox를 실행하기 전에, ConnectBot으로 secure 
+communication이 가능한 &lt;a href="https://hackertarget.com/ssh-examples-tunnels/"&gt;ssh tunnel&lt;/a&gt;를 
+구성하고, 다음에 Firefox를 실행하여 구성된 ssh tunnel을 이용하면 된다.&lt;/p&gt;</content><category term="Tech"></category><category term="Android"></category><category term="ssh"></category><category term="proxy"></category></entry><entry><title>Slax Linux + MinIO 활용기</title><link href="https://astromsshin.github.io/blog/Slax_Linux.html" rel="alternate"></link><published>2019-10-30T01:40:00+09:00</published><updated>2019-10-30T01:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2019-10-30:/blog/Slax_Linux.html</id><summary type="html">&lt;p&gt;구형 PC에 최대 설치할 수 있는 6개의 16TB HDD를 설치하고, 
+&lt;a href="https://min.io/"&gt;MinIO&lt;/a&gt; Object Storage를 활용하고자 했다. 
+이를 위하여 내장 디스크에 OS를 설치하여 이용하는 것 대 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;구형 PC에 최대 설치할 수 있는 6개의 16TB HDD를 설치하고, 
+&lt;a href="https://min.io/"&gt;MinIO&lt;/a&gt; Object Storage를 활용하고자 했다. 
+이를 위하여 내장 디스크에 OS를 설치하여 이용하는 것 대신에, 
+Slax를 USB에 설치하여 이용하였다.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.slax.org/"&gt;Slax&lt;/a&gt;는 USB 저장장치에 persistent 
+volume을 가지는 형태로 설치 및 이용이 가능한 Linux distribution이다. 기본적으로 
+Debian을 기반으로 해서 만들어졌다.&lt;/p&gt;
+&lt;p&gt;Slax를 설치한 이후에는, Blackbox X-window manager 를 비롯한 불필요한 
+것들을 제거하고, 추가로 필요한 것들을 설치해서 구성을 완료하였다.&lt;/p&gt;
+&lt;p&gt;참고로 Debian을 이용해서 customized Debian Live를 구성하는 것도 하나의 선택일 
+수 있다. &lt;a href="https://willhaley.com/blog/custom-debian-live-environment/"&gt;참고:Create a Custom Debian Live Environment (CD or USB)&lt;/a&gt;&lt;/p&gt;</content><category term="Tech"></category><category term="Linux"></category><category term="Slax"></category><category term="Minio"></category></entry><entry><title>Docker Container로 Zabbix server 설치</title><link href="https://astromsshin.github.io/blog/Zabbix_in_docker_container.html" rel="alternate"></link><published>2019-06-12T00:40:00+09:00</published><updated>2019-06-12T00:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2019-06-12:/blog/Zabbix_in_docker_container.html</id><summary type="html">&lt;p&gt;Zabbix를 Docker Container로 활용하기 위해서, Ubuntu 서버에 
+아래와 같이 먼저 Docker user-defined bridge network을 구성하였다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker network create zabbix-net&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;그 다음에 아래와 같이 3개의 container를 실행시키고 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Zabbix를 Docker Container로 활용하기 위해서, Ubuntu 서버에 
+아래와 같이 먼저 Docker user-defined bridge network을 구성하였다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker network create zabbix-net&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;그 다음에 아래와 같이 3개의 container를 실행시키고, 관련된 
+port들을 host를 통해서 접근 가능하게 하였다.
+여기서 MYSQL_ROOT_PASSWORD와 ZABBIX_DB_USER_PASSWORD는 이용되는 
+암호로서 환경 변수로 설정하였다.&lt;/p&gt;
+&lt;p&gt;# start empty MySQL server instance&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker run --name mysql-server --network zabbix-net -t 
+        --restart=always 
+        -e MYSQL_DATABASE="zabbix" 
+        -e MYSQL_USER="zabbix" 
+        -e MYSQL_PASSWORD="$ZABBIX_DB_USER_PASSWORD" 
+        -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" 
+        -v /zabbix/mysql:/var/lib/mysql 
+        -d mysql:5.7 
+        --character-set-server=utf8 --collation-server=utf8_bin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;# run Zabbix server instance and link the instance with created MySQL server instance&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker run --name zabbix-server-mysql --network zabbix-net -t 
+        --restart=always 
+        -e DB_SERVER_HOST="mysql-server" 
+        -e MYSQL_DATABASE="zabbix" 
+        -e MYSQL_USER="zabbix" 
+        -e MYSQL_PASSWORD="$ZABBIX_DB_USER_PASSWORD" 
+        -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" 
+        -v /zabbix/alertscripts:/usr/lib/zabbix/alertscripts 
+        -v /zabbix/externalscripts:/usr/lib/zabbix/externalscripts 
+        -v /zabbix/modules:/var/lib/zabbix/modules 
+        -v /zabbix/enc:/var/lib/zabbix/enc 
+        -v /zabbix/ssl/certs:/var/lib/zabbix/ssl/certs 
+        -v /zabbix/ssl/keys:/var/lib/zabbix/ssl/keys 
+        -v /zabbix/ssl_ca:/var/lib/zabbix/ssl/ssl_ca 
+        -v /zabbix/snmptraps:/var/lib/zabbix/snmptraps 
+        -v /zabbix/mibs:/var/lib/zabbix/mibs 
+        -p 10051:10051 
+        -d zabbix/zabbix-server-mysql:latest&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;# run Zabbix web interface and link the instance with created MySQL server and Zabbix server instances&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker run --name zabbix-web-nginx-mysql --network zabbix-net -t 
+        --restart=always 
+        -e DB_SERVER_HOST="mysql-server" 
+        -e MYSQL_DATABASE="zabbix" 
+        -e MYSQL_USER="zabbix" 
+        -e MYSQL_PASSWORD="$ZABBIX_DB_USER_PASSWORD" 
+        -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" 
+        -e PHP_TZ="Asia/Seoul" 
+        -e ZBX_SERVER_NAME="Zabbix" 
+        -e ZBX_SERVER_HOST="zabbix-server-mysql" 
+        -v /zabbix/mysql/etc/ssl/nginx:/etc/ssl/nginx 
+        -p 7778:80 
+        -d zabbix/zabbix-web-nginx-mysql:latest&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;기본적인 내용은 
+&lt;a href="https://www.zabbix.com/documentation/4.2/manual/installation/containers"&gt;Zabbix의 공식 문서&lt;/a&gt;
+를 참고한다.&lt;/p&gt;
+&lt;p&gt;이러한 구성으로 docker-compose를 이용하면 손쉽게 Zabbix의 운영이 가능하다.&lt;/p&gt;</content><category term="Tech"></category><category term="Linux"></category><category term="Ubuntu"></category><category term="Docker"></category><category term="Zabbix"></category></entry><entry><title>Ubuntu 18.04.1 LTS server에서 MongoDB source compilation</title><link href="https://astromsshin.github.io/blog/MongoDB_compilation.html" rel="alternate"></link><published>2019-01-02T00:40:00+09:00</published><updated>2019-01-02T00:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2019-01-02:/blog/MongoDB_compilation.html</id><summary type="html">&lt;p&gt;MongoDB community edition의 소스 코드를 일부 수정해서 천문학 연구 
+용도로 사용해야 하는 상황으로, 이를 위하여 수정된 코드를 컴파일해야 
+하는 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;MongoDB community edition의 소스 코드를 일부 수정해서 천문학 연구 
+용도로 사용해야 하는 상황으로, 이를 위하여 수정된 코드를 컴파일해야 
+하는 일이 생겼다.&lt;/p&gt;
+&lt;p&gt;기본적인 source compilation에 대해서는 
+&lt;a href="https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source"&gt;https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source&lt;/a&gt;와 
+&lt;a href="https://github.com/mongodb/mongo/blob/master/docs/building.md"&gt;docs/building.md&lt;/a&gt;의 내용을 참고하면 된다.&lt;/p&gt;
+&lt;p&gt;Ubunt 18.04.1 LTS에서 설치시에 C++ 2017 standard와의 문제로 warning이 
+존재하는데, MongoDB의 기본 compilation flag는 이런 warning을 
+error로 잡도록 되어 있다. 따라서 이를 끄고 컴파일 할 필요가 있는데, 
+이는 
+&lt;code&gt;./buildscripts/scons.py core --disable-warnings-as-errors&lt;/code&gt;
+로 가능하다.&lt;/p&gt;</content><category term="Tech"></category><category term="Linux"></category><category term="Ubuntu"></category><category term="MongoDB"></category></entry><entry><title>구형 소형 노트북으로 dashboard 겸 라디오 플레이어 만들기</title><link href="https://astromsshin.github.io/blog/linux_dashboard_and_radio_player.html" rel="alternate"></link><published>2018-12-25T23:45:00+09:00</published><updated>2018-12-25T23:45:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2018-12-25:/blog/linux_dashboard_and_radio_player.html</id><summary type="html">&lt;p&gt;2018년에 구형 소형 노트북에 linux를 &lt;em&gt;desktop이 없이 console 화면을 이용&lt;/em&gt;하는 
+환경으로 설치하고, 간단하게 구성한 dashboard 
+겸 온라인 라디오 플레이어에 대 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;2018년에 구형 소형 노트북에 linux를 &lt;em&gt;desktop이 없이 console 화면을 이용&lt;/em&gt;하는 
+환경으로 설치하고, 간단하게 구성한 dashboard 
+겸 온라인 라디오 플레이어에 대한 기술적인 내용들을 이곳에 정리하고자 한다.&lt;/p&gt;
+&lt;p&gt;기본 아이디어는 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;리눅스를 설치하고, dashboard로 표출하고 싶은 그림 파일들을 주기적으로 다운로드 받아서, 한개의 그림으로 만드는 shell script를 구성한다.&lt;/li&gt;
+&lt;li&gt;더불어서 청취하고자 하는 TBS FM, KBS1 FM, MBC FM를 들을 수 있게 해주는 shell script와 볼륨을 키웠다, 줄였다 할 수 있게 해주는 shell script를 준비한다.&lt;/li&gt;
+&lt;li&gt;리눅스가 부팅하면 자동으로 dashboardadmin이라는 미리 설정해둔 계정으로 autologin해서 자동으로 관련된 dashboard 첫 그림 파일을 만들고, 주기적으로 갱신되게 만든 후에, &lt;a href="https://www.nongnu.org/fbi-improved/"&gt;FIM&lt;/a&gt;으로 dashboard 그림 파일을 보여주게 한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;dashboard 그림 파일 제작을 위한 shell script&lt;/h3&gt;
+&lt;p&gt;download_all_images.sh 은 관련된 그림들을 모두 획득 후에 이를 
+montage를 이용해서 한개의 그림 파일로 만든다. 이 shell script는 여러개의 
+shell script를 이용하는 wrapper로 이용된다. 여러분이 원하는 방식으로 
+원하는 그림 파일을 만들면 된다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/download_xxx.sh
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/download_yyy.sh
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/download_zzz.sh
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/download_uuu.sh
+
+&lt;span class="c1"&gt;### Checking the update time ###&lt;/span&gt;
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/produce_update_time.sh
+
+&lt;span class="c1"&gt;##### combining images #####&lt;/span&gt;
+
+&lt;span class="nb"&gt;source&lt;/span&gt; /home/dashboardadmin/Script/montage_images.sh
+
+&lt;span class="nv"&gt;USESLEEP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;[ ( ( &lt;/span&gt;&lt;span class="nv"&gt;$RANDOM&lt;/span&gt;&lt;span class="s2"&gt; % 10 ) + 5 ) ]m&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;... sleeping &amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$USESLEEP&lt;/span&gt;
+sleep &lt;span class="nv"&gt;$USESLEEP&lt;/span&gt;
+
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;참고로 produce_update_time.sh은 아래와 같이 현재 시각을 
+그림 파일로 만든다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash &lt;/span&gt;
+
+convert -background white -fill black -font NanumGothic -pointsize &lt;span class="m"&gt;24&lt;/span&gt; label:&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; /home/dashboardadmin/update_time.png
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;청취하고자 하는 라디오 방송을 위한 shell script&lt;/h3&gt;
+&lt;p&gt;ffplay를 이용하여 특정 라디오 방송을 온라인으로 청취할 수 있는 
+shell script를 준비하는데, shell script의 기본적인 구성은 아래와 같다. 
+이미 존재하는 player를 죽이고 새롭게 ffplay를 실행시키는 것으로, 이미 
+다른 방송이 출력되고 있다고 손쉽게 중단하고 새로운 방송으로 전환이 된다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/usr/bin/killall -q rtmpdump ffplay
+
+ffplay -nodisp -loglevel -8 -noinfbuf $useurl &amp;amp;&amp;gt; /dev/null &amp;amp;
+
+혹은
+
+rtmpdump --quiet --live -r $useurl | ffplay -nodisp -loglevel -8 -noinfbuf -i - &amp;amp;&amp;gt; /dev/null &amp;amp;
+
+pgrep rtmpdump &amp;gt; /home/dashboardadmin/rtmpdump.pid
+pgrep ffplay &amp;gt; /home/dashboardadmin/ffplay.pid
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;더불어서 아래와 같이 라디오 방송 청취를 중단시키는 stop.sh와, 
+볼륨을 높이고, 낮추는데 쓸 수 있는 volume_up.sh와 volume_down.sh도 
+준비한다. 이들 shell script들은 다음에 볼 수 있듯이 
+FIM에서 특정 키와 연결시켜서 특정 
+키를 누르면 실행되도록 구성될 것이다. &lt;/p&gt;
+&lt;p&gt;stop.sh&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="nv"&gt;pid_rtmpdump&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;cat /home/dashboardadmin/rtmpdump.pid&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;pid_mplayer&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;cat /home/dashboardadmin/mplayer.pid&lt;span class="k"&gt;)&lt;/span&gt;
+
+/bin/kill -s &lt;span class="m"&gt;9&lt;/span&gt; &lt;span class="nv"&gt;$pid_rtmpdump&lt;/span&gt; &lt;span class="nv"&gt;$pid_mplayer&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&amp;gt; /dev/null
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;volume_up.sh&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+amixer &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Master&amp;#39;&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt;%+ &amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt; /dev/null
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;volume_down.sh&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+
+amixer &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Master&amp;#39;&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt;%- &amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt; /dev/null
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;FIM 환경 설정 및 autologin 구성&lt;/h3&gt;
+&lt;p&gt;우선 dashboardadmin이 framebuffer를 이용해서 노트북 디스플레이에 
+그림 파일을 직접 보여줄 수 있도록 할 필요가 있다. 이를 위해서 
+아래와 같이 그룹 권한을 부여한다.
+&lt;code&gt;useradd dashboardadmin video&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;FIM의 환경 설정 파일(&lt;a href="https://www.nongnu.org/fbi-improved/fimrc.man.html" title="fimrc"&gt;참고&lt;/a&gt;)을 dashboardadmin 계정의 홈 디렉토리 아래에 
+.fimrc 파일로 아래와 같이 구성한다. 여기서 앞서 설명된 라디오 청취 
+shell script가 특정 키보드 키와 연결되게 된다. .fimrc의 내용은 
+아래와 같다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;bind &amp;#39;C-t&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/listen_TBS_FM.sh&amp;#39;&amp;quot;;
+bind &amp;#39;C-k&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/listen_KBS1_FM.sh&amp;#39;&amp;quot;;
+bind &amp;#39;C-m&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/listen_MBC_FM.sh&amp;#39;&amp;quot;;
+bind &amp;#39;s&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/stop.sh&amp;#39;&amp;quot;;
+bind &amp;#39;PageUp&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/volume_up.sh&amp;#39;&amp;quot;;
+bind &amp;#39;PageDown&amp;#39; &amp;quot;system &amp;#39;/home/dashboardadmin/Script/volume_down.sh&amp;#39;&amp;quot;;
+_display_status=0;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;dashboardadmin으로 autologin이 되면 바로 실행이 되어야 하는 내용을 아래와 
+같이 .bashrc로 구성한다. 여기서 dashboard_image.png가 만들어져서 표출되는 
+그림 파일에 해당한다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tty&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/dev/tty1&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;then&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;rm&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboardadmin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboard_image&lt;/span&gt;&lt;span class="o"&gt;*.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboardadmin&lt;/span&gt;&lt;span class="o"&gt;/*.&lt;/span&gt;&lt;span class="n"&gt;pid&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboardadmin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Script&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;download_xxx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboardadmin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Script&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;download_yyy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboardadmin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Script&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;download_zzz&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboardadmin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Script&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;download_uuu&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboardadmin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Script&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;produce_update_time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboardadmin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Script&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;montage_images&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;nohup&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboardadmin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Script&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;download_all_images&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb nb-Type"&gt;null&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="bp"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;do&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fim&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboardadmin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dashboard_image&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;fi&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;이렇게 구성이 되면, tty1 console에서 실제 autologin이 되도록 아래와 같이 
+파일을 만든다. Ubuntu의 경우에는,
+/etc/systemd/system/getty@tty1.service.d/override.conf
+에 &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[Service]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;-/sbin/agetty --autologin dashboardadmin --noclear %I&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;와 같이 설정하면 된다 (&lt;a href="https://selivan.github.io/2017/12/27/console-autologin-systemd-ubuntu.html" title="Console autologin for Ubuntu with systemd(15.04 and higher)"&gt;참고&lt;/a&gt;).&lt;/p&gt;
+&lt;h3&gt;추가로 개선할 수 있는 것들&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;IR 리모콘을 활용할 수 있으며, 이 경우 IR 리모콘과 FIM의 key를 묶어서 라디오 채널 전환이나 중단, 볼륨 조절 등에 이용할 수 있다.&lt;/li&gt;
+&lt;li&gt;bluetooth 스피커를 활용하는 것도 생각할 수 있는데, 라디오의 경우 현재는 구형 노트북의 내장 스피커를 이용하나, bluetooth 외부 스피커를 활용하는 것도 가능하다.&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Tech"></category><category term="Linux"></category><category term="dashboard"></category><category term="노트북"></category><category term="FIM"></category></entry><entry><title>Raspberry Pi를 활용한 video casting 환경 구성</title><link href="https://astromsshin.github.io/blog/rpi_cast.html" rel="alternate"></link><published>2018-12-24T23:40:00+09:00</published><updated>2018-12-24T23:40:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2018-12-24:/blog/rpi_cast.html</id><summary type="html">&lt;p&gt;집에 있는 조금 오래된 TV에는 HDMI 연결 단자가 있어서 노트북 등을 
+연결하여 Youtube 등 온라인에 있는 동영상을 보는 것이 가능하다. 이것 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;집에 있는 조금 오래된 TV에는 HDMI 연결 단자가 있어서 노트북 등을 
+연결하여 Youtube 등 온라인에 있는 동영상을 보는 것이 가능하다. 이것을 
+좀 더 쉽게 하고, 집에서 휴대전화기나 노트북으로 원하는 동영상의 url을 
+넘겨서 시청할 수 있도록 Raspberry Pi를 이용하여 환경을 구성하였다.&lt;/p&gt;
+&lt;p&gt;우선 &lt;a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/"&gt;Raspberry Pi 3 Model B+&lt;/a&gt;를 
+구매하여 Raspbian을 설치한다.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;a href="https://github.com/vincelwt/RaspberryCast"&gt;RaspberryCast&lt;/a&gt;를 설치하여 
+기본적인 구성을 마친다.&lt;/p&gt;
+&lt;p&gt;RaspberryCast는 Python web framework인 &lt;a href="https://bottlepy.org"&gt;Bottle&lt;/a&gt;을 
+이용하는데, 소스 코드를 수정해서 다양한 기능을 추가하는 것은 쉽다. 수정을 
+위해서 살펴보아야 하는 부분은 server.py이다.&lt;/p&gt;
+&lt;p&gt;관련해서 같이 이용하는 것으로 
+&lt;a href="https://bitbucket.org/baldisos/raspberry-pi-control-panel"&gt;Raspberry Pi Control Panel&lt;/a&gt; 
+역시 추가하여 설치하고, 다소 수정을 해서 사용 중이다. PHP 프로그램으로 
+PHP에서 제공하는 system function을 이용한다.&lt;/p&gt;</content><category term="Tech"></category><category term="Linux"></category><category term="RPi"></category><category term="RaspberryPi"></category></entry></feed>

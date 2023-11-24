@@ -1,0 +1,81 @@
+############################
+# Input Options
+############################
+
+infile=00083_cell.bin
+simtype=6
+swap_endian=f
+
+periodic=t
+
+num_blocks=4
+x=1024
+y=1024
+z=1024
+I=4
+C1=2
+C2=3
+C3=4
+order=1
+r=1.1
+
+
+############################
+# Geometrical setup
+############################
+minrad_pix = 1
+projection=t
+camera_x= 2200.0
+camera_y= 512
+camera_z= 512
+lookat_x= 0
+lookat_y= 512
+lookat_z= 512
+sky_x=0
+sky_y=0
+sky_z=1
+fov=45
+#EyeSeparation = 0.8
+#zmin=0.0
+#zmax=20.0
+
+
+############################
+# Visualization properties
+############################
+a_eq_e=t
+#sort_type=4
+color_log0=t
+#color_log0=f
+#color_asinh0=t
+intelsity_log0=t
+#intelsity_log0=f
+intensity_min0=7.0e-17
+#intensity_max0=5.0e+9
+color_min0=-4.0
+color_max0=-2.0
+
+
+#palette0=palettes/OldSplotch.pal
+#palette0=palettes/RedBlue.pal
+#palette0=palettes/NewSplotch.pal
+palette0=palettes/Stars.pal
+brightness0=5.0
+
+
+# CUDA
+#use_host_as_thread =t
+#host_load=30
+
+############################
+# Output Options
+############################
+
+# 0: TGA uncompressed, 1: PPM ASCII, 2: PPM binary, 3: TGA runlength-compressed
+pictype=0
+outfile=cell
+#xres=256
+xres=1024
+
+gray_absorption=0.0001
+colorbar=f

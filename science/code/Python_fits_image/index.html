@@ -1,0 +1,236 @@
+<html>
+<title>Python code to convert FITS files to images (including the OpenEXR format)</title>
+<body>
+<b><font size=+1>Python code to convert FITS files to images (including the OpenEXR format)</font></b> - Min-Su Shin (msshin @ kasi.re.kr)
+<p><p>
+I present a simple Python code to scale FITS images by 
+using <b>linear, sqrt, pow, log10, asinh function, zscale, logistic distribution 
+as well as histogram equalization</b>, and then save them to 
+image files such as PNG. The code also 
+includes simple methods to measure sky levels and to find 
+adequate ranges of pixel values for the scaling routine. 
+I hope that the code is useful in your works. I always welcome comments. Please, 
+note that <b>these Python codes are presented as examples rather than 
+a complete software package.</b> The img_scale.py can be easily incorporated to 
+your own code for various scaling methods. In the given examples, you can figure out how 
+several Python graphics modules (SciPy, Matplotlib, and Python Image Library) can be used 
+to convert FITS files to conventional image files.
+<p>
+The image scaling is given in the module file <b>img_scale.py</b>. There are multiple 
+example Python codes that generate RGB color images and 
+generate single-band images. 
+Please, read <a href="http://adsabs.harvard.edu/abs/2004PASP..116..133L" target="ads">
+Lupton et al. (2004)</a> about how to produce RGB images and scaling methods, and 
+<a href="http://adsabs.harvard.edu/abs/1999AJ....118.1406L" target="ads">
+Lupton et al. (1999)</a> about the asinh scaling. If you are looking for 
+general introduction to this problem, you may find the Youtube 
+video explanation <a href="https://www.youtube.com/watch?v=WSG0MnmUsEY" target="youtube">
+"How scientists colorize photos of space"</a> useful.
+
+The code presented here is not for interactive production of images. I also suggest people to check 
+<a href="http://terapix.iap.fr/rubrique.php?id_rubrique=178" target="new_new">STIFF</a>, 
+which is quite useful in producing high-quality picture files, 
+<a href="http://aplpy.github.com" target="new_new">APLpy</a>, and 
+<a href="http://cxc.harvard.edu/ciao/ahelp/dmimg2jpg.html" target="new_new">dmimg2jpg</a> 
+in CIAO, which support multiple scaling relations to produce RGB images. 
+<a href="http://obswww.unige.ch/~tewes/f2n_dot_py/" target="new_new">f2n.py</a> is 
+also a simple useful tool written in Python to convert FITS images 
+to PNG files by using Python Image Library.
+<p>
+Conversion from astronomical images to conventional images consists of two steps 
+as commonly used in tone mapping with high dynamic range images. 
+In the first step, you can change the pixel values of FITS images to values 
+between 0.0 and 1.0 by using <i><a href="img_scale.py">img_scale.py</a></i>. In the second step, 
+these values are divided into 256 intervals for 8bit images, and then are saved as graphic files.
+<p>
+Download : <font color=green><a href="public_fits_image.tar.gz">public_fits_image.tar.gz</a></font>
+<p>
+The above file has example codes and FITS files as example data, 
+as well as img_scale.py. <b>The code needs 
+<a href="http://numpy.scipy.org/" target=new>NumPy</a></b>. 
+<b><a href="http://www.stsci.edu/resources/software_hardware/pyfits">
+PyFITS</a></b> is also required to read FITS files.  
+The code <a href="build_rgb_w_asinh_SciPy.py">build_rgb_w_asinh_SciPy.py</a> uses 
+<b><a href="http://www.scipy.org/" target=new>SciPy</a></b> to produce image files. 
+Meanwhile, the code <a href="build_single_matplotlib.py">build_single_matplotlib.py</a> 
+and 
+<a href="build_rgb_w_asinh_matplotlib.py">build_rgb_w_asinh_matplotlib.py</a> use 
+<b><a href="http://matplotlib.sourceforge.net/" target=new>Matplotlib</a></b> 
+instead of SciPy. 
+If you want to use 
+<b><a href="http://www.pythonware.com/products/pil/">Python Image Library (PIL)</a></b> 
+instead of Matplotlib and SciPy, 
+check <a href="build_rgb_w_asinh_PIL1.py">build_rgb_w_asinh_PIL1.py</a> or 
+<a href="build_rgb_w_asinh_PIL2.py">build_rgb_w_asinh_PIL2.py</a>. 
+When you want to change color maps for a single-band image by using Matplotlib, 
+look up the tables for the color maps 
+(<a href="http://www.scipy.org/Cookbook/Matplotlib/Show_colormaps" target="new_new">1D</a> 
+and <a href="../matplotlib_cm/index.html" target="new_new">2D</a>). 
+The following are example pictures. 
+When producing the following pictures, the pixel values of the FITS files were scaled down 
+to some ranges which are divied into 256 intervals equally. Pixel values for images are 
+assigned as nearest value for the 256 intervals. You might be interested in 
+<a href="../matplotlib_cm/index.html" target="new_new">Matplotlib color maps</a> 
+to visualizae a single-band image by using Matplotlib. You also might be interested in 
+interactive tools which can read high-dynamic range FITS images and can convert them to other 
+formats. <a href="http://www.physics.ox.ac.uk/users/msshin/science/code/Python_fits_image/hea-www.harvard.edu/RD/ds9/" target="new_new">DS9</a> and 
+<a href="http://aladin.u-strasbg.fr/" target="new_new">Aladin</a> 
+are well-known tools in the astronomy community. <a href="
+http://rsbweb.nih.gov/ij/" target="new_new">ImageJ</a> can be also used 
+for this purpose with lots of image analysis methods.
+<p>
+<b>* FAQ</b>
+<br>
+- <i>How can I change the size of output images?</i>
+<br>
+If you use Matplotlib to produce images, use the statements such as the following:
+<pre>
+fig = pylab.gcf()
+fig.set_size_inches(3.4,3.4)
+rgb_array[:,:,0] = r 
+rgb_array[:,:,1] = g 
+rgb_array[:,:,2] = b 
+print "Plotting a RGB image of (", width,",",height,")"
+pylab.imshow(rgb_array, interpolation='nearest', origin='lower')
+pylab.axis('off')
+pylab.savefig(out_fn, dpi=(300))
+</pre>
+where sizes are given in inches, and dpi is set to change the resolution. If you use 
+Python Image Library to generate images, you can use resize function as the following does.
+<pre>
+use_image = Image.new('RGB', size=(height, width))
+use_image.putdata(PIL_data)
+use_image = use_image.resize((height/2,width/2))
+use_image.save('rgb.png')
+</pre>
+SciPy also supports the resize function as the following shows if you want 
+to use SciPy instead of Matplotlib or PIL.
+<pre>
+rgba_array = numpy.empty((width,height,4), numpy.uint8) # assuming 8 bits per channnel
+rgba_array[:,:,0] = scipy.misc.bytescale(r) # red
+rgba_array[:,:,1] = scipy.misc.bytescale(g) # green
+rgba_array[:,:,2] = scipy.misc.bytescale(b) # blue
+rgba_array[:,:,3] = 255 # Alpha transparency
+rgba_array = scipy.misc.imresize(rgba_array, (width/2, height/2), interp='bicubic')
+scipy.misc.imsave('rgb.png', rgba_array)
+</pre>
+<br>
+- <i>Some examples produced by others</i>
+    <ul>
+      <li><a href="https://doi.org/10.1093/mnras/stz2936">Deep-CEE I: fishing for galaxy clusters with deep neural nets (MNRAS, 2019)</a></li>
+      <li><a href="https://doi.org/10.1093/mnras/stx1733">Support vector machine classification of strong gravitational lenses (MNRAS, 2017)</a></li>
+      <li><a href="https://doi.org/10.3847/0004-637X/826/1/59">The Red and Featureless Outer Disks of Nearby Spiral Galaxies (ApJ, 2016)</a></li>
+      <li><a href="https://doi.org/10.1051/0004-6361/201425053">The Lyman alpha reference sample. IV. Morphology at low and high redshift (A&A, 2015)</a></li>
+      <li><a href="https://doi.org/10.1088/0004-637X/791/1/38">Searching for Diffuse Light in the M96 Galaxy Group (ApJ, 2014)</a></li>
+      <li><a href="http://research.endlessfernweh.com/multi-color-images/">Multi-Color Images (by Phil Cigan)</a></li>
+      <li><a href="http://www.astrobetter.com/blog/2010/10/22/making-rgb-images-from-fits-files-with-pythonmatplotlib/">Post on the AstroBetter site</a></li>
+      <li><a href="http://www.sciserver.org/outreach/spring-workshop/notebook-2-walkthrough/">SciServer outreach example</a></li>
+      <li><a href="http://astroweb.case.edu/jakub/TA/Query_databases.html">In http://astroweb.case.edu/jakub/TA/Query_databases.html</a></li>
+      <li><a href="http://ztf.commons.yale-nus.edu.sg/ztf-resources/ptf-and-python-image-display-tutorial/">In http://ztf.commons.yale-nus.edu.sg/ztf-resources/ptf-and-python-image-display-tutorial/</a></li>
+      <li><a href="https://github.com/cgosmeyer/lacosmic">In https://github.com/cgosmeyer/lacosmic</a></li>
+      <li><a href="https://github.com/psds075/fitstoimg">In https://github.com/psds075/fitstoimg</a></li>
+    </ul>
+<br>
+- <i>How can I produce a single-band image instead of a RGB image?</i>
+<br>
+Check the example Python codes <i>build_single_matplotlib.py</i>, 
+<i>build_single_PIL_w_matplotlib.py</i>, and 
+<i>build_single_Gnuplot.py</i> which are included in the above tar.gz file. In principle, 
+there are many ways to produce a single-band image after scaling by using img_scale.py. The 
+example codes just show two possible ways.
+<p>
+<center>
+<img src="linear.png"><br>linear<p>
+<img src="sqrt.png"><br>sqrt<p>
+<img src="log.png"><br>log10<p>
+<img src="asinh_beta_01.png"><br>asinh(beta=1.0)<p>
+<img src="asinh_beta_05.png"><br>asinh(beta=5.0)<p>
+<img src="asinh_beta_20.png"><br>asinh(beta=20.0)<p>
+<img src="rgb_type1.png"><br>RGB type 1<p>
+<img src="rgb_type2.png"><br>RGB type 2<p>
+<img src="SDSS_linear.png"><br>linear<p>
+<img src="SDSS_sqrt.png"><br>sqrt<p>
+<img src="SDSS_log.png"><br>log10<p>
+<img src="SDSS_asinh_beta_01.png"><br>asinh(beta=1.0)<p>
+<img src="SDSS_asinh_beta_05.png"><br>asinh(beta=5.0)<p>
+<img src="SDSS_asinh_beta_20.png"><br>asinh(beta=20.0)<p>
+<img src="SDSS_histeq.png"><br>histogram equalization<p>
+<img src="SDSS_logistic.png"><br>logistic distribution<p>
+<img src="HST_rgb_beta_low.png" width=600><br>RGB type 1<p>
+<img src="HST_rgb_beta_medium.png" width=600><br>RGB type 2<p>
+<img src="HST_rgb_beta_high.png" width=600><br>RGB type 3<p>
+</center>
+<p>
+<hr>
+<b>* Conversion to the OpenEXR format</b>
+<br>
+It is also possible to convert FITS files to <a href="https://en.wikipedia.org/w/index.php?title=OpenEXR" target=out>OpenEXR</a> files, and then you can use tools for high dynamic range (HDR) 
+images. The file <a href="fits2exr.py">fits2exr.py</a> shows how you can do the conversion with PyFITS and Python 
+binding of the OpenEXR library. The following images show how the converted EXR files can be used with 
+<a href="http://scanline.ca/exrtools/" target=out>exrtools</a>. 
+The original FITS files are SDSS DR8 images of 
+<a href="http://en.wikipedia.org/wiki/NGC_5548" target=wiki>NGC 5548</a> in g, r, and i-bands.
+<p>
+<table border="3">
+<tr>
+<td>
+<img src="galaxy.n.png">
+</td>
+<td>
+<pre>
+exrnormalize galaxy.exr galaxy.n.exr
+exrtopng galaxy.n.exr galaxy.n.png
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<img src="galaxy.pp.png">
+</td>
+<td>
+<pre>
+exrpptm -c 1.0 galaxy.n.exr galaxy.pp.exr
+exrnormalize galaxy.pp.exr galaxy.pp.n.exr
+exrtopng galaxy.pp.n.exr galaxy.pp.png
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<img src="galaxy.icam.png">
+</td>
+<td>
+exrblur galaxy.n.exr galaxy.b4.exr 0.25
+exrchr galaxy.n.exr galaxy.b4.exr galaxy.chr.exr 0.1
+exricamtm galaxy.chr.exr galaxy.b4.exr galaxy.icam.exr
+exrnormalize galaxy.icam.exr galaxy.icam.n.exr
+exrtopng galaxy.icam.n.exr galaxy.icam.png
+</td>
+</tr>
+<tr>
+<td>
+<img src="galaxy.nlm.png">
+</td>
+<td>
+<pre>
+exrnlm galaxy.n.exr galaxy.b4.exr galaxy.nlm.exr
+exrtopng galaxy.nlm.exr galaxy.nlm.png
+</pre>
+</td>
+</tr>
+</table>
+<p>
+If you want to see the converted EXR image of NGC 5548 by using HDR HTML viewer which is 
+generated by pfsouthdrhtml of <a href="http://pfstools.sourceforge.net/" target=out>pfstools</a>, 
+<a href="galaxy.html" target="hdr_html_viewer">
+click here</a>!
+<br>
+<a href="http://www.imagemagick.org/script/high-dynamic-range.php">ImageMagick</a> and 
+<a href="http://gegl.org/">GEGL</a> also support the OpenEXR format. 
+<a href="http://qtpfsgui.sourceforge.net/">Luminance HDR (a.k.a. Qtpfsgui)</a> is a wondergul GUI 
+program to process HDR images including OpenEXR and FITS formats. If you are looking for a tool to 
+visualize FITS on Web interactively, you may find <a href="https://github.com/ericmandel/js9">JS9</a> 
+and <a href="https://github.com/slowe/jsFITS">jsFITS</a> 
+interesting.
+</body>
+</html>

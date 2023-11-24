@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Splotch visualization examples</title>
+</head>
+<body>
+In this page, I present example parameter files and their 
+visualization results by using <a href="http://adsabs.harvard.edu/abs/2008NJPh...10l5006D">
+Splotch</a>. Examples and guides given by Claudio Gheller will be also useful. 
+Visit <a href="https://sites.google.com/site/claudiogheller/visualization">this link</a> 
+where you can also acquire the most recent version of Splotch.
+<p>
+<b>- Examples of using a single scalar quantity for color.</b><br>
+The input data has particle positions ranging from 0 to 1 stored in 
+binary table format. The box size of this cosmological simulation is 
+100 Mpc/h with 2048^3 grids. The examples show the visualization of 
+about 174 million particles by using 96 MPI processes.<br>
+1) Default (<a href="Default.txt" target="par_window">parameters</a> and 
+<a href="log_default.txt">log</a>).<br>
+<img src="Default.png">
+<p>
+2) Changing brightness0=1.0 to brightness0=10.0 (<a href="Brightness.txt" target="par_window">parameters</a>).<br>
+<img src="Brightness.png">
+<p>
+3) Changing color_asinh0=t to color_log0=t (<a href="Color_scaling.txt" target="par_window">parameters</a>).<br>
+<img src="Color_scaling.png">
+<p>
+4) Changing intensity_max0=5.0e+11 to intensity_max0=5.0e+9 (<a href="Intensity_max.txt" target="par_window">parameters</a>).<br>
+<img src="Intensity_max.png">
+<p>
+5) Changing no intensity_min0 to intensity_min0=5.0e+7 (<a href="Intensity_min.txt" target="par_window">parameters</a>).<br>
+<img src="Intensity_min.png">
+<p>
+7) Changing smooth_factor=0.001 to smooth_factor=0.01 (<a href="Radius.txt" target="par_window">parameters</a>).<br>
+<img src="Radius.png">
+<p>
+<b>- Examples of using three scalar quantities for color.</b><br>
+The box size of this cosmological simulation is 
+200 Mpc/h. The examples show the visualization of 
+about 1 billion particles by using 48 MPI processes.<br>
+1) Using binary format with a uniform-grid simulation output 
+(<a href="Uniform_binary.txt" target="par_window">parameters</a>).<br>
+<img src="Uniform_binary_512x512.png"><a href="Uniform_binary.png">(large image: 1024x1024)</a>
+<br>
+<iframe src="https://docs.google.com/file/d/0B6RRLlKN-CjdLUllcDYyYnNDTnc/preview?pli=1" width="462" height="462" allowfullscreen="true"></iframe><br>
+<a href="https://drive.google.com/file/d/0B6RRLlKN-CjdLUllcDYyYnNDTnc/edit?usp=sharing">(Video: 462x462)
+<p>
+2) Using binary format with an AMR-grid simulation output 
+(<a href="AMR_binary.txt" target="par_window">parameters</a>).<br>
+<img src="AMR_binary_512x512.png"><a href="AMR_binary.png">(large image: 2048x2048)</a>
+<br>
+<iframe src="https://docs.google.com/file/d/0B6RRLlKN-CjdRFdEZDNfdXhEMDQ/preview?pli=1" width="960" height="600" allowfullscreen="true"></iframe>
+<br>
+(Turn on HD!) <a href="https://drive.google.com/file/d/0B6RRLlKN-CjdRFdEZDNfdXhEMDQ/edit?usp=sharing">(Video: 1920x1200)</a><br>
+The video above was made by using the following camera path:<br>
+<img src="camera_path.png">
+<br>
+where the center of the simulation box and the video sits at the origin (0, 0, 0).
+<p>
+The following videos show the usage of several different color palettes.
+<br>
+1) jet<br>
+<iframe src="https://docs.google.com/file/d/0B6RRLlKN-CjdbzRNTWs1WW9YWE0/preview" width="640" height="385" allowfullscreen="true"></iframe><br>
+(Turn on HD!) <a href="https://drive.google.com/file/d/0B6RRLlKN-CjdbzRNTWs1WW9YWE0/edit?usp=sharing">(Video: 1280x720)</a><br>
+2) RdYlBu_r<br>
+<iframe src="https://docs.google.com/file/d/0B6RRLlKN-CjdM1hVcm5waTVoRDg/preview" width="640" height="385" allowfullscreen="true"></iframe><br>
+(Turn on HD!) <a href="https://drive.google.com/file/d/0B6RRLlKN-CjdM1hVcm5waTVoRDg/edit?usp=sharing">(Video: 1280x720)</a><br>
+3) Stars<br>
+<iframe src="https://docs.google.com/file/d/0B6RRLlKN-CjdRmhJcERjamI4RG8/preview" width="640" height="385" allowfullscreen="true"></iframe><br>
+(Turn on HD!) <a href="https://drive.google.com/file/d/0B6RRLlKN-CjdRmhJcERjamI4RG8/edit?usp=sharing">(Video: 1280x720)</a><br>
+<p>
+<b>In addition to the default color palettes included in the Splotch release, 
+you can have additional color palettes which are derived from 
+<a href="../../science/code/matplotlib_cm/index.html">the Python Matplotlib</a>. Download 
+<a href="additional_pals.zip">this file</a> which is a zip file of 
+the additional "pal" files.</b>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<html>
+<head>
+<title>SDSS tools and other codes developed by Min-Su Shin</title>
+</head>
+<body>
+<b>Min-Su's SDSS tools and other codes</b>
+<!-- Google Custom Search Element -->
+<div id="cse" style="width:100%;">Loading</div><script src="http://www.google.com/jsapi" type="text/javascript"></script><script type="text/javascript">google.load('search', '1', {style: google.loader.themes.MINIMALIST});google.setOnLoadCallback(function(){var cse = new google.search.CustomSearchControl();cse.draw('cse');}, true);</script>
+<p>I've developed several scripts and codes for my research. Some of them might be useful to
+other people. These are not complete software packages, but code sniffets which can 
+be quickly incorporated to your programs. 
+Feel free to use and modify the following codes. However, please let me know it. 
+(E-mail address : msshin @ kasi.re.kr)<p>
+<a href="index.html#SDSS_tools">[SDSS tools]</a> <a href="index.html#VO">[VO tools]</a> <a href="index.html#Hadoop_MapReduce">[Hadoop MapReduce]</a> 
+<a href="index.html#SkyDOT_tools">[SkyDOT tools]</a> 
+<a href="index.html#Python_for_Gravitational_Lensing">[PyGL: Python for Gravitational Lensing]</a> 
+<a href="index.html#Python_for_Cosmology">[PyCos: Python for Cosmology]</a> 
+<a href="index.html#Analysis_of_cosmological_simulations">[Analysis of cosmological simulations]</a> 
+<a href="index.html#visual_inspection_of_astronomical_data">[PyVI : visual inspection of astronomical data]</a> 
+<a href="index.html#produce_multiple_HTML_files">[Produce multiple HTML files]</a> 
+<a href="index.html#convert_FITS_to_ordinary_graphic_files">[Convert FITS to ordinary graphic files]</a> 
+<a href="index.html#Variability_detection_and_period_estimation">[Variability detection and period estimation]</a> 
+<a href="index.html#shell_scripts_for_reducing_dithered_images">[BASH scripts to use IRAF for reducing dithered images]</a>
+<p><p>
+<b><a name="SDSS_tools"><font color="green">- SDSS tools</font></a></b><p><p>
+I have used the following simple shell, Python, and IDL scripts
+to access the SDSS database. Feel free to use the 
+scripts for your science. Because all of them are short and 
+simple scripts, I don't provide any documents for them.<p>
+<i>Note : the Python scripts need <a href=http://cas.sdss.org/dr7/en/help/download/sqlcl/ target=new>
+the SDSS command line tool, sqlcl</a>.</i><br>
+<li>
+<a href="sdss_cutout_1min.sh">sdss_cutout_1min.sh</a> : it downloads the SDSS cutout image of 1 minute for a given 
+RA and DEC.
+</li>
+<li>
+<a href="sdss_mosaic_down.sh">sdss_mosaic_down.sh</a> : it extracts the SDSS mosaic image from the IRSA web service for a given RA/DEC 
+or the name of the object. (You can get a Python code for the same purpose. The code, 
+<a href="SDSS_cutout_IRSA.py">SDSS_cutout_IRSA.py</a>, reads a coordinate file and download 
+FITS and JPEG files from the IRSA finder chart service. 
+Please, check the source code and explanations given in the code.) If you want to combine 
+the SDSS images from the SkyServer, 
+check <a href="http://www.mpia.de/homes/zibetti/software/SDSSmosaic.html">
+Stefano Zibetti's web page</a>.
+</li>
+<li>
+<a href="sdss_image_check.sh">sdss_image_check.sh</a> : it checkes whether a given position is included in 
+the SDSS imaging field by sending a query to the SDSS FOOT server.
+</li>
+<li>
+<a href="sdss_image_download_and_plot.tar">sdss_image_download_and_plot.tar</a> : it is a simple shell script to download a 
+SDSS image and then to plot a slit on the image by using the DS9. You need to know the run, rerun, camcol, field, ra, and dec of the 
+SDSS object which you want to put a slit on.
+</li>
+<li>
+<a href="sdss_photo_check.py">sdss_photo_check.py</a> : it searches the SDSS photometric objects 
+for a given RA/DEC in the SDSS 
+<a href="http://cas.sdss.org/dr7/en/help/browser/description.asp?n=PhotoObjAll&t=U" target="new">PhotoObjAll</a> catalog.
+</li>
+<li>
+<a href="sdss_spec_check.py">sdss_spec_check.py</a> : it is similar to <i>sdss_photo_check.py</i>. However, it 
+searches the SDSS <a href="http://cas.sdss.org/dr7/en/help/browser/description.asp?n=SpecObjAll&t=U" 
+target="new">SpecObjAll</a> catalog.
+</li>
+<li>
+<a href="sdss_photo_flag.py">sdss_photo_flag.py</a> : the SDSS 
+<a href="http://cas.sdss.org/dr7/en/help/browser/enum.asp?n=PhotoFlags" target="new">photo flag</a> 
+in hexcode is converted to string. You 
+need <i><a href="PhotoFlags.dat">PhotoFlags.dat</a></i> file too.
+</li>
+<li>
+<a href="sdss_prim_target_flag.py">sdss_prim_target_flag.py</a> : the SDSS 
+<a href="http://cas.sdss.org/dr7/en/help/browser/enum.asp?n=PrimTarget" target="new">primary target flag</a> 
+in hexcode is converted to string. You 
+need <i><a href="PrimTargetFlags.dat">PrimTargetFlags.dat</a></i> file too.
+</li>
+<li>
+<a href="run_composite.pro">run_composite.pro</a> : this IDL routine produces a composite spectrum 
+for a given list of SDSS spectra. If you want to use it for spectra from different observations, 
+the routine simply needs to be modified for only the part of reading spectra. The current code considers 
+the Galactic extinction, but it doesn't have the effect of velocity dispersion.
+</li>
+<p>
+The SDSS CASJobs server also provides a web interface with <a href="http://casjobs.sdss.org/CasJobs/devel.aspx" target=sdss>SOAP</a>. 
+The following Python codes use this SOAP interface. These tools need WSID which is an id for CASJobs accounts (see 
+http://casjobs.sdss.org/CasJobs/casjobscl.aspx).
+<p>
+<li>
+<a href="SDSS_SOAP_UploadData.py">SDSS_SOAP_UploadData.py</a> : it uploads a file into a new table on the SDSS 
+CASJobs' MyDB. Two command-line options of the table name and the input file are required. You need to 
+change WSID and its password in the code before you use. The input file must be in a CSV format with the 
+first row of column names. If you find that the above version does not work, try this 
+version <a href="SDSS_SOAP_upload_DR9.py">SDSS_SOAP_upload_DR9.py</a> which works with the SDSS DR9.
+</li>
+<li>
+<a href="SDSS_SOAP_ExecuteQuickJob.py">SDSS_SOAP_ExecuteQuickJob.py</a> : it runs a quick job on the SDSS CASJobs server. 
+The example SQL query in the file creates a new table on MyDB.
+</li>
+<li>
+<a href="SDSS_SOAP_SubmitJob.py">SDSS_SOAP_SubmitJob.py</a> : it submits a long job to the SDSS CASJobs server. The 
+return value is the job id on the server. The example SQL query is same as the above code. HTTP POST method is 
+used in this code.
+</li>
+<li>
+<a href="SDSS_SOAP_SubmitExtractJob.py">SDSS_SOAP_SubmitExtractJob.py</a> : it submits a job for output. The job id is 
+returned.
+</li>
+<li>
+<a href="SDSS_SOAP_GetJobStatus.py">SDSS_SOAP_GetJobStatus.py</a> : it checked a status of a job on the SDSS CASJobs.
+</li>
+<p>
+The GALEX CASJobs also supports the same SOAP services which the above tools can be used with changes for 
+different hostnames and urls. Check <a href="http://mastweb.stsci.edu/gcasjobs/devel.aspx" target=galex>the GALEX webpage of the SOAP 
+service</a>.
+<p>
+<b><a name="VO"><font color="green">- Virtual Observatory tools to access NED, Simbad, Aladin, and Vizier</font></a></b><p><p>
+<li>
+  <a href="download_reference_from_Vizier.py">download_reference_from_Vizier.py</a> : a simple Python script 
+  that can be used to download a catalog from Vizier for a requested RA, DEC range. The usage of the script is
+  <pre>
+    usage: download_reference_from_Vizier.py [-h] [--config [CONFIG]] --output
+                                             [OUTPUT] [--plot]
+                                             [--catalog {gaiadr2,gaiadr2_G,psdr1_r,psdr1,smssdr1.1_r,smssdr1.1,vhsdr4}]
+                                             [--min_ra [MIN_RA]]
+                                             [--max_ra [MAX_RA]]
+                                             [--min_dec [MIN_DEC]]
+                                             [--max_dec [MAX_DEC]]
+                                             [--center_ra [CENTER_RA]]
+                                             [--width_ra [WIDTH_RA]]
+                                             [--center_dec [CENTER_DEC]]
+                                             [--width_dec [WIDTH_DEC]] [--filter]
+                                             [--exbox_min_ra [EXBOX_MIN_RA]]
+                                             [--exbox_max_ra [EXBOX_MAX_RA]]
+                                             [--exbox_min_dec [EXBOX_MIN_DEC]]
+                                             [--exbox_max_dec [EXBOX_MAX_DEC]]
+                                             [--stitch STITCH]
+                                             [--server {cds,cadc,cam,cfa}]
+                                             [--verbose]
+     download_reference_from_Vizier.py: error: the following arguments are required: --output
+  </pre>
+  The script already has several examples of extracting and filtering Gaia DR2, PS DR1, SMSS DR1.1, and VHS DR4 catalogs.
+</li>
+<li>
+<a href="NED_batch_compact_parser.py">NED_batch_compact_parser.py</a> : a short Python script to parse result files 
+from NED batch job with "compact" output type. In particular, the current code is optimized to my 
+favorite style of NED batch job: <a href="ex.ned.txt">example</a>. Please, visit 
+<a href="http://nedwww.ipac.caltech.edu/help/batch.html" target=new>the NED site</a> for references about 
+batch jobs. It's quite easy to understand the code. So, please, check the source code to figure out how you 
+can use it and how the script works. (I know that some VO tools provide an access to NED. However, I believe 
+that batch jobs are faster than VO access when you have many objects to be searched.) For "standard" output, 
+you can use <a href="NED_batch_standard_parser.py">NED_batch_standard_parser.py</a> that prints out 
+name, type, distance, and redshift of found objects. It's easy to understand the code. 
+</li>
+<li>
+Simple tools for <a href="http://simbad.u-strasbg.fr/simbad/">Simbad</a> 
+batch jobs : for a given file that has coordinates of objects, 
+simbad_query_builder.py generates a batch query for Simbad. simbad_script_submit.sh 
+submits the batch query to Simbad and receives the returned results into a file. 
+simbad_query_postprocess.py postprocess the result file. You can find how to use the tools in <a href="Simbad/README.txt">README</a> file. The <a href="
+http://simbad.u-strasbg.fr/simbad/sim-help?Page=sim-fscript">Simbad site</a> 
+explains how to use a script. You can get my codes in 
+<a href="Simbad/Simbad.tar.gz">this link</a>.
+</li>
+<li>
+Example of Bash shell scripts to use <a href="http://aladin.u-strasbg.fr/aladin.gml">Aladin</a> 
+: <a href="Aladin_script_example.sh">this file</a> shows how you can used Aladain in a script mode by writing simple 
+shell scripts.
+</li>
+<li>
+  Vizier on CDS also has provides a batch job. My python scripts help producing query files for Vizier. You can find how to use the tools in <a href="./Vizier">this link</a>. 
+</li>
+<p><p>
+<b><a name="Hadoop_MapReduce"><font color="green">- Using Hadoop MapReduce</font></a></b><p><p>
+Documentations given in <a href="http://hadoop.apache.org/">the Hadoop website</a> are useful to help people understand basic 
+concepts of MapReduce and how Hadoop works. However, if you need more explanations with exmaples, I recommentd the following 
+books: Pro Hadoop (Jason Venner, 2009), Hadoop in Action (Chuck Lam, 2010), and Hadoop: The Definitive Guide (Tom White, 2010). 
+There are some papers reviews about practical issues: Data-Intensive Text Processing with MapReduce (Jimmy Lin & Chris Dyer, 2010).
+<br>
+Unfortunately, the most recent version of Hadoop is not fully consistent with new APIs. Therefore, when you develope your own 
+Java classes for data input/output or to access the  Hadoop system, you still need to use old deprecated APIs. You can find how we tried Hadoop with astronomy data in 
+<a href="poster_Min-Su_Shin_astronomy_hadoop.pdf">this poster</a>.
+<p><p>
+<b><a name="SkyDOT_tools"><font color="green">- SkyDOT tools</font></a></b><p><p>
+Using the following shell scripts, you can automatically get the data file of 
+<a href="http://adsabs.harvard.edu/abs/2004AJ....127.2436W" target=new>the 
+Nothern Sky Variability Survey (NSVS)</a> from <a href="http://skydot.lanl.gov" target=new>SkyDOT</a> 
+site. Definitely, there are other fast ways to get data. For example, using 
+files after downloading the related files from the site is much faster than these 
+scripts. Even the implementation of the code in different languages will must be 
+faster than the current shell script. Yet, the shell script is quite easier than 
+those approaches.<br>
+<li>
+<a href="get_light_curve.sh">get_light_curve.sh</a> : it downloads light curve 
+data of only good data points for object ids that are given in the file <i>count.list</i>. 
+The script uses <i>wget</i> command to get the files from SkyDOT site. In order to understand 
+the script, you must reference the NSVS paper.
+</li>
+<li>
+<a href="get_objid_coord.sh">get_objid_coord.sh</a> : this script is similar to the above 
+script. However, it extracts the list of object ids for a given RA and DEC with an 120 arcmin 
+search radius. You have to know that the maxmimum number of objects are limited by the SkyDOT 
+server. The example of usage is <i>./get_objid_coord.sh 10:00:00 -5:00:00 set1</i>, where <i>
+set1.list</i> file has the list. The object ids from this code can be used in the above code.
+</li>
+<p><p>
+<b><a name="Python_for_Gravitational_Lensing"><font color="green">- PyGL : Python for Gravitational Lensing</font></a></b><p><p>
+It's a Python + C++ package for the analysis of strong graviational lensing. 
+The first public version will be released when the code is stable. The SWIG has been used to make Python 
+interfaces for the C++ codes. This package also has some modules for simple 
+cosmological calculations and observation. The following extra module is distributed 
+independently too.
+<li>
+<a name="Python_for_Cosmology"><font color="green">PyCos(Python for Cosmology)</font></a> 
+: <a href="PyCos/PyCos-1.2.tar.gz"> 
+PyCos-1.2.tar.gz (source code distribution)</a> You can easily install the module. 
+It uses <a href="http://www.gnu.org/software/gsl/" target="new">
+GNU Scientific Library (GSL)</a> for 
+numerically intensive calculation. Because the internal code was written in C++, 
+you can use it with a C++ library code. By using SWIG, I also produce Python interfaces 
+with the C++ codes. Before you install this moudle, you need to install 
+the GSL. The SWIG is generally included in most Linux distributions. 
+The installation and usage of this module is simple; <a href="PyCos/README.txt">README</a>. 
+The future version of this module will have more implementations. Please, check 
+<a href="PyCos/html/index.html" target="PyCos_doc">the document generated with DoxyGen</a> for further usage. 
+In short, the module can be used to calculate various kinds of distances, volumes, 
+and age for given cosmological parameters. You can also get numbers about Schechter function quickly. 
+It's a free software. Yet, I'll be glad to hear any 
+suggestions, applications, and bugs to improve the current version.
+</li>
+<p><p>
+<b><a name="Analysis_of_cosmological_simulations"><font color="green">- Analysis of cosmological simulations</font></a></b><p><p>
+<li>
+<a href="GalDen.tar.gz">GalDen</a> : a parallel C code that measures a 
+local number and mass density around galaxies in a simulation box. 
+This is a part of a grouping code for the analysis of simulation data. It requires <a href="http://www-unix.mcs.anl.gov/mpi/" target=new>
+MPI</a> and <a href="http://www.emsl.pnl.gov/docs/global/" target=new>Gloabl Arrays</a> libraries. 
+Instead of optimizing MPI communication, I concentrated on the usage of large distributed memory. 
+It's a free software. However, please, let me know when you use the code. I'm interested in the further 
+optimization and improving the code for various purposes. The current version works well with about 
+10^7 galaxies.
+</li>
+<p><p>
+<b><a name="visual_inspection_of_astronomical_data">
+<font color="green">- PyVI : visual inspection of astronomical data</font></a></b><p><p>
+In astronomy, people somtimes check many images or spectra visually and identify 
+interesting objects. This Python code is for the visual inspection of image files and 
+leaving related logs for the images in a file. For a given list of images, it 
+shows images and ask people to leave any logs that can be saved in a file. The 
+<a href="http://www.pythonware.com/products/pil/" target=new>Python Image Library</a> 
+and <a href="http://wiki.python.org/moin/TkInter" target=new>Tkinter</a> are 
+required with this code. You can check the screenshots of <a href="screen_shot_PyVI_ver1.jpg" target=new>Ver. 1</a>, 
+<a href="screen_shot_PyVI_ver2p5.jpg" target=new>Ver. 2.5</a>, and 
+<a href="screen_shot_PyVI_ver3.jpg" target=new>Ver. 3</a>. A user can put comments on images through 
+an interface based on Python curses module. <b>There are multiple versions in this page.</b> 
+The version 1.0 shows only images with the input list file of image filenames. 
+The version 2.0 shows the contents of text files corresponding the image files. 
+The input list file for the version 2.0 can have two columns of image filenames and 
+text filenames, or one column of only image filenames. The version 2.5 supports FITS files 
+by using the <a href="http://hea-www.harvard.edu/saord/ds9/">DS9 FITS viewer</a> and 
+its Python XPA library (<a href="http://hea-www.harvard.edu/saord/ds9/">pyds9</a>). The version 3.0 
+supports <a href="http://www.ivoa.net/Documents/latest/SAMP.html">SAMP (Simple Application Messaging Protocol)</a> 
+by using <a href="http://pypi.python.org/pypi/sampy/">SAMPY</a>, and supports <a href="http://hea-www.harvard.edu/saord/ds9/">DS9</a> 
+and <a href="http://aladin.u-strasbg.fr/">Aladin</a> with their SAMP interfaces. Here, PyVI becomes a SAMP hub which communicate 
+with DS9 and Aladin. The version 3.0 follows the same input file formats as the version 2.5. A future version will also 
+support spectra stored in FITS by using VOSpec and its SAMP interface. The version 3.5 supports a general FITS viewer such as 
+<a href="http://jsky.sourceforge.net/">JSky</a>. It is also a version supporting spectrum visualization tools like 
+<a href="http://star-www.dur.ac.uk/~pdraper/splat/splat-vo/">SPLAT-VO</a> and 
+<a href="http://www.sciops.esa.int/index.php?project=SAT&page=vospec">VOSpec</a> with their SAMP interfaces.
+<b>This small program can be easily modified to access SQL databases and their relevant astronmoical data on either local disks or 
+online sites.</b> When you encounter problems, try to use the program in the interactive 
+Python shell. This way will help you figure out what causes the problems.
+<br>
+<b>Version 1.0</b>
+<li>
+Download : <a href="PyVI_ver1.py">PyVI_ver1.py</a> <a href="screen_shot_PyVI_ver1.jpg">(screen shot)</a>
+</li>
+<li>
+Usage I :
+<pre>
+>>from PyVI import image_db
+>>from PyVI import curses_interface
+>>infn="list.txt"
+>>outfn="log.txt"
+>>dir_images="./Images/"
+>>db = image_db(infn, outfn, dir_images)
+>>db_inf = curses_interface(db, infn)
+</pre>
+</li>
+<li>
+Usage II :
+<pre>
+PyVI.py [list filename] [log filename] -d [the directory name of image files]
+                Example) PyVI.py sel.list log.list -d ./Gallery
+                -d : directory name is optional
+</pre>
+</li>
+<li>
+A list file is a simple blank or tab-separated file that has image filenames 
+on the first column. A log file will have your comments on images as an 
+extra column to the list file. If image files are under a specfic directory, 
+you can set the directory with -d option.
+</li>
+<br>
+<b>Version 2.0</b>
+<li>
+Download : <a href="PyVI_ver2.py">PyVI_ver2.py</a>
+</li>
+<li>
+Usage I :
+<pre>
+>>from PyVI import image_db
+>>from PyVI import curses_interface
+>>infn="list.txt"
+>>outfn="log.txt"
+>>dir_images="./Images/"
+>>dir_texts="./Texts/"
+>>db = image_db(infn, outfn, dir_images, dir_texts)
+>>db_inf = curses_interface(db, infn)
+</pre>
+</li>
+<li>
+Usage II :
+<pre>
+PyVI.py [list filename] [log filename] -i [the directory name of image files] -t [the directory name of text files]
+                Example) PyVI.py sel.list log.list -i ./Gallery -t ./Texts
+                -i and -t : optional
+</pre>
+</li>
+<li>
+A list file is a simple blank or tab-separated file that has image filenames 
+on the first column and text filenames on the second column. A log file will have your comments on images as an 
+extra column to the list file.
+</li>
+<br>
+<b>Version 2.5</b>
+<li>
+Download : <a href="PyVI_ver2p5.py">PyVI_ver2p5.py</a> <a href="screen_shot_PyVI_ver2p5.jpg">(screen shot)</a>
+</li>
+<li>
+Usage I :
+<pre>
+>>from PyVI import image_db
+>>from PyVI import curses_interface
+>>infn="list.txt"
+>>outfn="log.txt"
+>>dir_images="./Images/"
+>>dir_texts="./Texts/"
+>>db = image_db(infn, outfn, dir_images, dir_texts)
+>>use_fits = 1 # if you want to use FITS images
+>>import ds9
+>>db_inf = curses_interface(db, infn)
+</pre>
+</li>
+<li>
+Usage II :
+<pre>
+PyVI.py [list filename] [log filename] -f -i [the directory name of image files] -t [the directory name of text files]
+                Example) PyVI.py sel.list log.list -f -i ./Gallery -t ./Extra_text
+                -f : if your image files are FITS files, use this option. PyVI will use the DS9 FITS viewer. You need to open the DS9 with -xpa option. 
+                     If the DS9 viewer is not available for PyVI, PyVI tries to open it.
+                -i and -t : the directory names are optional
+                if the directory names are not given, the current working directory is a default directory.
+</pre>
+</li>
+<br>
+<b>Version 3.0</b>
+<li>
+Download : <a href="PyVI_ver3.py">PyVI_ver3.py</a><br>
+Screenshot : <img src="screen_shot_PyVI_ver3.jpg" width=513 height=379>
+</li>
+<li>
+Usage I :
+<pre>
+>>from PyVI import image_db
+>>from PyVI import curses_interface
+>>infn="list.txt"
+>>outfn="log.txt"
+>>dir_images="./Images/"
+>>dir_texts="./Texts/"
+>>db = image_db(infn, outfn, dir_images, dir_texts)
+>>use_fits = 1 # if you want to use FITS images with DS9.
+>>use_fits = 2 # if you want to use FITS images with Aladin.
+>>use_fits = 3 # if you want to use FITS images with both DS9 and Aladin.
+>>import sampy
+>>db_inf = curses_interface(db, infn)
+</pre>
+</li>
+<li>
+Usage II :
+<pre>
+PyVI.py [list filename] [log filename] --ds9 --aladin --image_dir [the directory name of image files] --text_dir [the directory name of text files]
+		Example) PyVI.py sel.list log.list --ds9 --image_dir ./Gallery --text_dir ./Extra_text
+		--ds9 : PyVI will use the DS9 as an image viewer which supports FITS files. You must check the DS9 first whether it is available with the SAMP.
+		--aladin : PyVI will use the Aladin as an image viewer which supports FITS and other file formats such as JPEG and PNG. You must check the Aladin first whether it is available with the SAMP. If both --ds9 and --aladin options are selected, both viewers are used in the PyVI.
+		--image_dir and --text_dir : the directory names are optional
+		if the directory names are not given, the current working directory is a default directory.
+</pre>
+</li>
+<br>
+<b>Version 3.5</b>
+<li>
+Download : <a href="PyVI.py">PyVI.py</a>
+</li>
+<li>
+Usage I :
+<pre>
+>>from PyVI import image_db
+>>from PyVI import curses_interface
+>>infn="list.txt"
+>>outfn="log.txt"
+>>dir_images="./Images/"
+>>dir_texts="./Texts/"
+>>db = image_db(infn, outfn, dir_images, dir_texts)
+>>use_fits = 1 # if you want to use FITS images with DS9.
+>>use_fits = 2 # if you want to use FITS images with Aladin.
+>>use_fits = 3 # if you want to use FITS images with both DS9 and Aladin.
+>>import sampy
+>>db_inf = curses_interface(db, infn)
+</pre>
+</li>
+<li>
+Usage II :
+<pre>
+PyVI.py [list filename] [log filename] --ds9 --aladin --image_dir [the directory name of image files] --text_dir [the directory name of text files]
+		Example) PyVI.py sel.list log.list --ds9 --image_dir ./Gallery --text_dir ./Extra_text
+		--ds9 : PyVI will use the DS9 as an image viewer which supports FITS files. You must check the DS9 first whether it is available with the SAMP.
+		--aladin : PyVI will use the Aladin as an image viewer which supports FITS and other file formats such as JPEG and PNG. You must check the Aladin first whether it is available with the SAMP. If both --ds9 and --aladin options are selected, both viewers are used in the PyVI.
+		--general : PyVI will use a general FITS image viewer including JSky, DS9, and Aladin. You must check the viewer first whether it is available with the SAMP. However, do not use --general with either --ds9 or --aladin together. This option is specially for FITS viwer showing only a single frame. Therefore, this option is appropriate for tools like JSky.
+		--spec : PyVI will use a spectrum viewer (e.g. SPLAT-VO, VOSpec). You must check the viewer first whether it is available with the SAMP.
+		--image_dir, --text_dir, --spec_dir : the directory names are optional
+		if the directory names are not given, the current working directory is a default directory.
+</pre>
+</li>
+<li>
+<b>If you do not need to use FITS files with versions 3.0 and 3.5, you do not need to install SAMPY. Yet,  
+you still need the Python Image Library (PIL) and the TkInter library to view other image files supported by the PIL.</b>
+</li>
+<p><p>
+<b><a name="produce_multiple_HTML_files">
+<font color="green">- Python code to produce multiple HTML files with objects list</font></a></b><p><p>
+Check the <a href="log_to_HTML.py">code</a>. You can use this simple script to produce multiple 
+HTML files which show the list of objects with images and links to external web sites. The code 
+also has simple functions to convert angles given in degree to sexagesimal formats. If you want 
+to get only these functions, check coordinates_conversion.py below.
+<p><p>
+<b><a name="convert_FITS_to_ordinary_graphic_files">
+<font color="green">- Python code to convert FITS to ordinary graphic files</font></a></b><p><p>
+Please, check <a href="Python_fits_image/index.html" target="new">this link</a>. 
+If you need a simple way, please use <b><i>fits2jpeg.sh</i></b> given below.
+<p><p>
+<b><a name="Variability_detection_and_period_estimation">
+<font color="green">- Variability detection and period estimation</font></a></b><p><p>
+Please, check <a href="MultiStep_Period/index.html" target="new">this link</a>.
+<p><p>
+<b><a name="shell_scripts_for_reducing_dithered_images">
+<font color="green">- Bash shell scripts to use IRAF for reducing dithered 
+images (of NIR)</font></a></b><p><p>
+You can find details about this package of shell scripts in 
+<a href="NIR_script/index.html" target="new">this link</a>.
+<p><p>
+<b><font color="green">- Miscellaneous codes</font></b><p><p>
+<li>
+<a href="coordinates_conversion.py">coordinates_conversion.py</a> : if you are looking for a short 
+Python code to convert formats of RA/DEC coordinates, this code is exactly for that purpose.
+</li>
+<li>
+<a href="plot_2d_max_L.py">plot_2d_max_L.py</a> : it implements in Python the algorithm that 
+finds the optimized histogram bins for 2D data. 
+See <a href="http://arxiv.org/abs/0807.4820">arXiv:0807.4820</a>. The code uses Numpy and Matplotlib 
+for some parts. However, you can avoiid the required packages by modifying the code.
+</li>
+<li>
+<a href="parser_of_YY.py">parser_of_YY.py</a> : a simple Python code to separate each different age of 
+<a href="http://csaweb.yonsei.ac.kr/~kim/yyiso.html" target=new>the Yonsei-Yale isochrone</a> into several files.
+</li>
+<li>
+<a href="finding_chart.tar.gz">finding_chart.tar.gz</a> : a collection of bash shell scripts to 
+download DSS or SDSS images from <a href="http://skyview.gsfc.nasa.gov/" target=new>SkyView</a> 
+and mark a target on jpeg images. This uses montage/convert of 
+<i><a href="http://www.imagemagick.org" target="new">ImageMagick</a></i> and 
+<i><a href="http://hea-www.harvard.edu/RD/ds9/" target="new">DS9</a></i>.
+</li>
+<li>
+<a href="image_align.tar.gz">image_align.tar.gz</a> : a collection of bash shell scripts that 
+use IRAF and DS9 to align multiple FITS images to a given reference image.
+</li>
+<li>
+<a href="fits2jpeg.sh">fits2jpeg.sh</a> : a simple bash shell script that uses DS9 to produce jpeg images for 
+given FITS files. If you want to change a color map, you need to check 
+ <a href="http://hea-www.harvard.edu/RD/ds9/ref/command.html" target="new">command-line options of DS9</a>.
+</li>
+<li>
+<a href="Gal_cat_maker.py">Gal_cat_maker.py</a> : a Python script to group target objects for an input 
+catalog of observation fields.
+</li>
+<li>
+<a href="realtime_obs_help.py">Observation Help</a> : a Python code that uses <a href="http://freshmeat.net/projects/pyephem/" target="new">PyEphem</a>. 
+It calculates Az., Alt., Rise/Transit/Set time for given objects and date.
+</li>
+<li>
+<a href="cog.c">Curve of Growth</a> : C code of calculating a curve of growth. (It is dependent on the GNU scientific library.)
+</li>
+<p><p>
+<b>Useful list or table</b>
+<p><p>
+<li>
+<a href="matplotlib_cm/index.html">Matplotlib color maps</a>
+</li>
+<p>
+<p>
+--------------------------------
+<p>
+<i><b>
+"Controlling complexity is the essence of software development." - Brian Kernigan
+</b></i>
+<p>
+--------------------------------
+</body>
+</html>

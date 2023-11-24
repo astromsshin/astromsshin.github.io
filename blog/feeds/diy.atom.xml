@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and data blog - DIY</title><link href="https://astromsshin.github.io/blog/" rel="alternate"></link><link href="https://astromsshin.github.io/blog/feeds/diy.atom.xml" rel="self"></link><id>https://astromsshin.github.io/blog/</id><updated>2018-12-26T23:10:00+09:00</updated><entry><title>USB 충전 배터리를 이용한 움직임 감지 램프 전원 교체</title><link href="https://astromsshin.github.io/blog/motion_lamp_battery.html" rel="alternate"></link><published>2018-12-26T23:10:00+09:00</published><updated>2018-12-26T23:10:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2018-12-26:/blog/motion_lamp_battery.html</id><summary type="html">&lt;p&gt;집에서 활용하고 있는 &lt;a href="http://www.wemakeprice.com/deal/adeal/771893"&gt;저가의 움직임 감지 램프(링크의 5번 상품)&lt;/a&gt;에 
+대해서 5V 직류 전원 장치를 따로 이용하거나 건전지 3개를 직렬 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;집에서 활용하고 있는 &lt;a href="http://www.wemakeprice.com/deal/adeal/771893"&gt;저가의 움직임 감지 램프(링크의 5번 상품)&lt;/a&gt;에 
+대해서 5V 직류 전원 장치를 따로 이용하거나 건전지 3개를 직렬로 연결해서 
+이용하는 것이 기본 구성이다.&lt;/p&gt;
+&lt;p&gt;매번 건전지를 교환하거나 직류 전원 장치를 이용하는 것 대신에, 남는 
+USB 전원 충전 배터리를 이용해서 5V 전원을 공급하는 것으로 간단히 
+수정하였다. USB 케이블에서 직류 전원 공급 선만 확인하고 간단히 납땜을 
+하면 되는데, 그 전에 적절한 전류가 공급되는지도 확인이 필요하다. &lt;/p&gt;
+&lt;p&gt;&lt;img alt="연결 사진 1" src="https://astromsshin.github.io/blog/images/motion_lamp_1.jpg"&gt;
+&lt;img alt="연결 사진 2" src="https://astromsshin.github.io/blog/images/motion_lamp_2.jpg"&gt;&lt;/p&gt;</content><category term="DIY"></category><category term="USB"></category><category term="battery"></category><category term="DIY"></category></entry></feed>

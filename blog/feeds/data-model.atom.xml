@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and data blog - Data &amp; Model</title><link href="https://astromsshin.github.io/blog/" rel="alternate"></link><link href="https://astromsshin.github.io/blog/feeds/data-model.atom.xml" rel="self"></link><id>https://astromsshin.github.io/blog/</id><updated>2020-03-21T00:00:00+09:00</updated><entry><title>COVID-19/SARS-CoV-2/2019-nCoV 관련 전염 모델에 관하여</title><link href="https://astromsshin.github.io/blog/Model_COVID-19.html" rel="alternate"></link><published>2020-03-21T00:00:00+09:00</published><updated>2020-03-21T00:00:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2020-03-21:/blog/Model_COVID-19.html</id><summary type="html">&lt;p&gt;COVID-19과 같은 전염병 전염 모델은, 대부분의 과학자들이 익숙한 source term 
+vs. sink term이 연결된 dynamical system의 형태로 기술이 된다. 여기서 연구자들이 
+관 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;COVID-19과 같은 전염병 전염 모델은, 대부분의 과학자들이 익숙한 source term 
+vs. sink term이 연결된 dynamical system의 형태로 기술이 된다. 여기서 연구자들이 
+관심을 가지는 dynamical variables은 susceptible, exposed/latent, infectious, 
+recovered, immune population과 같은 것이 된다.&lt;/p&gt;
+&lt;p&gt;관련되어 참고할 수 있는 자료들은 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://plus.maths.org/content/mathematics-diseases"&gt;The mathematics of diseases&lt;/a&gt;: 일반인들이 이해하기에 가장 기초적인 설명을 제공.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.quantamagazine.org/flu-vaccines-and-the-math-of-herd-immunity-20180205/"&gt;How Math (and Vaccines) Keep You Safe From the Flu&lt;/a&gt;: 일반인들이 이해할 수 있도록 수학적인 내용을 제공.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://doi.org/10.4161/viru.24041"&gt;Mathematical modeling of infectious disease dynamics&lt;/a&gt;: 다양한 방법론을 종합적으로 소개하는 review임.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.nature.com/articles/nrmicro1845"&gt;Mathematical models of infectious disease transmission&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://science.sciencemag.org/content/347/6227/aaa4339"&gt;Modeling infectious disease dynamics in the complex landscape of global health&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.bbc.co.uk/sounds/play/m000gvcp"&gt;Coronavirus: Models &amp;amp; being led by the science&lt;/a&gt;: BBC Insider Science podcast episode 중 하나.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;아주 단순한 모델이지만 "flattening the COVID-19 curve"라는 말로 최근에 
+COVID-19과 관련해서 일반인들이 자주 들었던 말에 대한 쉬운 설명은 
+아래 두개를 확인해 보기를 추천한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.washingtonpost.com/graphics/2020/world/corona-simulator/"&gt;Why outbreaks like coronavirus spread exponentially, and how to “flatten the curve”&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://staff.math.su.se/hoehle/blog/2020/03/16/flatteningthecurve.html"&gt;Flatten the COVID-19 curve&lt;/a&gt;: 잘 알려진 Susceptible-Infectious-Recovered model을 이용하여 설명.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;보다 구체적이고 자세한 전염 모델에 관심이 있다면,
+&lt;a href="https://www.biostat.washington.edu/suminst/archives/SISMID2019"&gt;SISMID2019: 11th Summer Institute in Statistics and Modeling in Infectious Diseases (SISMID)&lt;/a&gt;의 
+내용을 참고하기 바란다. 특별히, non-pharmaceutical intervention의 역할에 
+관심이 있다면, 
+&lt;a href="https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-020-01628-4"&gt;Epidemiological models are important tools for guiding COVID-19 interventions&lt;/a&gt;을 참고하면 좋다.&lt;/p&gt;
+&lt;p&gt;다양한 내용을 종합적으로 살펴볼 수 있는 것으로는 최근에 PLOS가 준비한 
+&lt;a href="https://collections.plos.org/mathematical-disease-dynamics"&gt;PLOS Collections: Mathematical Modelling of Infectious Disease Dynamics&lt;/a&gt;의 
+논문들을 확인해 볼 것을 추천한다.&lt;/p&gt;
+&lt;p&gt;이러한 모델을 이용한 policy decision 과정에서 유의해야 하는 점들에 대해서는 
+아래와 같은 것들을 확인해 보기를 권한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.sciencemag.org/news/2020/03/mathematics-life-and-death-how-disease-models-shape-national-shutdowns-and-other"&gt;Mathematics of life and death: How disease models shape national shutdowns and other pandemic policies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/commentisfree/2020/mar/25/uk-coronavirus-policy-scientific-dominic-cummings"&gt;The UK's coronavirus policy may sound scientific. It isn't&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/commentisfree/2020/mar/23/britain-covid-19-head-start-squandered"&gt;Britain had a head start on Covid-19, but our leaders squandered it&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://freakonomics.com/podcast/scalability/"&gt;Policymaking Is Not a Science (Yet)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1003018"&gt;Infectious disease pandemic planning and response: Incorporating decision analysis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.brookings.edu/2020/04/02/the-early-days-of-a-global-pandemic-a-timeline-of-covid-19-spread-and-government-interventions/"&gt;The early days of a global pandemic: A timeline of COVID-19 spread and government interventions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Data &amp; Model"></category><category term="Data"></category><category term="COVID-19"></category><category term="SARS-CoV-2"></category><category term="2019-nCoV"></category></entry><entry><title>COVID-19/SARS-CoV-2/2019-nCoV에 대한 일반적인 정보</title><link href="https://astromsshin.github.io/blog/Intro_to_COVID-19.html" rel="alternate"></link><published>2020-03-20T00:00:00+09:00</published><updated>2020-03-20T00:00:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2020-03-20:/blog/Intro_to_COVID-19.html</id><summary type="html">&lt;p&gt;COVID-19과 관련된 여러 과학적 질문들에 대해서 좀 더 알고 
+싶은 이들에게 추천하고 싶은 것은 기초과학연구원(IBS)의 코로나 19 과학 리 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;COVID-19과 관련된 여러 과학적 질문들에 대해서 좀 더 알고 
+싶은 이들에게 추천하고 싶은 것은 기초과학연구원(IBS)의 코로나 19 과학 리포트이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18168&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.1 코로나바이러스-19는 어떻게 폐렴을 유발하나&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18178&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.2 코로나바이러스-19의 구조적 특징과 침투 경로를 차단하는 치료 전략&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18198&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.3 바이러스로 코로나바이러스를 잡는다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18201&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.4 인공지능으로 코로나-19 바이러스 진단‧예측&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18218&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.5 코로나바이러스, 왜 수퍼 전파자가 많을까&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18224&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.6 '기생충' 같은 코로나바이러스: 증식을 막는 치료 전략&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18234&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.7 코로나바이러스와 인포데믹&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18243&amp;amp;pageIndex=1&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.8 코로나바이러스, 결국은 면역이다 &amp;lt;상&amp;gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18263&amp;amp;pageIndex=1&amp;amp;mno=sitemap_02&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.9 코로나바이러스, 결국은 면역이다 &amp;lt;하&amp;gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18296&amp;amp;pageIndex=1&amp;amp;mno=sitemap_02&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.10 천산갑 코로나바이러스는 어떻게 인간에게 옮겨왔나&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18335&amp;amp;pageIndex=1&amp;amp;mno=sitemap_02&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.11 사회적 거리두기와 ‘코로나블루’&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18369&amp;amp;pageIndex=1&amp;amp;mno=sitemap_02&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.12 코로나19 치료제 후보 ‘클로로퀸’은 어떤 작용을 하는가&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18391&amp;amp;pageIndex=1&amp;amp;mno=sitemap_02&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.13 코로나19, 공기(에어로졸)로 전염될 수 있는가?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18475&amp;amp;pageIndex=1&amp;amp;mno=sitemap_02&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.14 IBS가 밝혀낸 코로나19 유전자 지도의 의미&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18496&amp;amp;pageIndex=1&amp;amp;mno=sitemap_02&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.15 코로나19가 가져올 사회경제적 변화&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibs.re.kr/cop/bbs/BBSMSTR_000000000971/selectBoardArticle.do?nttId=18516&amp;amp;pageIndex=1&amp;amp;mno=sitemap_02&amp;amp;searchCnd=&amp;amp;searchWrd="&gt;Vol.16 코로나19 치료 현장의 의료진 이야기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;더불어서 영국 The Guardian의 Science Weekly의 Covid-19 특집 podcast episode도 
+유용하다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/may/27/covid-19-the-role-of-vitamin-d-podcast"&gt;Covid-19: the role of vitamin D&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/may/22/covid-19-how-do-you-calculate-herd-immunity"&gt;Covid-19: How do you calculate herd immunity?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/may/20/covid-19-can-we-compare-different-countries-podcast"&gt;Covid-19: can we compare different countries?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/may/19/covid-19-are-pandemics-becoming-more-common-podcast"&gt;Covid-19: are pandemics becoming more common?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/may/13/covid-19-do-we-need-more-than-one-vaccine"&gt;Covid-19: do we need more than one vaccine?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/may/12/covid-19-why-are-some-people-losing-their-taste-and-smell"&gt;Covid-19: why are some people losing their taste and smell?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/may/06/covid-19-will-my-allergies-make-a-difference"&gt;Covid-19: will my allergies make a difference?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/may/05/covid-19-the-psychology-of-conspiracy-theories"&gt;Covid-19: the psychology of conspiracy theories&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/30/covid-19-what-has-the-bcg-vaccine-got-to-do-with-it-podcast"&gt;Covid-19: what has the BCG vaccine got to do with it?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/29/covid-19-why-are-women-less-likely-to-die-podcast"&gt;Covid-19: why are women less likely to die?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/28/covid-19-what-role-might-air-pollution-play-podcast"&gt;Covid-19: what role might air pollution play?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/23/covid-19-how-do-you-find-drugs-to-treat-the-disease-podcast"&gt;Covid-19: how do you find drugs to treat the disease?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/22/covid-19-how-vulnerable-are-people-with-diabetes-podcast"&gt;Covid-19: how vulnerable are people with diabetes?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/world/audio/2020/apr/21/covid-19-seven-days-isolation-enough-podcast"&gt;Covid-19: is seven days in isolation enough?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/16/covid-19-what-would-immunity-look-like-podcast"&gt;Covid-19: what would immunity look like?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/15/covid-19-how-can-social-isolation-affect-us-podcast"&gt;Covid-19: how can social isolation affect us?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/14/covid-19-how-vulnerable-are-people-with-asthma"&gt;Covid-19: how vulnerable are people with asthma?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/09/covid-19-how-do-you-lift-a-lockdown"&gt;Covid-19: how do you lift a lockdown?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/08/covid-19-how-are-african-countries-coping-podcasts"&gt;Covid-19: how are African countries coping?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/world/audio/2020/apr/07/covid-19-what-if-im-immunocompromised"&gt;Covid-19: what if I'm immunocompromised?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/02/covid-19-how-does-it-affect-pregnancy"&gt;Covid-19: how does it affect pregnancy?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/apr/01/covid-19-soap-or-hand-sanitiser"&gt;Covid-19: why is hand washing so effective?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/31/covid-19-how-do-we-test-for-it-podcast"&gt;Covid-19: how do we test for it?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/26/covid-19-can-ibuprofen-make-an-infection-worse"&gt;Covid-19: can ibuprofen make an infection worse?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/24/covid-19-how-long-can-it-survive-outside-the-body"&gt;Covid-19: how long can it survive outside the body?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/19/covid-19-how-effective-is-social-distancing"&gt;Covid-19: how effective is social distancing?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/17/covid-19-why-are-there-different-fatality-rates"&gt;Covid-19: why are there different fatality rates?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/12/covid-19-what-happens-once-someone-is-infected-science-weekly-extra"&gt;Covid-19: what happens once someone is infected?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.theguardian.com/science/audio/2020/mar/05/covid-19-where-in-the-body-does-it-infect-us-science-weekly-extra"&gt;Covid-19: where in the body does it infect us?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;관련하여 대중이 참고할 수 있는 적절한 관련 과학 자료들은 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/abst/file/2012_bio_06.pdf"&gt;하상준 (연세대학교 생화학과) - 우리 몸을 지키는 군대, 면역시스템&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/abst/file/2012_bio_04.pdf"&gt;김유미 (포항공과대학교 생명과학과) - 비상! 병균 침입 : 면역의 첫 단계&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/abst/file/2012_bio_05.pdf"&gt;전창덕 (광주과학기술원 생명과학과) - 만남의 미학: 몸 속의 경찰 ? 백혈구의 이동과 만남, 그리고 면역&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2017/data/data_13.pdf"&gt;정용우 (고려대학교 약학대학 약학과) - 배틀: 면역세포 vs. 병원균&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2017/data/data_14.pdf"&gt;조진원 (연세대학교 생명시스템대학 시스템생물학과) - 단백질의 꽃단장&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/abst/file/2011_17b.pdf"&gt;하남출 교수/ 부산대학교 약학대학 - 단백질의 3차원 구조와 약학적 응용&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2014/lectures/lecture_03.pdf"&gt;송현규 (고려대학교 생명과학부) - 세포 내 단백질 운명&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2015/lectures/lecture_05.pdf"&gt;김영국 (전남대학교 의과대학) - RNA 세계&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2014/lectures/lecture_04.pdf"&gt;정선주 (단국대학교 자연과학대학 분자생물학전공) - 세포의 RNA Universe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/file/bio_2016/lectures/lecture06.pdf"&gt;남진우 (한양대학교 자연과학대학 생명과학과) - 인크레더블 RNA: 번역, 비번역 이중기능&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ksmcb.or.kr/abst/file/2012_bio_09.pdf"&gt;김빛내리 (서울대학교 생명과학부) - 유전체 속에 숨겨진 RNA 보물 찾기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=tFzjmO_q08k&amp;amp;list=PLf5807GdKammQA-GAr2tlCi39fRSfJAdS"&gt;카이스트 신의철 교수의 알기 쉬운 면역&amp;amp;바이러스 이야기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=1E58ZloOZiM"&gt;2017 카오스 봄 강연: 바이러스와 면역 반응&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Data &amp; Model"></category><category term="Data"></category><category term="COVID-19"></category><category term="SARS-CoV-2"></category><category term="2019-nCoV"></category></entry><entry><title>Particulate Matter와 Air Quality에 대한 일반적인 정보</title><link href="https://astromsshin.github.io/blog/Intro_to_PM.html" rel="alternate"></link><published>2020-01-04T00:00:00+09:00</published><updated>2020-01-04T00:00:00+09:00</updated><author><name>astromsshin</name></author><id>tag:astromsshin.github.io,2020-01-04:/blog/Intro_to_PM.html</id><summary type="html">&lt;p&gt;미세먼지, 초미세먼지, 그리고 그와 관련된 공기 질에 대해서 좋은 안내 자료로는 
+환경운동연합에 아주대학교 의과대학 예방 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;미세먼지, 초미세먼지, 그리고 그와 관련된 공기 질에 대해서 좋은 안내 자료로는 
+환경운동연합에 아주대학교 의과대학 예방의학교실 장재연 교수님이 연재한 
+글을 추천한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=187856"&gt;미세먼지 이야기’를 시작하며&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=188082"&gt;미세먼지, 지금이 최악인 거 맞나?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=188162"&gt;우리나라 미세먼지 세계 최하위, 사실일까?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=188412"&gt;마스크가 미세먼지보다 더 해로울 수 있다?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=188542"&gt;고농도 오염이나 PM2.5도 지금이 최악 아니다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=188821"&gt;미세먼지 최악의 도시 뉴욕과 런던, 어떻게 가장 깨끗한 도시가 됐을까?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=189165"&gt;미세먼지 고농도인 날 주의해도 건강영향 막지 못한다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=189370"&gt;차량 2부제는 미세먼지 대책이 될 수 없다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=189625"&gt;미세먼지 ‘더 작아지고 독해지지’ 않았다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=189795"&gt;미세먼지가 담배연기나 디젤차 배기가스보다 나쁘다, 사실일까?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=195566"&gt;미세먼지로부터 어린이를 보호하기 위해 무엇을 해야 할까&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=195713"&gt;세계보건기구 미세먼지 기준 제대로 알고 사용하자&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=195989"&gt;미국과 비교하면 황당한 우리나라 미세먼지 기준 &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=196595"&gt;여름철 미세먼지는 중국발이 아니어서 괜찮은 건가?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=196619"&gt;세계보건기구 미세먼지 최고 청정과 최악 국가 순위는?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=196628"&gt;WHO(세계보건기구) 미세먼지로 인한 조기 사망자 국가 순위는?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kfem.or.kr/?p=196966"&gt;WHO(세계보건기구) 미세먼지 질병부담 국가 순위&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;여기서 저자가 정리한 우리에게 필요한 전략을 인용하면 아래와 같다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;과도한 공포심을 갖고 마스크와 공기청정기에 의존하고 외출을 삼가는 등의 소극적이고 회피적인 방식 역시 올바른 대책이 될 수 없다. 우리의 위상에 걸맞은, OECD 국가 수준에 맞는 적극적이고 장기적인 대책이 필요하다.
+– 보다 지속 가능한 저에너지 고효율 국가와 사회를 만들기 위해 교통, 산업, 에너지, 소비 등 사회 모든 분야를 개조해 나가는 조치들을 꾸준히 실행해야 한다.
+– 남 탓을 하며 외교적인 항의를 하라고 대통령에게 요구하는 화풀이식 실효성 없는 방식이 아니라, 미세먼지 발생을 근본적으로 줄이도록 정부의 실천과 노력을 촉구해야 한다.
+– 우리가 호흡하는 공기를 깨끗하게 만들기 위해서는, 우리가 우리 주변에서 발생시키고 있는 미세먼지부터 줄여야만 한다는 사실을 이해하고 그에 맞는 실천을 해야 한다.
+– 정치인과 정부에 대해서도 세금을 ‘마스크 나눠주기’나 ‘공기청정기 설치’와 같은 실질적으로는 업자들이나 돕는 선심성 사업으로 낭비할 것이 아니라, 미세먼지를 근본적으로 줄이는 데 사용하도록 압박을 가하는 시민정치 활동을 해야 한다.
+현재 우리나라 미세먼지 오염도의 개선은 한두 가지 방법으로 달성될 수 없다. 인내심을 갖고 장기적으로 꾸준히 오염물질 발생량을 줄여나가는 것 이외에 다른 방도는 없다. 그리고 우리의 건강 상태는 그런 과정을 충분히 견뎌 나갈 수 있을 정도는 된다. 과도한 공포심으로 인한 2차 건강 피해만 없애면 가능하다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;거의 동일한 내용에 대해서 아래와 같은 오마이뉴스 연재를 확인하는 것도 
+가능하다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://omn.kr/1gtut"&gt;미세먼지 오해와 진실 1. 미세먼지 마스크의 불편한 진실&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://omn.kr/1gzpg"&gt;미세먼지 오해와 진실 2. 미세먼지 역대 최악? 88올림픽 땐 목욕탕 문 닫았다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://omn.kr/1h454"&gt;미세먼지 오해와 진실 3. '공포 조장' 미세먼지 프레임, 통째로 뒤집어야&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://omn.kr/1hdqg"&gt;미세먼지 오해와 진실 4. 학자적 양심 걸고 말한다... 미세먼지 비상대책, 의미없다&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://omn.kr/1hl6q"&gt;미세먼지 오해와 진실 5. "미세먼지=중국"은 틀렸다, 환경부는 왜 국민을 속이나&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://omn.kr/1hq54"&gt;미세먼지 오해와 진실 6. "미세먼지 그래픽에 농락당한 대한민국, 모두 속았다"&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;월간 참여사회 2019년 4월호의 내용들도 같이 읽어 보기를 추천한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.peoplepower21.org/index.php?mid=Magazine&amp;amp;document_srl=1620214&amp;amp;listStyle=list"&gt;미세먼지, 공포와 위험은 어떻게 만들어지는가&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.peoplepower21.org/index.php?mid=Magazine&amp;amp;document_srl=1620213&amp;amp;listStyle=list"&gt;미세먼지, 비상저감조치도 속수무책?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.peoplepower21.org/index.php?mid=Magazine&amp;amp;document_srl=1620203&amp;amp;listStyle=list"&gt;미세먼지, 동북아 협력은 가능한가&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.peoplepower21.org/index.php?mid=Magazine&amp;amp;document_srl=1620202&amp;amp;listStyle=list"&gt;미세먼지, 해결의 출발점은?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;근래의 &lt;a href="https://espo.nasa.gov/korus-aq"&gt;KORUS-AQ&lt;/a&gt;에 대해서는 
+&lt;a href="https://espo.nasa.gov/sites/default/files/documents/KORUS-AQ-ENG.pdf"&gt;KORUS-AQ Rapid Science Synthesis Report&lt;/a&gt;에서 
+개관을 살펴볼 수 있다. 몇 가지 핵심 연구 개관 부분을 발췌하면 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The KORUS‐AQ observation period was specifically chosen to target local photochemical pollution which peaks in May‐June rather than pollution transport which tends to be greatest in March‐April.&lt;/li&gt;
+&lt;li&gt;Air quality standards were exceeded for both ozone and PM2.5 during the KORUS‐AQ time period (보고서 그림 2 참고).&lt;/li&gt;
+&lt;li&gt;Local emissions play a significant role and are often sufficient to create air quality violations, but transboundary pollution must be considered as an exacerbating factor.&lt;/li&gt;
+&lt;li&gt;Comparing the KORUS‐AQ period with other years and other seasons is needed to put the observations into perspective.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;더불어서 이번 연구에서 답하고자 하는 질문들과 이에 대한 요약 결론을 발췌하면 아래와 같다. 참고로 SMA는 Seoul Metropolitan Area를 뜻한다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Can we identify a) the portion of aerosol derived from secondary production in SMA and across Korea, and b) the major sources and factors controlling its variation?: Secondary production accounted for more than three-quarters of fine particle pollution observed during KORUS-AQ. Overall composition is dominated by organics, but sulfate and nitrate still comprise nearly half of the secondary aerosol mass. &lt;strong&gt;Local gradients and correlations between fine aerosol and other chemical indicators suggest that local sources make a dominant contribution to secondary aerosol production. Thus, any reductions in emissions of VOCs, NOx, SO2, and NH3 would be expected to contribute to reductions in PM2.5.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Is ozone formation in Seoul NOx limited or VOC limited? Can we determine the biogenic or natural contributions to ozone production?: In Seoul, ozone formation is VOC limited, due to an  overabundance of NOx. A detailed assessment of VOC contributions to ozone formation indicates that reactive aromatics, toluene in particular, make a  dominant contribution to ozone formation. &lt;strong&gt;Better identification and targeting of aromatic emission sources should be a priority.&lt;/strong&gt; Despite the VOC-limited environment in Seoul, &lt;strong&gt;the very high abundance of NOx in the city poses a problem for ozone formation across the greater SMA and Korea as the dilution of NOx acts to increase the efficiency of ozone production which is further aided by VOCs from biogenic sources.&lt;/strong&gt; This  calls for reductions in both VOCs and NOx. Unlike PM2.5, which will immediately benefit from emission reductions, ozone in some areas may worsen in the short term due to the very high NOx levels and nonlinear efficiency of ozone production.&lt;/li&gt;
+&lt;li&gt;How well do KORUS-AQ observations support current emissions estimates (e.g., NOx, VOCs, SO2, NH3) by magnitude and sector?: &lt;strong&gt;KORUS-AQ observations indicate that emissions in Korea are underestimated based on comparisons with model predictions using current emissions estimates.&lt;/strong&gt; Further evidence comes from sampling in proximity to specific point sources where observed concentrations exceeded values expected based on reported emissions.&lt;/li&gt;
+&lt;li&gt;How significant is the impact of the large point sources along the west coast to the air quality of SMA temporally and spatially?: &lt;strong&gt;Point source impacts appears to be stronger in the southern portion of the Seoul Metropolitan Area, but further verification of emissions are needed to improve the quantification of these impacts and translate them into contributions to fine particle pollution and ozone.&lt;/strong&gt; For toxic substances, attention needs to be given to the health and safety of workers and populations in closer proximity to the facilities producing these emissions.&lt;/li&gt;
+&lt;li&gt;How is Seoul affected by transport of air pollution from sources from regional to continental to hemispheric scales?: &lt;strong&gt;Fine-scale local meteorology can lead to very abrupt changes in air quality across SMA that are difficult to forecast and deserve attention. Long-range transport was not a major influence during most of KORUS-AQ, but PM2.5 did maximize during the short period of direct transport from China.&lt;/strong&gt; Models are necessary to estimate the apportionment of local versus transported particle pollution, but detailed analysis of model results in comparison to observations are needed to verify model results.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;관련되어 참고할 수 있는 연구 결과들은 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://doi.org/10.1016/j.atmosenv.2019.02.020"&gt;Analysis of long-range transboundary transport (LRTT) effect on Korean aerosol pollution during the KORUS-AQ campaign&lt;/a&gt;: Atmospheric Environment, Volume 204, 1 May 2019, Pages 53-67. Figures 8, 9 and 10이 흥미로운 결과를 요약해서 제시하고 있음.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://doi.org/10.1007/s13143-018-00100-x"&gt;Aerosol Physical Characteristics over the Yellow Sea During the KORUS-AQ Field Campaign: Observations and Air Quality Model Simulations&lt;/a&gt;: Figures 1, 2, and 3이 흥미로움.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://doi.org/10.1371/journal.pone.0228106"&gt;Numerical simulation of atmospheric CO2 concentration and flux over the Korean Peninsula using WRF-VPRM model during Korus-AQ 2016 campaign&lt;/a&gt;이나 &lt;a href="https://doi.org/10.5194/acp-19-1801-2019"&gt;A top-down assessment using OMI NO2 suggests an underestimate in the NOx emissions inventory in Seoul, South Korea, during KORUS-AQ&lt;/a&gt;: 정확한 모델을 구성하는 어려움에 대해서 살펴 볼 수 있음.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이외에 참고할 수 있는 자료들은 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://bluesky.seoul.go.kr/files/2018/03/4_5aaa0f63d8f0f1_26377288.pdf"&gt;초미세먼지(PM-2.5) 배출원 인벤토리 구축 및 상세모니터링 연구&lt;/a&gt;: 배출원과 배출량 조사 및 모델에 대해서 살펴볼 수 있음.&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Data &amp; Model"></category><category term="Data"></category><category term="PM"></category><category term="Particulate Matter"></category><category term="Air Quality"></category></entry></feed>

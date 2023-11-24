@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Tech and data blog - MongoDB</title>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <meta name="author" content="astromsshin" />
+        <meta name="copyright" content="astromsshin" />
+        <meta name="robots" content="noindex,follow">
+
+        <link rel="stylesheet" href="https://astromsshin.github.io/blog/theme/css/main.css" type="text/css" />
+
+        <!--[if IE]>
+                <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://astromsshin.github.io/blog/css/ie.css"/>
+                <script src="https://astromsshin.github.io/blog/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="https://astromsshin.github.io/blog/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://astromsshin.github.io/blog">Tech and data blog </a></h1>
+                <nav>
+                    <a href="https://astromsshin.github.io/blog/category/data-model.html">Data & Model</a>&nbsp;
+                    <a href="https://astromsshin.github.io/blog/category/diy.html">DIY</a>&nbsp;
+                    <a href="https://astromsshin.github.io/blog/category/tech.html">Tech</a>&nbsp;
+                </nav>
+        </header><!-- /#banner -->
+        
+        
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="https://astromsshin.github.io/blog/MongoDB_compilation.html">Ubuntu 18.04.1 LTS server에서 MongoDB source compilation</a></h1> 
+<footer class="post-info">
+        <abbr class="published" title="2019-01-02T00:40:00+09:00">
+                수 02 1월 2019
+        </abbr>
+<p>tags: <a href="https://astromsshin.github.io/blog/tag/linux.html">Linux</a><a href="https://astromsshin.github.io/blog/tag/ubuntu.html">Ubuntu</a><a href="https://astromsshin.github.io/blog/tag/mongodb.html">MongoDB</a></p></footer><!-- /.post-info --><p>MongoDB community edition의 소스 코드를 일부 수정해서 천문학 연구 
+용도로 사용해야 하는 상황으로, 이를 위하여 수정된 코드를 컴파일해야 
+하는 일이 생겼다.</p>
+<p>기본적인 source compilation에 대해서는 
+<a href="https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source">https://github.com/mongodb/mongo/wiki/Build-Mongodb-From-Source</a>와 
+<a href="https://github.com/mongodb/mongo/blob/master/docs/building.md">docs/building.md</a>의 내용을 참고하면 된다.</p>
+<p>Ubunt 18.04.1 LTS에서 설치시에 C++ 2017 standard와의 문제로 warning이 
+존재하는데, MongoDB의 기본 compilation flag는 이런 warning을 
+error로 잡도록 되어 있다. 따라서 이를 끄고 컴파일 할 필요가 있는데, 
+이는 
+<code>./buildscripts/scons.py core --disable-warnings-as-errors</code>
+로 가능하다.</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                     Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>. Theme is using <a href="https://github.com/getpelican/pelican-themes" target="_blank">cebong</a>.
+                </address><!-- /#about -->
+
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
